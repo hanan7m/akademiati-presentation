@@ -2534,6 +2534,173 @@
 }
 </style>
 
+
+<style>
+/* v50 — role experience entry + focused live demo */
+.roles-entry{
+  margin:18px 0 16px;padding:18px;border:1px solid #e1e5ee;border-radius:22px;
+  background:linear-gradient(135deg,#fff,#f7f5fb);box-shadow:0 10px 28px rgba(30,40,75,.055)
+}
+.roles-entry-copy{display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+.roles-entry-copy>span{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#eee7f6;color:#633a91;font-size:8px;font-weight:800}
+.roles-entry-copy h3{width:100%;margin:0;color:#1f355e;font-size:18px}
+.roles-entry-copy p{margin:0;color:#8992a5;font-size:9px}
+.roles-entry-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.roles-entry-card{
+  border:1px solid #e6e9ef;background:#fff;border-radius:15px;padding:13px 10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  min-height:112px;font:inherit;cursor:pointer;transition:.2s ease;color:#24385d
+}
+.roles-entry-card:hover{transform:translateY(-3px);border-color:var(--role-color);box-shadow:0 10px 22px rgba(33,43,77,.08)}
+.roles-entry-card .entry-icon{
+  width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  color:#fff;background:var(--role-color);font-size:15px
+}
+.roles-entry-card b{font-size:9.5px}.roles-entry-card small{font-size:7px;color:#98a0af}
+.roles-livebar{
+  display:none;align-items:center;justify-content:space-between;gap:12px;
+  margin:0 0 10px;padding:8px 10px;border:1px solid #e1e5ed;border-radius:14px;background:#fff
+}
+.roles-back{border:0;background:#f1edf6;color:#633b90;border-radius:10px;padding:8px 11px;font:inherit;font-size:8px;font-weight:800;cursor:pointer}
+.roles-back i{margin-inline-end:5px}
+.roles-live-title{display:flex;align-items:center;gap:7px}.roles-live-title .live-dot{width:7px;height:7px;border-radius:50%;background:#30a079;box-shadow:0 0 0 5px rgba(48,160,121,.1)}
+.roles-live-title b{font-size:9px;color:#23375d}.roles-live-title small{font-size:7px;color:#989faf}
+#roles.roles-live-mode .roles-entry{display:none}
+#roles.roles-live-mode .roles-livebar{display:flex}
+#roles.roles-live-mode>.wrap{padding-bottom:10px!important}
+#roles.roles-live-mode>.wrap>.eyebrow,
+#roles.roles-live-mode>.wrap>.section-title,
+#roles.roles-live-mode>.wrap>.section-sub{display:none!important}
+#roles.roles-live-mode .role-tabs{margin-bottom:0!important;box-shadow:none!important;border-color:#e5e8ef!important}
+#roles.roles-live-mode .role-panels-full{padding-top:10px!important}
+#roles.roles-live-mode .role-shell{animation:roleFocusIn .34s cubic-bezier(.2,.7,.2,1)}
+@keyframes roleFocusIn{from{opacity:.55;transform:scale(.985) translateY(8px)}to{opacity:1;transform:none}}
+
+/* smoother native-feeling detail interactions */
+.role-context-rail,.role-detail-sheet{transition:opacity .2s ease,transform .24s ease,width .24s ease!important}
+.role-context-rail:not(.open){opacity:0!important;transform:translateX(-8px)!important}
+.role-context-rail.open{opacity:1!important;transform:none!important}
+.role-detail-sheet:not(.open){opacity:0!important;transform:translateY(14px)!important}
+.role-detail-sheet.open{opacity:1!important;transform:none!important}
+.dashboard-preview-trigger{transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.dashboard-preview-trigger:active{transform:scale(.992)}
+
+/* Trainer logo: make the embedded real logo readable on the purple hero */
+.trainer-hero-art{display:flex;align-items:center;justify-content:center;min-width:230px}
+.trainer-hero-art img{
+  width:220px!important;max-height:150px!important;object-fit:contain!important;
+  display:block!important;opacity:1!important;filter:drop-shadow(0 10px 22px rgba(35,22,55,.18))
+}
+
+@media(max-width:1100px){.roles-entry-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){
+  .roles-entry-grid{grid-template-columns:repeat(2,1fr)}
+  .roles-livebar{align-items:stretch;flex-direction:column-reverse}
+  .roles-live-title{justify-content:center}
+}
+</style>
+
+
+<style>
+/* v52 — final presentation polish */
+:root{
+  --ak-panel-radius:18px;
+  --ak-card-border:#e5e8ef;
+  --ak-soft-shadow:0 7px 20px rgba(31,40,75,.045);
+}
+
+/* tighter, more consistent rhythm */
+section.wrap{padding-top:62px;padding-bottom:62px}
+.section-title{letter-spacing:-.25px}
+.section-sub{line-height:1.9}
+
+/* role stage hierarchy */
+#roles .role-shell{
+  border-radius:24px!important;
+  box-shadow:0 20px 50px rgba(22,34,68,.10)!important;
+}
+#roles .role-main{
+  background:#f8f9fc!important;
+}
+#roles .role-sidebar{
+  background:#f6f7fa!important;
+}
+.role-tab{font-weight:800!important}
+.roles-entry-card b{font-size:10px!important}
+.roles-entry-card small{font-size:7.5px!important}
+
+/* all dashboard cards share one product language */
+.trainee-quick,
+.trainer-quick,
+.manager-summary,
+.manager-panel,
+.support-card,
+.support-panel,
+.supervisor-stat,
+.supervisor-card,
+.trainer-course-card,
+.trainee-courses{
+  border-color:var(--ak-card-border)!important;
+  box-shadow:var(--ak-soft-shadow)!important;
+}
+
+/* Clickable dashboard areas receive a restrained affordance */
+.dashboard-preview-trigger{position:relative}
+.dashboard-preview-trigger:hover{
+  border-color:rgba(93,55,138,.24)!important;
+  box-shadow:0 10px 24px rgba(42,48,84,.07)!important;
+}
+.dashboard-preview-trigger:focus-visible{
+  outline:3px solid rgba(93,55,138,.15);
+  outline-offset:2px;
+}
+
+/* Cross-role journeys */
+.role-journeys{padding-top:48px!important}
+.journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.journey-card{
+  background:#fff;border:1px solid #e5e8ef;border-radius:20px;padding:18px;
+  box-shadow:0 9px 24px rgba(31,40,75,.05)
+}
+.journey-head{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.journey-icon{
+  width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#eee8f6,#e8f1fb);
+  color:#633b91;display:flex;align-items:center;justify-content:center;flex:0 0 auto
+}
+.journey-head small{display:block;color:#6d3f99;font-size:8px;font-weight:800}
+.journey-head h3{margin:3px 0 0;font-size:11px;color:#21365d;line-height:1.6}
+.journey-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+.journey-flow>span{
+  min-height:88px;padding:11px 8px;border-radius:13px;background:#fafbfe;border:1px solid #eceef3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center
+}
+.journey-flow>span>i{color:#604091;font-size:15px;margin-bottom:7px}
+.journey-flow b{font-size:9px;color:#273b60}
+.journey-flow small{font-size:7px;color:#939bad;margin-top:3px;line-height:1.5}
+.journey-arrow{color:#a6adba;font-size:10px}
+
+/* Team hierarchy */
+.team-section .section-sub{margin-bottom:12px}
+.team-core{position:relative;padding-top:28px}
+.team-contributors{margin-top:24px!important}
+.team-contributor-card{transition:transform .18s ease,border-color .18s ease}
+.team-contributor-card:hover{transform:translateY(-2px);border-color:#d9cbe8}
+
+/* closing */
+.closing-band{margin-top:18px}
+.closing-text{line-height:1.9}
+
+/* responsive */
+@media(max-width:980px){
+  .journey-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  section.wrap{padding-top:42px;padding-bottom:42px}
+  .journey-flow{grid-template-columns:1fr}
+  .journey-arrow{transform:rotate(-90deg)}
+}
+</style>
+
 </head>
 <body>
 <div aria-hidden="true" class="scroll-progress"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
@@ -2567,7 +2734,7 @@
 <div class="stat-strip">
 <div class="stat-tile"><div class="num">10</div><div class="lbl">فروع ضمن منظومة موحّدة</div></div>
 <div class="stat-tile featured"><span class="tile-star"><i class="fa-solid fa-star"></i></span><div class="num">6</div><div class="lbl">أدوار رئيسية بتجربة مخصصة</div></div>
-<div class="stat-tile"><div class="num">100%</div><div class="lbl">عربي/إنجليزي وRTL أصلي</div></div>
+<div class="stat-tile"><div class="num">AR / EN</div><div class="lbl">تجربة ثنائية اللغة بتصميم عربي أصيل</div></div>
 <div class="stat-tile"><div class="num">1</div><div class="lbl">رحلة رقمية أكاديمية متكاملة</div></div>
 </div>
 </div><section class="wrap" id="architecture">
@@ -2592,15 +2759,63 @@
 </section><section id="roles">
 <div class="wrap">
 <span class="eyebrow"><i class="fa-solid fa-users"></i> ستة أدوار رئيسية</span>
-<h2 class="section-title">تجربة مختلفة لكل دور، ضمن منصة واحدة</h2>
-<p class="section-sub">تعرض أكاديميتي لكل مستخدم الأدوات والبيانات المرتبطة بمسؤوليته فقط، مع الحفاظ على نطاق الفرع والصلاحيات ومسار العمل المناسب لكل دور.</p>
+<h2 class="section-title">نفس المنصة، تجربة مصممة لكل مسؤولية</h2>
+<p class="section-sub">كل دور يرى ما يحتاجه لإنجاز عمله فقط؛ وتبقى البيانات والعمليات مترابطة خلف الكواليس ضمن نفس الرحلة الأكاديمية.</p>
+<div class="roles-entry" id="rolesEntry">
+  <div class="roles-entry-copy">
+    <span><i class="fa-solid fa-hand-pointer"></i> تجربة تفاعلية</span>
+    <h3>اختر دورًا… وادخل التجربة</h3>
+    <p>انتقل مباشرة إلى لوحة الدور، ثم جرّب عناصرها الأساسية كما تظهر في أكاديميتي.</p>
+  </div>
+  <div class="roles-entry-grid" id="rolesEntryGrid"></div>
+</div>
+<div class="roles-livebar" id="rolesLivebar">
+  <button type="button" class="roles-back" id="rolesBack"><i class="fa-solid fa-arrow-right"></i> العودة إلى استعراض الأدوار</button>
+  <div class="roles-live-title"><span class="live-dot"></span><b id="rolesLiveTitle">تجربة الدور</b><small>تجربة مبسطة من داخل أكاديميتي</small></div>
+</div>
 <div class="role-tabs" id="roleTabs"></div>
 </div>
 <div class="role-panels-full" id="rolePanels"></div>
-</section><section class="wrap" id="operations">
+
+</section>
+<section class="wrap role-journeys" id="roleJourneys">
+  <span class="eyebrow"><i class="fa-solid fa-arrows-turn-to-dots"></i> التكامل بين الأدوار</span>
+  <h2 class="section-title">العملية لا تتوقف عند شاشة واحدة</h2>
+  <p class="section-sub">أكاديميتي تربط الإجراء بمن يحتاجه في الخطوة التالية؛ لذلك يرى كل مستخدم الجزء المناسب له من نفس العملية.</p>
+
+  <div class="journey-grid">
+    <article class="journey-card">
+      <div class="journey-head"><span class="journey-icon"><i class="fa-solid fa-star"></i></span><div><small>التميّز</small><h3>من إنجاز المتدرب إلى رؤية مدير الفرع</h3></div></div>
+      <div class="journey-flow">
+        <span><i class="fa-solid fa-graduation-cap"></i><b>المتدرب</b><small>يرى نقاطه ومستواه</small></span>
+        <i class="fa-solid fa-arrow-left journey-arrow"></i>
+        <span><i class="fa-solid fa-building-user"></i><b>مدير الفرع</b><small>يرى أعلى 3 متدربين</small></span>
+      </div>
+    </article>
+
+    <article class="journey-card">
+      <div class="journey-head"><span class="journey-icon"><i class="fa-solid fa-file-circle-check"></i></span><div><small>الاختبارات</small><h3>من إعداد المدرب إلى مراجعة المشرف</h3></div></div>
+      <div class="journey-flow">
+        <span><i class="fa-solid fa-chalkboard-user"></i><b>المدرب</b><small>يجهز ويرسل</small></span>
+        <i class="fa-solid fa-arrow-left journey-arrow"></i>
+        <span><i class="fa-solid fa-user-check"></i><b>المشرف</b><small>يراجع ويتابع</small></span>
+      </div>
+    </article>
+
+    <article class="journey-card">
+      <div class="journey-head"><span class="journey-icon"><i class="fa-solid fa-ticket"></i></span><div><small>الخدمة</small><h3>من طلب المتدرب إلى معالجة خدمة العملاء</h3></div></div>
+      <div class="journey-flow">
+        <span><i class="fa-solid fa-graduation-cap"></i><b>المتدرب</b><small>يرفع الطلب</small></span>
+        <i class="fa-solid fa-arrow-left journey-arrow"></i>
+        <span><i class="fa-solid fa-headset"></i><b>خدمة العملاء</b><small>تتابع حتى الإغلاق</small></span>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="wrap" id="operations">
 <span class="eyebrow"><i class="fa-solid fa-route"></i> رحلة التشغيل الأكاديمي</span>
-<h2 class="section-title">سبع محطات مترابطة — من التهيئة إلى الخدمة</h2>
-<p class="section-sub">رتّبنا العمليات وفق تسلسلها الطبيعي في العمل؛ تبدأ من إعداد الهيكل والتسجيل، ثم التنفيذ والحضور والتقييم، وتنتهي بالخدمات والدعم مع سجل قابل للتتبع.</p>
+<h2 class="section-title">من التهيئة إلى الخدمة — رحلة تشغيل واحدة</h2>
+<p class="section-sub">تنتقل العملية بين الأدوار دون أن يفقد المستخدم سياقها؛ من إعداد البيئة الأكاديمية إلى التدريب والتقييم ثم الخدمة والمتابعة.</p>
 <div class="ops-grid"><div class="ops-card"><span class="ops-step-label">الخطوة 1</span>
 <span class="ops-num"><i class="fa-solid fa-layer-group"></i></span>
 <h4>تهيئة الربع والتسجيل</h4>
@@ -2861,8 +3076,8 @@
 <div class="section-wrapper">
 <div class="why-grid">
 <div class="why-card"><i class="fa-solid fa-code-branch"></i><h4>معمارية قابلة للتوسع</h4><p>تعمل مكوّنات أكاديميتي ضمن معمارية مترابطة تسمح بتطوير الخدمات وإضافة قدرات جديدة مع المحافظة على استقرار العمليات الحالية.</p></div>
-<div class="why-card"><i class="fa-solid fa-building-shield"></i><h4>عزل بيانات الفروع</h4><p>تستخدم كل وحدة السياق الأكاديمي وإسناد الأدوار وحقول الملف وملكية السجل لتحديد نطاق العرض والتنفيذ بدقة.</p></div>
-<div class="why-card"><i class="fa-solid fa-language"></i><h4>العربية أولًا</h4><p>واجهات عربية واتجاه RTL ونصوص ثنائية اللغة أصيلة، مع قوالب PDF عربية معتمدة للوثائق والتقارير.</p></div>
+<div class="why-card"><i class="fa-solid fa-building-shield"></i><h4>نطاق واضح لكل فرع</h4><p>يرى كل مستخدم البيانات والعمليات التابعة لنطاقه فقط، بما يحافظ على استقلالية الفروع ويمنع التداخل بينها.</p></div>
+<div class="why-card"><i class="fa-solid fa-language"></i><h4>العربية أولًا</h4><p>واجهة عربية واضحة واتجاه RTL أصيل، مع دعم الإنجليزية عند الحاجة دون التضحية بجودة التجربة.</p></div>
 <div class="why-card"><i class="fa-solid fa-user-check"></i><h4>تجربة حسب الدور</h4><p>يجد كل مستخدم العمليات والبيانات المرتبطة بمسؤوليته فقط، مما يقلّل التشتيت ويقصّر مسار الإنجاز.</p></div>
 <div class="why-card"><i class="fa-solid fa-magnifying-glass-chart"></i><h4>قابلية التتبع</h4><p>تعتمد العمليات الحساسة على حالات وسجلات واعتمادات ومهام يمكن مراجعتها، بدل الاعتماد على تواصل خارجي غير موثّق.</p></div>
 </div>
@@ -2900,7 +3115,7 @@
       <div class="team-contributor-card">
         <div class="team-avatar">خ</div>
         <div>
-          <h4>خالد</h4>
+          <h4>خالد الشمراني</h4>
           <div class="team-contributor-role"><i class="fa-solid fa-server"></i> الخوادم والبنية التحتية</div>
           <div class="team-contributor-tags">
             <span>السيرفر</span>
@@ -2939,21 +3154,14 @@
 <section class="closing-band" id="closing">
 <div class="wrap closing-wrap">
 <span class="eyebrow closing-eyebrow"><i class="fa-solid fa-layer-group"></i> خاتمة</span>
-<h2 class="closing-title">أكاديميتي هي النموذج التشغيلي الرقمي لأكاديمية التعلّم</h2>
-<p class="closing-text">تجربة أوضح للمتدرب، تشغيل أكثر كفاءة للفروع، وحوكمة تمنح الإدارة رؤية أدق — ضمن منصة واحدة صُممت لتتطور مع الأكاديمية.</p>
+<h2 class="closing-title">أكاديميتي — تجربة واحدة تربط التعلّم بالتشغيل والخدمة</h2>
+<p class="closing-text">من المتدرب إلى الإدارة، كل دور يعمل من واجهته الخاصة بينما تبقى الرحلة مترابطة وقابلة للمتابعة ضمن منظومة واحدة.</p>
 <div class="closing-actions">
 <a class="ak-hero-btn ak-hero-btn-solid closing-btn-solid" href="#roles"><i class="fa-solid fa-users"></i> استعرض تجربة كل دور</a>
 <a class="ak-hero-btn ak-hero-btn-ghost closing-btn-ghost" href="#operations"><i class="fa-solid fa-diagram-project"></i> راجع العمليات الرئيسية</a>
 </div>
 </div>
 </section>
-
-
-
-
-
-
-
 
 <footer>
 <div class="wrap">
@@ -2970,7 +3178,7 @@
   <button type="button" class="role-help-close" id="roleHelpClose"><i class="fa-solid fa-xmark"></i></button>
   <div class="role-help-head">
     <span class="role-help-icon" id="roleHelpIcon"><i class="fa-solid fa-circle-info"></i></span>
-    <div><h4 id="roleHelpTitle">شرح التبويب</h4><small id="roleHelpRole"></small></div>
+    <div><h4 id="roleHelpTitle">عن الخدمة</h4><small id="roleHelpRole"></small></div>
   </div>
   <div class="role-help-body" id="roleHelpBody"></div>
 </div>
@@ -2980,7 +3188,7 @@
   <button type="button" class="detail-window-close" id="detailWindowClose"><i class="fa-solid fa-xmark"></i></button>
   <div class="detail-window-head">
     <span class="detail-window-icon" id="detailWindowIcon"><i class="fa-solid fa-table"></i></span>
-    <div><h4 id="detailWindowTitle">التفاصيل</h4><p id="detailWindowSubtitle">عرض مختصر من البيانات التفصيلية</p></div>
+    <div><h4 id="detailWindowTitle">التفاصيل</h4><p id="detailWindowSubtitle">تفاصيل مرتبطة بالعنصر المحدد</p></div>
   </div>
   <div class="detail-window-body" id="detailWindowBody"></div>
 </div>
@@ -3453,7 +3661,7 @@ function trainerMain(r){
     <div class="trainer-dashboard-app scroll-target" id="top-${r.id}">
       <div class="trainer-hero">
         <div class="trainer-hero-art">
-          <img src="/mnt/data/ghostwriter_images/context/87c38e52-0b05-5c79-98de-4d25ea3c78f3.png" alt="Akademiati logo" />
+          <img src="${AK_LOGO_ICON}" alt="شعار أكاديميتي" />
         </div>
         <div class="trainer-hero-copy">
           <span class="trainer-chip">منصة أكاديمية التعلم</span>
@@ -4222,6 +4430,52 @@ spotlightOverlay.addEventListener('click', closeSpotlight);
 document.getElementById('spotlightClose').addEventListener('click', closeSpotlight);
 document.addEventListener('keydown', (e)=>{
   if (e.key === 'Escape') closeSpotlight();
+});
+
+// v50 — Build the role entry screen and focused demo mode.
+const rolesSection = document.getElementById('roles');
+const rolesEntryGrid = document.getElementById('rolesEntryGrid');
+const rolesBack = document.getElementById('rolesBack');
+const rolesLiveTitle = document.getElementById('rolesLiveTitle');
+
+function enterRoleExperience(roleId){
+  const role = roles.find(x=>x.id===roleId);
+  if(!role) return;
+  rolesSection?.classList.add('roles-live-mode');
+  if(rolesLiveTitle) rolesLiveTitle.textContent = `تجربة ${role.label}`;
+  selectRole(roleId,{scroll:false});
+  requestAnimationFrame(()=>{
+    document.getElementById('rolePanels')?.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+if(rolesEntryGrid){
+  rolesEntryGrid.innerHTML = roles.map(r=>`
+    <button type="button" class="roles-entry-card" data-entry-role="${r.id}" style="--role-color:${r.hex}">
+      <span class="entry-icon"><i class="fa-solid ${r.icon}"></i></span>
+      <b>${r.label}</b>
+      <small>فتح لوحة الدور</small>
+    </button>
+  `).join('');
+
+  rolesEntryGrid.addEventListener('click',e=>{
+    const card=e.target.closest('[data-entry-role]');
+    if(card) enterRoleExperience(card.dataset.entryRole);
+  });
+}
+
+rolesBack?.addEventListener('click',()=>{
+  rolesSection?.classList.remove('roles-live-mode');
+  document.getElementById('roles')?.scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+// Tabs participate in the same live-demo experience after first selection.
+document.getElementById('roleTabs')?.addEventListener('click',e=>{
+  const tab=e.target.closest('.role-tab');
+  if(!tab) return;
+  rolesSection?.classList.add('roles-live-mode');
+  const role=roles.find(x=>x.id===tab.dataset.role);
+  if(role && rolesLiveTitle) rolesLiveTitle.textContent=`تجربة ${role.label}`;
 });
 
 function selectRole(id, opts){
