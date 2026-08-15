@@ -2545,7 +2545,7 @@
 .roles-entry-copy>span{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#eee7f6;color:#633a91;font-size:8px;font-weight:800}
 .roles-entry-copy h3{width:100%;margin:0;color:#1f355e;font-size:18px}
 .roles-entry-copy p{margin:0;color:#8992a5;font-size:9px}
-.roles-entry-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.roles-entry-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .roles-entry-card{
   border:1px solid #e6e9ef;background:#fff;border-radius:15px;padding:13px 10px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
@@ -2701,6 +2701,406 @@ section.wrap{padding-top:62px;padding-bottom:62px}
 }
 </style>
 
+
+<style>
+/* v53 — card details open as a centered in-dashboard modal, not at the bottom */
+.role-main{
+  position:relative!important;
+}
+
+.role-local-dim{
+  position:absolute!important;
+  inset:0!important;
+  z-index:140!important;
+  background:rgba(18,27,48,.18)!important;
+  backdrop-filter:blur(2.5px)!important;
+  border-radius:0!important;
+}
+.role-local-dim.active{
+  opacity:1!important;
+  pointer-events:auto!important;
+}
+
+/* Center the detail window over the dashboard content */
+.role-detail-sheet{
+  position:absolute!important;
+  top:50%!important;
+  left:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:min(900px,calc(100% - 56px))!important;
+  max-width:900px!important;
+  max-height:none!important;
+  overflow:visible!important;
+  z-index:150!important;
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:translate(-50%,-46%) scale(.985)!important;
+  transition:opacity .2s ease,transform .25s cubic-bezier(.2,.75,.2,1)!important;
+}
+.role-detail-sheet.open{
+  max-height:none!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+  transform:translate(-50%,-50%) scale(1)!important;
+}
+.role-detail-inner{
+  width:100%!important;
+  max-height:min(72vh,620px)!important;
+  padding:18px!important;
+  border-radius:22px!important;
+  background:#fff!important;
+  border:1px solid #e3e7ef!important;
+  box-shadow:0 34px 80px rgba(18,28,57,.28)!important;
+  overflow:hidden!important;
+}
+.role-detail-head{
+  margin-bottom:14px!important;
+  padding-bottom:11px!important;
+  border-bottom:1px solid #edf0f4!important;
+}
+.role-detail-title-icon{
+  width:43px!important;height:43px!important;border-radius:13px!important;
+}
+.role-detail-title h4{font-size:15px!important}
+.role-detail-body{
+  max-height:min(54vh,430px)!important;
+  overflow:auto!important;
+  border-radius:14px!important;
+  padding:13px!important;
+  background:#fafbfc!important;
+  scrollbar-width:thin;
+}
+.role-detail-close{
+  width:34px!important;height:34px!important;
+  box-shadow:none!important;
+}
+
+/* while a detail is open, don't visually lift other cards */
+.role-main:has(.role-detail-sheet.open) .dashboard-preview-trigger{
+  transform:none!important;
+}
+
+/* On smaller screens it behaves like a comfortable modal sheet */
+@media(max-width:900px){
+  .role-detail-sheet{
+    top:46%!important;
+    width:calc(100% - 28px)!important;
+  }
+  .role-detail-inner{
+    max-height:75vh!important;
+    border-radius:18px!important;
+  }
+  .role-detail-body{max-height:58vh!important}
+}
+</style>
+
+
+<style>
+/* v54 — remove duplicated role selector; entry cards are the single source of navigation */
+#roleTabs{
+  display:none !important;
+}
+#roles.roles-live-mode #roleTabs{
+  display:none !important;
+}
+.roles-entry{
+  margin-bottom:8px !important;
+}
+.roles-livebar{
+  margin-bottom:12px !important;
+}
+</style>
+
+
+<style>
+/* v55 — structural fix for role display
+   One stable application canvas: content on the left, sidebar on the right. */
+
+/* In live mode, keep only a slim control bar above the role */
+#roles.roles-live-mode > .wrap{
+  max-width:1500px!important;
+  padding:14px 22px 10px!important;
+}
+#roles.roles-live-mode .roles-livebar{
+  display:flex!important;
+  width:100%!important;
+  max-width:1480px!important;
+  margin:0 auto!important;
+  min-height:48px!important;
+}
+#roles.roles-live-mode .role-panels-full{
+  padding:0 22px 46px!important;
+  min-height:auto!important;
+  display:block!important;
+}
+
+/* Stable role frame — do not use floating/pseudo headers */
+#roles .role-shell{
+  direction:ltr!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 248px!important;
+  align-items:stretch!important;
+  width:min(1480px,100%)!important;
+  max-width:1480px!important;
+  min-height:760px!important;
+  margin:0 auto!important;
+  padding:0!important;
+  border:1px solid #dfe4ed!important;
+  border-radius:24px!important;
+  background:#f7f8fb!important;
+  overflow:visible!important;
+  box-shadow:0 20px 48px rgba(25,36,68,.10)!important;
+}
+#roles .role-shell::before,
+#roles .role-shell::after{
+  display:none!important;
+}
+
+/* Main content always occupies the large left area */
+#roles .role-main{
+  direction:rtl!important;
+  grid-column:1!important;
+  grid-row:1!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:760px!important;
+  height:auto!important;
+  margin:0!important;
+  padding:22px 24px 30px!important;
+  border-radius:24px 0 0 24px!important;
+  background:#f7f8fb!important;
+  overflow:visible!important;
+}
+
+/* Sidebar is a normal column, no negative margins or floating header */
+#roles .role-sidebar{
+  direction:rtl!important;
+  grid-column:2!important;
+  grid-row:1!important;
+  position:relative!important;
+  top:auto!important;
+  right:auto!important;
+  left:auto!important;
+  width:248px!important;
+  min-width:248px!important;
+  max-width:248px!important;
+  min-height:760px!important;
+  height:auto!important;
+  margin:0!important;
+  padding:18px 14px 20px!important;
+  border-radius:0 24px 24px 0!important;
+  border:0!important;
+  border-left:1px solid #e1e5ed!important;
+  background:linear-gradient(180deg,#56358b 0%,#303f77 100%)!important;
+  color:#fff!important;
+  overflow:hidden!important;
+  box-shadow:none!important;
+}
+#roles .role-sidebar::before{display:none!important}
+
+/* Sidebar identity sits naturally at the top */
+#roles .rs-head{
+  position:relative!important;
+  z-index:1!important;
+  margin:0 0 18px!important;
+  padding:10px 8px 16px!important;
+  border-bottom:1px solid rgba(255,255,255,.14)!important;
+  color:#fff!important;
+}
+#roles .rs-badge{
+  width:42px!important;
+  height:42px!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  box-shadow:0 7px 18px rgba(15,22,48,.16)!important;
+}
+#roles .rs-head b,
+#roles .rs-head em{color:#fff!important}
+#roles .rs-head em{
+  display:inline-flex!important;
+  margin-top:4px!important;
+  padding:0!important;
+  background:transparent!important;
+  opacity:.72!important;
+}
+#roles .rs-search{
+  margin:0 0 12px!important;
+  padding:9px 10px!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  border-radius:11px!important;
+  background:rgba(255,255,255,.10)!important;
+  color:rgba(255,255,255,.82)!important;
+}
+#roles .rs-search i{color:rgba(255,255,255,.72)!important}
+#roles .rs-nav{gap:4px!important}
+#roles .rs-item{
+  min-height:42px!important;
+  padding:10px 11px!important;
+  border-radius:10px!important;
+  color:rgba(255,255,255,.88)!important;
+  background:transparent!important;
+  font-size:10.5px!important;
+}
+#roles .rs-item i{color:rgba(255,255,255,.82)!important}
+#roles .rs-item:hover,
+#roles .rs-item.active,
+#roles .rs-item.role-help-open{
+  background:rgba(255,255,255,.14)!important;
+  color:#fff!important;
+}
+#roles .rs-item:hover i,
+#roles .rs-item.active i,
+#roles .rs-item.role-help-open i{color:#fff!important}
+#roles .rs-foot{
+  margin-top:18px!important;
+  padding-top:15px!important;
+  border-top:1px solid rgba(255,255,255,.14)!important;
+  color:#fff!important;
+}
+#roles .rs-foot b{color:#fff!important}
+#roles .rs-foot span{color:rgba(255,255,255,.62)!important}
+#roles .rs-avatar{
+  background:rgba(255,255,255,.16)!important;
+  color:#fff!important;
+}
+
+/* Remove obsolete role presentation topbar */
+#roles .role-dashboard-topbar{display:none!important}
+
+/* Give every actual dashboard breathing room without accidental clipping */
+#roles .trainee-app,
+#roles .trainer-dashboard-app,
+#roles .manager-dashboard-app,
+#roles .support-dashboard-app,
+#roles .supervisor-dashboard-app{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+}
+
+/* Keep dashboard grids within the available width */
+#roles .trainee-quick-grid,
+#roles .trainer-quick-grid,
+#roles .manager-summary-grid,
+#roles .support-quick-grid,
+#roles .supervisor-stats{
+  min-width:0!important;
+}
+#roles .trainee-quick,
+#roles .trainer-quick,
+#roles .manager-summary,
+#roles .support-card,
+#roles .supervisor-stat{
+  min-width:0!important;
+}
+
+/* Context explanation is a compact floating card, not a wide rail */
+#roles .role-context-rail{
+  position:absolute!important;
+  top:20px!important;
+  left:20px!important;
+  right:auto!important;
+  width:300px!important;
+  max-width:calc(100% - 40px)!important;
+  z-index:145!important;
+}
+#roles .role-context-rail.open{width:300px!important}
+#roles .role-context-card{
+  min-height:0!important;
+  padding:15px!important;
+  border-radius:16px!important;
+  box-shadow:0 22px 55px rgba(18,28,57,.22)!important;
+}
+
+/* Detail modal stays centered inside the actual dashboard */
+#roles .role-detail-sheet{
+  position:absolute!important;
+  top:50%!important;
+  left:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:min(860px,calc(100% - 52px))!important;
+  max-width:860px!important;
+  z-index:155!important;
+  transform:translate(-50%,-46%) scale(.985)!important;
+}
+#roles .role-detail-sheet.open{
+  transform:translate(-50%,-50%) scale(1)!important;
+}
+#roles .role-local-dim{
+  border-radius:24px 0 0 24px!important;
+}
+
+/* Trainee excellence star remains on the far left edge of the dashboard */
+#roles .role-panel[data-role="trainee"] .trainee-excellence-fab{
+  position:absolute!important;
+  top:92px!important;
+  left:-16px!important;
+  right:auto!important;
+  width:50px!important;
+  height:50px!important;
+  z-index:120!important;
+}
+#roles .role-panel[data-role="trainee"] .trainee-excellence-drawer{
+  position:absolute!important;
+  top:84px!important;
+  left:46px!important;
+  right:auto!important;
+  width:min(410px,calc(100% - 70px))!important;
+  z-index:130!important;
+}
+
+/* Hero blocks should not overflow the available role canvas */
+#roles .trainee-hero,
+#roles .trainer-hero,
+#roles .manager-hero,
+#roles .support-hero{
+  width:100%!important;
+  box-sizing:border-box!important;
+}
+
+/* Responsive role display */
+@media(max-width:1050px){
+  #roles .role-shell{
+    grid-template-columns:1fr!important;
+    border-radius:20px!important;
+  }
+  #roles .role-sidebar{
+    grid-column:1!important;
+    grid-row:1!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:0!important;
+    border-radius:20px 20px 0 0!important;
+    border-left:0!important;
+    border-bottom:1px solid rgba(255,255,255,.12)!important;
+  }
+  #roles .rs-nav{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  #roles .rs-foot{display:none!important}
+  #roles .role-main{
+    grid-column:1!important;
+    grid-row:2!important;
+    min-height:0!important;
+    border-radius:0 0 20px 20px!important;
+    padding:16px!important;
+  }
+  #roles .role-local-dim{border-radius:0 0 20px 20px!important}
+}
+@media(max-width:700px){
+  #roles.roles-live-mode .role-panels-full{padding-inline:8px!important}
+  #roles .rs-nav{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #roles .role-main{padding:11px!important}
+  #roles .role-detail-sheet{width:calc(100% - 20px)!important}
+  #roles .role-context-rail{left:10px!important;width:calc(100% - 20px)!important;max-width:none!important}
+}
+</style>
+
 </head>
 <body>
 <div aria-hidden="true" class="scroll-progress"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
@@ -2733,7 +3133,7 @@ section.wrap{padding-top:62px;padding-bottom:62px}
 <div class="wrap">
 <div class="stat-strip">
 <div class="stat-tile"><div class="num">10</div><div class="lbl">فروع ضمن منظومة موحّدة</div></div>
-<div class="stat-tile featured"><span class="tile-star"><i class="fa-solid fa-star"></i></span><div class="num">6</div><div class="lbl">أدوار رئيسية بتجربة مخصصة</div></div>
+<div class="stat-tile featured"><span class="tile-star"><i class="fa-solid fa-star"></i></span><div class="num">5</div><div class="lbl">أدوار رئيسية بتجربة مخصصة</div></div>
 <div class="stat-tile"><div class="num">AR / EN</div><div class="lbl">تجربة ثنائية اللغة بتصميم عربي أصيل</div></div>
 <div class="stat-tile"><div class="num">1</div><div class="lbl">رحلة رقمية أكاديمية متكاملة</div></div>
 </div>
@@ -2758,7 +3158,7 @@ section.wrap{padding-top:62px;padding-bottom:62px}
 
 </section><section id="roles">
 <div class="wrap">
-<span class="eyebrow"><i class="fa-solid fa-users"></i> ستة أدوار رئيسية</span>
+<span class="eyebrow"><i class="fa-solid fa-users"></i> خمسة أدوار رئيسية</span>
 <h2 class="section-title">نفس المنصة، تجربة مصممة لكل مسؤولية</h2>
 <p class="section-sub">كل دور يرى ما يحتاجه لإنجاز عمله فقط؛ وتبقى البيانات والعمليات مترابطة خلف الكواليس ضمن نفس الرحلة الأكاديمية.</p>
 <div class="roles-entry" id="rolesEntry">
@@ -2771,7 +3171,7 @@ section.wrap{padding-top:62px;padding-bottom:62px}
 </div>
 <div class="roles-livebar" id="rolesLivebar">
   <button type="button" class="roles-back" id="rolesBack"><i class="fa-solid fa-arrow-right"></i> العودة إلى استعراض الأدوار</button>
-  <div class="roles-live-title"><span class="live-dot"></span><b id="rolesLiveTitle">تجربة الدور</b><small>تجربة مبسطة من داخل أكاديميتي</small></div>
+  <div class="roles-live-title"><span class="live-dot"></span><b id="rolesLiveTitle">تجربة الدور</b><small>تجربة الدور داخل أكاديميتي</small></div>
 </div>
 <div class="role-tabs" id="roleTabs"></div>
 </div>
@@ -3240,29 +3640,6 @@ document.addEventListener('DOMContentLoaded', function(){
   updateProgress();
 })();
 const roles = [
-  {
-    id:'admin', label:'مدير النظام', icon:'fa-gears', hex:'#16244A', sampleName:'إدارة المنصة', initials:'إ.م',
-    mission:'إدارة مركزية للمنصة والحوكمة والصلاحيات والإعدادات العامة، مع رؤية شاملة تضمن استقرار الخدمات واتساقها عبر جميع الفروع.',
-    stats:[
-      {v:'10', l:'فروع'},
-      {v:'6', l:'أدوار رئيسية'},
-      {v:'24/7', l:'خدمات رقمية'},
-      {v:'1', l:'منظومة موحّدة'},
-    ],
-    ops:[
-      {icon:'fa-users-gear', title:'إدارة الأدوار والصلاحيات', body:'ضبط الصلاحيات المركزية ونطاق الوصول وفق مسؤوليات كل دور.', action:'إدارة الصلاحيات', fact:'🔐 الصلاحيات تُطبّق على مستوى الخدمة والبيانات، وليس على إظهار الروابط فقط.'},
-      {icon:'fa-sliders', title:'إعدادات المنصة', body:'إدارة الإعدادات والسياسات العامة التي تنعكس على جميع الفروع.', action:'فتح الإعدادات', fact:'⚙️ الإعدادات المركزية تقلّل التباين بين الفروع وتحافظ على معيار تشغيلي موحّد.'},
-      {icon:'fa-chart-line', title:'المتابعة والتقارير', body:'رؤية شاملة لحالة الخدمات والعمليات والمؤشرات على مستوى المنصة.', action:'عرض المؤشرات', fact:'📊 الرؤية المركزية تساعد على اكتشاف الاستثناءات مبكرًا ومتابعة الالتزام.'},
-      {icon:'fa-shield-halved', title:'الحوكمة والتدقيق', body:'متابعة العمليات الحساسة والسجلات ومسارات الاعتماد والتغييرات.', action:'مراجعة السجلات', fact:'🛡️ العمليات الحساسة قابلة للتتبع والمراجعة ضمن نطاق الصلاحية.'},
-    ],
-    items:[
-      {icon:'fa-gauge', label:'لوحة التحكم', target:'top'},
-      {icon:'fa-users-gear', label:'الأدوار والصلاحيات', target:'op:0'},
-      {icon:'fa-sliders', label:'إعدادات المنصة', target:'op:1'},
-      {icon:'fa-chart-line', label:'المتابعة والتقارير', target:'op:2'},
-      {icon:'fa-shield-halved', label:'الحوكمة والتدقيق', target:'op:3'},
-    ]
-  },
   {
     id:'trainee', label:'المتدرب', icon:'fa-graduation-cap', hex:'#5D378A',
     sampleName:'سارة أحمد', initials:'س.أ',
@@ -4634,5 +5011,22 @@ panelsEl.addEventListener('click',function(e){
 },true);
 
 </script>
+
+<script>
+document.addEventListener('click', function(e){
+  const card = e.target.closest('[data-entry-role]');
+  if(!card) return;
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('.role-context-rail.open').forEach(x=>x.classList.remove('open'));
+    document.querySelectorAll('.role-detail-sheet.open').forEach(x=>x.classList.remove('open'));
+    document.querySelectorAll('.role-local-dim.active').forEach(x=>x.classList.remove('active'));
+    setTimeout(()=>{
+      const active = document.querySelector('#rolePanels .role-panel.active .role-shell');
+      active?.scrollIntoView({behavior:'smooth', block:'start'});
+    },80);
+  });
+}, true);
+</script>
+
 </body>
 </html>
