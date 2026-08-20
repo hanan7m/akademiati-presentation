@@ -2440,64 +2440,115 @@
 .manager-wide-action{width:100%;height:38px;border:0;border-radius:10px;background:#673b93;color:#fff;font:inherit;font-size:9px;font-weight:800;cursor:pointer}
 
 /* v47 — Customer Service */
-.support-hero{min-height:165px;padding:25px 28px;border-radius:24px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#3e548f,#683b91);color:#fff;box-shadow:0 14px 32px rgba(41,56,112,.13)}
-.support-hero-icon{width:72px;height:72px;border-radius:20px;background:rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;font-size:27px}
+.support-hero{min-height:225px;padding:32px 40px;border-radius:30px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:24px;background:linear-gradient(135deg,#4b3f8f 0%,#7c4bb0 55%,#8f58c4 100%);color:#fff;box-shadow:0 18px 38px rgba(93,55,138,.18);overflow:hidden;position:relative}
+.support-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 40%,rgba(255,255,255,.12),transparent 33%)}
+.support-hero-copy{position:relative;z-index:1;text-align:right}
+.support-hero-copy .mini{display:inline-flex;gap:7px;align-items:center;padding:5px 12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);border-radius:999px;font-size:10px;font-weight:700}
+.support-hero-copy p{margin:0 0 22px;opacity:.9;font-size:13px;color:rgba(255,255,255,.9)}
+.support-hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.support-btn{height:44px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;border:0;cursor:pointer;font-family:inherit}
+.support-btn.primary{background:#fff;color:#5d378a}
+.support-btn.ghost{border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.09);color:#fff}
+.support-hero-icon{position:relative;z-index:1;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:76px;color:#fff;justify-self:center}
 .support-quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .support-card{position:relative;display:flex;align-items:center;gap:13px;background:#fff;border:1px solid #e5e8ef;border-radius:16px;padding:15px 42px 15px 15px;cursor:pointer;box-shadow:0 6px 17px rgba(31,40,75,.04)}
 .support-icon{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;color:#fff;flex:0 0 auto}.support-icon.blue{background:#2b67bd}.support-icon.green{background:#169578}.support-icon.purple{background:#7040a4}.support-icon.amber{background:#c78335}
 .support-card h4{margin:0 0 5px;color:#20365e;font-size:11px}.support-card p{margin:0;color:#8993a6;font-size:8px;line-height:1.7}.support-card .tail{position:absolute;left:15px;color:#a2a8b5;font-size:10px}
-.support-lower-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:10px}
+
 .support-list{display:flex;flex-direction:column;gap:7px}.support-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;width:100%;border:1px solid #e7eaf0;background:#fbfcfe;border-radius:12px;padding:10px;text-align:right;font:inherit;cursor:pointer}.row-icon{width:33px;height:33px;border-radius:10px;background:#eeeaf5;color:#684098;display:flex;align-items:center;justify-content:center}.support-row b{display:block;color:#263a5e;font-size:9px}.support-row small{display:block;color:#939bad;font-size:7.5px;margin-top:3px}.row-state{padding:4px 7px;border-radius:8px;background:#eaf3ff;color:#2c67aa;font-size:7px;font-weight:800}.row-state.muted{background:#f0f1f4;color:#8d95a5}.support-row.soon{cursor:default;opacity:.8}
 .guide-icon{width:33px;height:33px;border-radius:10px;background:#eeeaf5;color:#684098;display:flex!important;align-items:center;justify-content:center}.support-guide p{color:#7f899d;font-size:9px;line-height:1.9}.support-guide-btn{width:100%;height:38px;border:0;border-radius:10px;background:#644091;color:#fff;font:inherit;font-size:9px;font-weight:800;cursor:pointer;margin-top:8px}
+.support-kpi-head{display:flex;flex-direction:column;gap:4px;margin:4px 2px 2px;text-align:right}
+.support-kpi-head span{font-size:10px;font-weight:800;letter-spacing:.08em;color:#9aa2b1;text-transform:uppercase}
+.support-kpi-head h4{margin:0;font-size:16px;color:#20365e}
+.support-kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.support-kpi-card{background:#fff;border:1px solid #e5e8ef;border-radius:16px;padding:16px 10px;text-align:center;box-shadow:0 6px 16px rgba(30,40,75,.04)}
+.support-kpi-card .kpi-ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:14px;color:#fff}
+.support-kpi-card .kpi-num{font-size:22px;font-weight:800;color:#1c2c50}
+.support-kpi-card .kpi-lbl{font-size:9.5px;color:#4a5670;margin-top:6px;line-height:1.5;min-height:28px}
+.support-kpi-card .kpi-sub{display:inline-block;margin-top:8px;font-size:8px;font-weight:800;padding:3px 9px;border-radius:999px}
+.support-today-card{background:#fff;border:1px solid #e5e8ef;border-radius:18px;padding:16px;box-shadow:0 6px 18px rgba(31,40,75,.04)}
+.support-today-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.support-today-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 8px;border-inline-start:1px solid #eceef4;text-align:center}
+.support-today-item:first-child{border-inline-start:0}
+.support-today-item .sti-ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff}
+.support-today-item b{font-size:17px;color:#1c2c50}
+.support-today-item small{font-size:9px;color:#8a91a3}
+.support-today-btn{width:100%;height:42px;margin-top:16px;border:0;border-radius:12px;background:#5d378a;color:#fff;font:inherit;font-size:11px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
 .preview-empty{min-height:150px;border:1px dashed #dce1ea;border-radius:14px;background:#fbfcfe;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#8992a3;text-align:center;padding:20px}.preview-empty i{font-size:24px;color:#694099}.preview-empty b{color:#263a5e;font-size:11px}.preview-empty span{font-size:8px}
-@media(max-width:1050px){.manager-summary-grid{grid-template-columns:repeat(2,1fr)}.manager-grid,.support-lower-grid{grid-template-columns:1fr}.support-quick-grid{grid-template-columns:1fr}}
-@media(max-width:650px){.manager-summary-grid{grid-template-columns:1fr}.manager-top3{grid-template-columns:1fr}.top3-item.first{transform:none}.manager-ops{grid-template-columns:1fr}.support-card{padding-inline-start:12px}.manager-hero-mark,.support-hero-icon{display:none}}
+@media(max-width:1050px){.manager-summary-grid{grid-template-columns:repeat(2,1fr)}.manager-grid,.support-lower-grid{grid-template-columns:1fr}.support-quick-grid{grid-template-columns:1fr}.support-kpi-grid{grid-template-columns:repeat(3,1fr)}.support-today-grid{grid-template-columns:repeat(2,1fr)}.support-today-item{border-inline-start:0;border-bottom:1px solid #eceef4;padding-bottom:12px}}
+@media(max-width:900px){.support-hero{grid-template-columns:1fr}}
+@media(max-width:650px){.manager-summary-grid{grid-template-columns:1fr}.manager-top3{grid-template-columns:1fr}.top3-item.first{transform:none}.manager-ops{grid-template-columns:1fr}.support-card{padding-inline-start:12px}.manager-hero-mark,.support-hero-icon{display:none}.support-kpi-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 
 
 <style>
-/* v48 — Actual Supervisor dashboard */
-.supervisor-dashboard-app{display:flex;flex-direction:column;gap:14px}
-.supervisor-page-head{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:2px 2px 4px
-}
-.supervisor-page-head h3{margin:3px 0 0;font-size:18px;color:#20355d}
-.supervisor-breadcrumb{font-size:8px;color:#9aa2b1}
-.supervisor-head-actions{display:flex;align-items:center;gap:14px}
-.supervisor-notify{position:relative;width:36px;height:36px;border-radius:11px;background:#fff;border:1px solid #e6e9ef;display:flex;align-items:center;justify-content:center;color:#6b3c99}
-.supervisor-notify b{position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;border-radius:999px;background:#7042a0;color:#fff;font-size:8px;display:flex;align-items:center;justify-content:center}
-.supervisor-user{display:flex;align-items:center;gap:9px}
-.supervisor-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#6d439a,#325fa4);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
-.supervisor-user b{display:block;font-size:10px;color:#20355d}.supervisor-user small{display:block;margin-top:2px;font-size:7.5px;color:#979faf}
-.supervisor-welcome{
-  min-height:132px;border-radius:20px;padding:22px 24px;display:flex;align-items:center;gap:16px;
-  background:linear-gradient(135deg,#f3ecfb,#edf4ff);border:1px solid #e2e3ee
-}
-.supervisor-welcome-icon{width:58px;height:58px;border-radius:17px;background:#6d409a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 10px 22px rgba(99,61,145,.18)}
-.supervisor-welcome h4{margin:0 0 5px;color:#25385d;font-size:17px}.supervisor-welcome p{margin:0;color:#858ea2;font-size:9px}
-.supervisor-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.supervisor-stat{
-  min-height:105px;padding:15px;border-radius:16px;background:#fff;border:1px solid #e4e8ef;
-  display:flex;align-items:center;gap:12px;box-shadow:0 6px 18px rgba(31,40,75,.04);cursor:pointer
-}
-.sv-stat-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.sv-stat-icon.blue{background:#eaf3ff;color:#2e69b5}.sv-stat-icon.amber{background:#fff4df;color:#c1842f}.sv-stat-icon.green{background:#eaf8f1;color:#20926b}.sv-stat-icon.red{background:#ffeded;color:#be555d}
-.supervisor-stat b{display:block;font-size:22px;color:#20355d;line-height:1}.supervisor-stat strong{display:block;margin-top:6px;font-size:9.5px;color:#2b3c5e}.supervisor-stat small{display:block;margin-top:3px;font-size:7.5px;color:#9aa2b1}
-.supervisor-main-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:12px}
-.supervisor-card{background:#fff;border:1px solid #e4e8ef;border-radius:18px;padding:16px;box-shadow:0 6px 18px rgba(31,40,75,.04)}
-.supervisor-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:13px}.supervisor-card-head span{font-size:7.5px;color:#7f899c;font-weight:800}.supervisor-card-head h4{margin:3px 0;color:#20355d;font-size:12px}.supervisor-card-head p{margin:0;color:#9aa2b1;font-size:7.5px}
-.supervisor-card-icon{width:34px;height:34px;border-radius:10px;background:#eeeaf7;color:#68409a;display:flex!important;align-items:center;justify-content:center}.supervisor-card-icon.warn{background:#fff1e9;color:#be7042}
-.supervisor-login-list{display:flex;flex-direction:column;gap:7px}
-.supervisor-login-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;padding:9px 10px;border-radius:11px;background:#fafbfe;border:1px solid #edf0f4}
-.login-avatar{width:31px;height:31px;border-radius:50%;background:#eeeaf6;color:#674193;display:flex;align-items:center;justify-content:center;font-size:7.5px;font-weight:800}
-.login-name b,.login-time b{display:block;font-size:8px;color:#2c3e61}.login-name small,.login-time small{display:block;margin-top:3px;font-size:6.8px;color:#9aa2b1}.login-time{text-align:left}
-.supervisor-link{width:100%;height:34px;margin-top:10px;border:0;background:transparent;color:#644092;font:inherit;font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:flex-start;gap:6px;cursor:pointer}
-.supervisor-alert-box{min-height:110px;padding:15px;border-radius:14px;background:#fff7f2;border:1px solid #f1ddd2;display:flex;align-items:flex-start;gap:11px}.alert-icon{width:38px;height:38px;border-radius:11px;background:#f3e5dc;color:#b66f48;display:flex;align-items:center;justify-content:center;flex:0 0 auto}.supervisor-alert-box b{display:block;color:#3a4660;font-size:9px;line-height:1.6}.supervisor-alert-box small{display:block;margin-top:5px;color:#9199a8;font-size:7.5px;line-height:1.7}
-.supervisor-update{height:38px;border-radius:12px;background:#f4f6f9;border:1px solid #e8ebf0;color:#8d96a8;font-size:8px;display:flex;align-items:center;gap:7px;padding:0 12px}
-.supervisor-update i{color:#68409a}
-@media(max-width:1050px){.supervisor-stats{grid-template-columns:repeat(2,1fr)}.supervisor-main-grid{grid-template-columns:1fr}}
-@media(max-width:650px){.supervisor-stats{grid-template-columns:1fr}.supervisor-page-head{align-items:flex-start;flex-direction:column}.supervisor-head-actions{width:100%;justify-content:space-between}}
+/* v53 — Branch Supervisor (redesigned to match live product) */
+.supervisor-dashboard-app{display:flex;flex-direction:column;gap:16px}
+.sv-panel{background:#fff;border:1px solid #e5e8ef;border-radius:24px;padding:22px 24px;box-shadow:0 8px 22px rgba(31,40,75,.05)}
+.sv-tag{display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;background:#f3ecfb;border:1px solid #e7dcf5;color:#6d409a;font-size:9px;font-weight:800;white-space:nowrap}
+.sv-tag.gold{background:#fdf3e0;border-color:#f3e0b3;color:#a9781f}
+.sv-section-head{display:flex;flex-direction:column;align-items:flex-end;gap:7px;text-align:right;margin-bottom:16px}
+.sv-section-head h4{margin:0;font-size:18px;color:#20365e}
+.sv-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.sv-kpi-card{background:#fbfbfe;border:1px solid #edeef4;border-radius:16px;padding:16px 12px;text-align:center}
+.sv-kpi-card .kpi-ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:15px}
+.sv-kpi-card .kpi-num{font-size:24px;font-weight:800;color:#1c2c50}
+.sv-kpi-card .kpi-lbl{font-size:10px;color:#3a4660;margin-top:6px;font-weight:700}
+.sv-kpi-card .kpi-sub{font-size:8px;color:#9aa2b1;margin-top:5px}
+.sv-subhead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:4px 0 16px;padding-top:18px;border-top:1px solid #eef0f6}
+.sv-subhead-copy{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.sv-subhead-copy h4{margin:0;font-size:15px;color:#20365e}
+.sv-subhead-copy p{margin:0;font-size:8.5px;color:#8a91a3}
+.sv-link-chip{border:1px solid #e7dcf5;background:#f8f5fc;color:#6d409a;font:inherit;font-size:9px;font-weight:800;padding:7px 13px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap}
+.sv-bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.supervisor-card{background:#fff;border:1px solid #e4e8ef;border-radius:18px;padding:18px;box-shadow:0 6px 18px rgba(31,40,75,.04)}
+.supervisor-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.supervisor-card-head-copy{display:flex;flex-direction:column;align-items:flex-end;gap:5px;text-align:right}
+.supervisor-card-head-copy h4{margin:0;color:#20355d;font-size:13px}
+.supervisor-card-head-copy p{margin:0;color:#9aa2b1;font-size:8px}
+.sv-task-body{display:flex;gap:16px;align-items:center;margin:16px 0 6px}
+.sv-ring-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;flex:0 0 auto}
+.sv-ring{width:104px;height:104px;border-radius:50%;background:conic-gradient(#5d378a calc(var(--p,0)*1%), #ece7f4 0);display:flex;align-items:center;justify-content:center}
+.sv-ring:after{content:attr(data-pct);width:78px;height:78px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#1c2c50}
+.sv-ring-wrap small{font-size:9px;color:#8a91a3;font-weight:700}
+.sv-task-stats{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.sv-task-stat{background:#fbfbfe;border:1px solid #edeef4;border-radius:12px;padding:10px;text-align:center}
+.sv-task-stat b{display:block;font-size:19px;font-weight:800}
+.sv-task-stat small{display:block;margin-top:4px;font-size:8.5px;color:#8a91a3}
+.sv-progress-track{height:8px;border-radius:999px;background:#eef0f6;margin-top:8px;overflow:hidden}
+.sv-progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#5d378a,#8f58c4)}
+.sv-alert-list{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.sv-alert-row{display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:10px;padding:10px;border:1px solid #eef0f6;border-radius:12px;background:#fbfbfe;width:100%;text-align:right;font:inherit;cursor:pointer}
+.sv-alert-row .ar-ic{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;flex:0 0 auto}
+.sv-alert-row .ar-count{width:24px;height:24px;border-radius:7px;background:#f0f1f6;color:#3a4660;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.sv-alert-row b{display:block;font-size:9.5px;color:#263a5e}
+.sv-alert-row small{display:block;margin-top:3px;font-size:8px;color:#939bad}
+@media(max-width:1050px){.sv-kpi-grid{grid-template-columns:repeat(2,1fr)}.sv-bottom-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.sv-kpi-grid{grid-template-columns:1fr}.sv-task-body{flex-direction:column}}
+</style>
+
+<style>
+/* v54 — Branch Manager (redesigned to match live product) */
+.mgr-panel{background:#fff;border:1px solid #e5e8ef;border-radius:24px;padding:22px 24px;box-shadow:0 8px 22px rgba(31,40,75,.05)}
+.mgr-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+.mgr-panel-head-copy{display:flex;flex-direction:column;align-items:flex-end;gap:5px;text-align:right}
+.mgr-panel-head-copy h4{margin:0;font-size:18px;color:#20365e}
+.mgr-panel-head-copy p{margin:0;font-size:9.5px;color:#8a91a3}
+.mgr-status-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:999px;background:#eaf8f1;border:1px solid #cdeeda;color:#20926b;font-size:9px;font-weight:800;white-space:nowrap;flex:0 0 auto}
+.mgr-status-pill i{width:6px;height:6px;border-radius:50%;background:#20926b;display:inline-block}
+.mgr-kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.mgr-kpi-card{background:#fbfbfe;border:1px solid #edeef4;border-radius:16px;padding:16px 14px;text-align:right;position:relative}
+.mgr-kpi-card .kpi-ic{position:absolute;top:14px;left:14px;width:34px;height:34px;border-radius:10px;background:#eaf3ef;color:#5a6479;display:flex;align-items:center;justify-content:center;font-size:12px}
+.mgr-kpi-card .kpi-lbl{font-size:10.5px;font-weight:800;color:#20365e;padding-inline-end:44px}
+.mgr-kpi-card .kpi-num{font-size:22px;font-weight:800;color:#1c2c50;margin-top:10px}
+.mgr-kpi-card .kpi-sub{font-size:8px;color:#9aa2b1;margin-top:6px;line-height:1.6}
+.mgr-empty-row{border:1px solid #edeef4;border-radius:14px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+.mgr-empty-title{font-size:10.5px;font-weight:800;color:#20365e;white-space:nowrap;flex:0 0 auto}
+.mgr-empty-body{text-align:left}
+.mgr-empty-body b{display:block;font-size:9.5px;font-weight:800}
+.mgr-empty-body small{display:block;margin-top:4px;font-size:8px;color:#9aa2b1}
+@media(max-width:1050px){.mgr-kpi-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.mgr-kpi-grid{grid-template-columns:1fr}.mgr-empty-row{flex-direction:column;align-items:flex-end;text-align:right}.mgr-empty-body{text-align:right}}
 </style>
 
 
@@ -2814,290 +2865,577 @@ section.wrap{padding-top:62px;padding-bottom:62px}
 
 
 <style>
-/* v55 — structural fix for role display
-   One stable application canvas: content on the left, sidebar on the right. */
+/* v56 — sidebar help must never blur the dashboard */
+.role-local-dim{
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+.role-main:has(.role-context-rail.open) .role-local-dim,
+.role-main:has(.role-context-rail.open) .role-local-dim.active{
+  opacity:0 !important;
+  pointer-events:none !important;
+  background:transparent !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+.role-context-rail{z-index:160 !important;}
+.role-context-rail.open{opacity:1 !important;}
+.role-context-card{
+  background:#fff !important;
+  border:1px solid #e3e7ef !important;
+  box-shadow:0 18px 42px rgba(18,28,57,.16) !important;
+}
+.role-main:has(.role-detail-sheet.open) .role-local-dim.active{
+  opacity:1 !important;
+  pointer-events:auto !important;
+  background:rgba(18,27,48,.14) !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+</style>
 
-/* In live mode, keep only a slim control bar above the role */
-#roles.roles-live-mode > .wrap{
-  max-width:1500px!important;
-  padding:14px 22px 10px!important;
-}
-#roles.roles-live-mode .roles-livebar{
-  display:flex!important;
-  width:100%!important;
-  max-width:1480px!important;
-  margin:0 auto!important;
-  min-height:48px!important;
-}
-#roles.roles-live-mode .role-panels-full{
-  padding:0 22px 46px!important;
-  min-height:auto!important;
-  display:block!important;
-}
 
-/* Stable role frame — do not use floating/pseudo headers */
-#roles .role-shell{
-  direction:ltr!important;
-  display:grid!important;
-  grid-template-columns:minmax(0,1fr) 248px!important;
-  align-items:stretch!important;
-  width:min(1480px,100%)!important;
-  max-width:1480px!important;
-  min-height:760px!important;
-  margin:0 auto!important;
-  padding:0!important;
-  border:1px solid #dfe4ed!important;
-  border-radius:24px!important;
-  background:#f7f8fb!important;
-  overflow:visible!important;
-  box-shadow:0 20px 48px rgba(25,36,68,.10)!important;
-}
-#roles .role-shell::before,
-#roles .role-shell::after{
-  display:none!important;
-}
+<style>
+/* v57 — unified role experience */
 
-/* Main content always occupies the large left area */
-#roles .role-main{
-  direction:rtl!important;
-  grid-column:1!important;
-  grid-row:1!important;
-  width:100%!important;
-  min-width:0!important;
-  min-height:760px!important;
-  height:auto!important;
-  margin:0!important;
-  padding:22px 24px 30px!important;
-  border-radius:24px 0 0 24px!important;
-  background:#f7f8fb!important;
-  overflow:visible!important;
+/* 1) Clear interaction language:
+   sidebar = lightweight explanation, cards = centered details */
+.rs-item{
+  transition:background .18s ease,color .18s ease,transform .18s ease!important;
+}
+.rs-item:hover{
+  transform:translateX(-2px)!important;
+}
+.dashboard-preview-trigger{
+  cursor:pointer!important;
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease!important;
+}
+.dashboard-preview-trigger:hover{
+  transform:translateY(-2px)!important;
+  border-color:rgba(93,55,138,.28)!important;
+  box-shadow:0 10px 24px rgba(30,40,75,.075)!important;
+}
+.dashboard-preview-trigger:active{
+  transform:translateY(0) scale(.995)!important;
 }
 
-/* Sidebar is a normal column, no negative margins or floating header */
-#roles .role-sidebar{
-  direction:rtl!important;
-  grid-column:2!important;
-  grid-row:1!important;
-  position:relative!important;
-  top:auto!important;
-  right:auto!important;
-  left:auto!important;
-  width:248px!important;
-  min-width:248px!important;
-  max-width:248px!important;
-  min-height:760px!important;
-  height:auto!important;
-  margin:0!important;
-  padding:18px 14px 20px!important;
-  border-radius:0 24px 24px 0!important;
-  border:0!important;
-  border-left:1px solid #e1e5ed!important;
-  background:linear-gradient(180deg,#56358b 0%,#303f77 100%)!important;
-  color:#fff!important;
-  overflow:hidden!important;
-  box-shadow:none!important;
-}
-#roles .role-sidebar::before{display:none!important}
-
-/* Sidebar identity sits naturally at the top */
-#roles .rs-head{
-  position:relative!important;
-  z-index:1!important;
-  margin:0 0 18px!important;
-  padding:10px 8px 16px!important;
-  border-bottom:1px solid rgba(255,255,255,.14)!important;
-  color:#fff!important;
-}
-#roles .rs-badge{
-  width:42px!important;
-  height:42px!important;
-  border-radius:12px!important;
+/* 2) Current role indicator */
+.roles-livebar{
+  min-height:50px!important;
+  padding:8px 11px!important;
+  border-radius:14px!important;
+  border:1px solid #e2e6ed!important;
   background:#fff!important;
-  box-shadow:0 7px 18px rgba(15,22,48,.16)!important;
+  box-shadow:0 5px 16px rgba(31,40,75,.045)!important;
 }
-#roles .rs-head b,
-#roles .rs-head em{color:#fff!important}
-#roles .rs-head em{
-  display:inline-flex!important;
-  margin-top:4px!important;
-  padding:0!important;
-  background:transparent!important;
-  opacity:.72!important;
+.roles-live-title{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
 }
-#roles .rs-search{
-  margin:0 0 12px!important;
-  padding:9px 10px!important;
-  border:1px solid rgba(255,255,255,.16)!important;
-  border-radius:11px!important;
-  background:rgba(255,255,255,.10)!important;
-  color:rgba(255,255,255,.82)!important;
-}
-#roles .rs-search i{color:rgba(255,255,255,.72)!important}
-#roles .rs-nav{gap:4px!important}
-#roles .rs-item{
-  min-height:42px!important;
-  padding:10px 11px!important;
-  border-radius:10px!important;
-  color:rgba(255,255,255,.88)!important;
-  background:transparent!important;
+.roles-live-title b{
   font-size:10.5px!important;
+  color:#22375d!important;
 }
-#roles .rs-item i{color:rgba(255,255,255,.82)!important}
-#roles .rs-item:hover,
-#roles .rs-item.active,
-#roles .rs-item.role-help-open{
-  background:rgba(255,255,255,.14)!important;
-  color:#fff!important;
+.roles-live-title small{
+  font-size:7.5px!important;
+  color:#939bac!important;
 }
-#roles .rs-item:hover i,
-#roles .rs-item.active i,
-#roles .rs-item.role-help-open i{color:#fff!important}
-#roles .rs-foot{
-  margin-top:18px!important;
-  padding-top:15px!important;
-  border-top:1px solid rgba(255,255,255,.14)!important;
-  color:#fff!important;
+.roles-live-title::before{
+  content:"أنت الآن داخل";
+  display:inline-flex;
+  align-items:center;
+  padding:4px 8px;
+  border-radius:999px;
+  background:#f1ebf7;
+  color:#653b92;
+  font-size:7.5px;
+  font-weight:800;
 }
-#roles .rs-foot b{color:#fff!important}
-#roles .rs-foot span{color:rgba(255,255,255,.62)!important}
-#roles .rs-avatar{
-  background:rgba(255,255,255,.16)!important;
-  color:#fff!important;
+.live-dot{
+  width:7px!important;height:7px!important;
+  box-shadow:0 0 0 4px rgba(48,160,121,.10)!important;
 }
-
-/* Remove obsolete role presentation topbar */
-#roles .role-dashboard-topbar{display:none!important}
-
-/* Give every actual dashboard breathing room without accidental clipping */
-#roles .trainee-app,
-#roles .trainer-dashboard-app,
-#roles .manager-dashboard-app,
-#roles .support-dashboard-app,
-#roles .supervisor-dashboard-app{
-  width:100%!important;
-  max-width:none!important;
-  min-width:0!important;
-  margin:0!important;
+.roles-back{
+  min-height:34px!important;
+  padding:7px 11px!important;
+  border-radius:9px!important;
+  background:#f4f1f7!important;
+  color:#633b91!important;
 }
 
-/* Keep dashboard grids within the available width */
-#roles .trainee-quick-grid,
-#roles .trainer-quick-grid,
-#roles .manager-summary-grid,
-#roles .support-quick-grid,
-#roles .supervisor-stats{
-  min-width:0!important;
+/* 3) Unified dashboard header proportions */
+.trainee-hero,
+.trainer-hero,
+.manager-hero,
+.support-hero,
+.supervisor-welcome{
+  border-radius:22px!important;
+  box-shadow:0 12px 28px rgba(52,49,95,.11)!important;
 }
-#roles .trainee-quick,
-#roles .trainer-quick,
-#roles .manager-summary,
-#roles .support-card,
-#roles .supervisor-stat{
-  min-width:0!important;
+.trainee-hero,
+.trainer-hero{
+  min-height:205px!important;
+}
+.manager-hero,
+.support-hero{
+  min-height:160px!important;
 }
 
-/* Context explanation is a compact floating card, not a wide rail */
-#roles .role-context-rail{
-  position:absolute!important;
-  top:20px!important;
-  left:20px!important;
-  right:auto!important;
-  width:300px!important;
-  max-width:calc(100% - 40px)!important;
-  z-index:145!important;
-}
-#roles .role-context-rail.open{width:300px!important}
-#roles .role-context-card{
-  min-height:0!important;
-  padding:15px!important;
+/* 4) Shared card system */
+.trainee-quick,
+.trainer-quick,
+.manager-summary,
+.manager-panel,
+.support-card,
+.support-panel,
+.supervisor-stat,
+.supervisor-card,
+.trainer-course-card,
+.trainee-courses{
   border-radius:16px!important;
-  box-shadow:0 22px 55px rgba(18,28,57,.22)!important;
+  border:1px solid #e5e8ef!important;
+  box-shadow:0 6px 18px rgba(31,40,75,.045)!important;
+  background:#fff!important;
 }
 
-/* Detail modal stays centered inside the actual dashboard */
-#roles .role-detail-sheet{
-  position:absolute!important;
-  top:50%!important;
-  left:50%!important;
-  right:auto!important;
-  bottom:auto!important;
-  width:min(860px,calc(100% - 52px))!important;
-  max-width:860px!important;
-  z-index:155!important;
-  transform:translate(-50%,-46%) scale(.985)!important;
+/* 5) Sidebar hierarchy and density */
+.role-sidebar{
+  padding-top:15px!important;
 }
-#roles .role-detail-sheet.open{
-  transform:translate(-50%,-50%) scale(1)!important;
+.rs-head{
+  margin-bottom:13px!important;
 }
-#roles .role-local-dim{
-  border-radius:24px 0 0 24px!important;
+.rs-search{
+  margin-bottom:10px!important;
 }
-
-/* Trainee excellence star remains on the far left edge of the dashboard */
-#roles .role-panel[data-role="trainee"] .trainee-excellence-fab{
-  position:absolute!important;
-  top:92px!important;
-  left:-16px!important;
-  right:auto!important;
-  width:50px!important;
-  height:50px!important;
-  z-index:120!important;
+.rs-nav{
+  gap:2px!important;
 }
-#roles .role-panel[data-role="trainee"] .trainee-excellence-drawer{
-  position:absolute!important;
-  top:84px!important;
-  left:46px!important;
-  right:auto!important;
-  width:min(410px,calc(100% - 70px))!important;
-  z-index:130!important;
+.rs-item{
+  min-height:39px!important;
+  padding:8px 10px!important;
+  border-radius:9px!important;
+  font-size:10px!important;
+}
+.rs-item i{
+  width:16px!important;
+  font-size:11px!important;
+}
+.rs-foot{
+  margin-top:14px!important;
+  padding-top:12px!important;
 }
 
-/* Hero blocks should not overflow the available role canvas */
-#roles .trainee-hero,
-#roles .trainer-hero,
-#roles .manager-hero,
-#roles .support-hero{
-  width:100%!important;
-  box-sizing:border-box!important;
+/* 6) Sidebar explanation: compact and sharp, never modal-like */
+.role-context-rail{
+  width:286px!important;
+  max-width:calc(100% - 32px)!important;
+}
+.role-context-rail.open{
+  width:286px!important;
+}
+.role-context-card{
+  border-radius:16px!important;
+  padding:14px!important;
+  box-shadow:0 18px 42px rgba(18,28,57,.14)!important;
+}
+.role-context-icon{
+  width:36px!important;height:36px!important;
+  border-radius:10px!important;
+}
+.role-context-card h4{
+  font-size:13px!important;
+}
+.role-context-card p{
+  font-size:9.5px!important;
+  line-height:1.75!important;
+}
+.role-context-close{
+  width:27px!important;height:27px!important;
 }
 
-/* Responsive role display */
-@media(max-width:1050px){
-  #roles .role-shell{
-    grid-template-columns:1fr!important;
-    border-radius:20px!important;
+/* 7) Unified centered detail modal */
+.role-detail-sheet{
+  width:min(820px,calc(100% - 48px))!important;
+  max-width:820px!important;
+}
+.role-detail-inner{
+  border-radius:20px!important;
+  padding:16px!important;
+  max-height:min(72vh,590px)!important;
+}
+.role-detail-head{
+  margin-bottom:12px!important;
+  padding-bottom:10px!important;
+}
+.role-detail-title-icon{
+  width:40px!important;height:40px!important;
+  border-radius:11px!important;
+}
+.role-detail-title h4{
+  font-size:14px!important;
+}
+.role-detail-body{
+  max-height:min(54vh,410px)!important;
+  border-radius:13px!important;
+  padding:11px!important;
+}
+.role-detail-close{
+  width:31px!important;height:31px!important;
+}
+
+/* 8) Cleaner transitions between roles */
+.role-panel.active{
+  animation:roleFadeClean .22s ease!important;
+}
+@keyframes roleFadeClean{
+  from{opacity:.2;transform:translateY(4px)}
+  to{opacity:1;transform:none}
+}
+#roles.roles-live-mode .role-shell{
+  animation:none!important;
+}
+
+/* 9) Tighter role content rhythm */
+.role-main{
+  padding:20px 22px 28px!important;
+}
+.trainee-dashboard-app,
+.trainer-dashboard-app,
+.manager-dashboard-app,
+.support-dashboard-app,
+.supervisor-dashboard-app{
+  gap:12px!important;
+}
+
+/* 10) Responsive: turn sidebar into a horizontal role toolbar */
+@media(max-width:900px){
+  .role-shell{
+    display:block!important;
   }
-  #roles .role-sidebar{
-    grid-column:1!important;
-    grid-row:1!important;
+  .role-sidebar{
+    position:relative!important;
     width:100%!important;
     min-width:0!important;
     max-width:none!important;
     min-height:0!important;
-    border-radius:20px 20px 0 0!important;
-    border-left:0!important;
-    border-bottom:1px solid rgba(255,255,255,.12)!important;
+    padding:10px!important;
+    border-radius:18px 18px 0 0!important;
+    overflow:visible!important;
   }
-  #roles .rs-nav{
-    display:grid!important;
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  .rs-head{
+    margin-bottom:8px!important;
+    padding-bottom:8px!important;
   }
-  #roles .rs-foot{display:none!important}
-  #roles .role-main{
-    grid-column:1!important;
-    grid-row:2!important;
-    min-height:0!important;
-    border-radius:0 0 20px 20px!important;
-    padding:16px!important;
+  .rs-search,
+  .rs-foot{
+    display:none!important;
   }
-  #roles .role-local-dim{border-radius:0 0 20px 20px!important}
+  .rs-nav{
+    display:flex!important;
+    flex-direction:row!important;
+    gap:6px!important;
+    overflow-x:auto!important;
+    padding-bottom:3px!important;
+    scrollbar-width:thin;
+  }
+  .rs-item{
+    flex:0 0 auto!important;
+    min-height:36px!important;
+    white-space:nowrap!important;
+    padding:7px 10px!important;
+  }
+  .role-main{
+    padding:14px!important;
+    border-radius:0 0 18px 18px!important;
+  }
+  .role-context-rail{
+    top:12px!important;
+    left:12px!important;
+    width:calc(100% - 24px)!important;
+    max-width:none!important;
+  }
+  .role-context-rail.open{
+    width:calc(100% - 24px)!important;
+  }
+  .role-detail-sheet{
+    width:calc(100% - 20px)!important;
+  }
 }
-@media(max-width:700px){
-  #roles.roles-live-mode .role-panels-full{padding-inline:8px!important}
-  #roles .rs-nav{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  #roles .role-main{padding:11px!important}
-  #roles .role-detail-sheet{width:calc(100% - 20px)!important}
-  #roles .role-context-rail{left:10px!important;width:calc(100% - 20px)!important;max-width:none!important}
+
+@media(max-width:620px){
+  .roles-livebar{
+    flex-direction:column-reverse!important;
+    align-items:stretch!important;
+  }
+  .roles-live-title{
+    justify-content:center!important;
+    flex-wrap:wrap!important;
+  }
+  .roles-back{
+    width:100%!important;
+  }
+  .role-main{
+    padding:10px!important;
+  }
+}
+</style>
+
+
+<style>
+/* v60 — actual Branch Manager dashboard; staff and announcements remain sidebar-only */
+.manager-actual-app{
+  display:flex;flex-direction:column;gap:14px;
+  background:#fff;border:1px solid #e5e9ef;border-radius:22px;padding:20px;
+  box-shadow:0 10px 28px rgba(31,40,75,.06)
+}
+.manager-actual-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  padding:4px 2px 8px
+}
+.manager-actual-head h3{margin:0;color:#20355d;font-size:17px}
+.manager-actual-head p{margin:4px 0 0;color:#8d96a8;font-size:8.5px}
+.branch-stable{
+  padding:6px 10px;border-radius:999px;background:#e8f7f1;color:#2a8e69;
+  font-size:8px;font-weight:800;white-space:nowrap
+}
+.manager-actual-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
+}
+.manager-actual-card{
+  position:relative;min-height:155px;border:1px solid #e7eaf0;border-radius:18px;
+  background:#fff;padding:20px;display:flex;align-items:flex-start;justify-content:space-between;
+  box-shadow:0 5px 16px rgba(31,40,75,.035)
+}
+.manager-actual-card.success{
+  border-color:#cfe9df;background:linear-gradient(180deg,#fff,#fbfffd)
+}
+.mac-icon{
+  width:48px;height:48px;border-radius:15px;background:#f1f3f6;color:#9aa3b2;
+  display:flex;align-items:center;justify-content:center;font-size:17px
+}
+.manager-actual-card.success .mac-icon{
+  background:#e6f6ee;color:#218c63
+}
+.mac-copy{
+  flex:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;
+  min-height:112px;padding-inline-start:12px
+}
+.mac-copy small{font-size:9px;color:#4e5c76;font-weight:700}
+.mac-copy strong{font-size:20px;color:#21375f;line-height:1}
+.manager-attention-card,
+.manager-toptrainers-card{
+  min-height:86px;border:1px solid #e6e9ef;border-radius:18px;background:#fbfcfe;
+  padding:16px 18px;text-align:right
+}
+.manager-attention-card h4,
+.manager-toptrainers-card h4{margin:0;color:#23385d;font-size:10px}
+.manager-attention-card p{
+  margin:7px 0 0;color:#278a69;font-size:8px;font-weight:700
+}
+.manager-toptrainers-card{
+  min-height:110px;background:#fff
+}
+.manager-toptrainers-card small{
+  display:block;margin-top:5px;color:#8c95a7;font-size:7.5px
+}
+.manager-toptrainers-card p{
+  margin:13px 0 0;color:#778196;font-size:8px
+}
+@media(max-width:800px){
+  .manager-actual-grid{grid-template-columns:1fr}
+  .manager-actual-card{min-height:135px}
+}
+</style>
+
+
+<style>
+/* v61 — Branch Manager excellence side star */
+.manager-actual-app{
+  position:relative!important;
+  overflow:visible!important;
+}
+
+.manager-excellence-fab{
+  position:absolute;
+  top:118px;
+  left:-45px;
+  width:54px;height:54px;
+  border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  background:#fffaf6;
+  color:#b96c37;
+  border:1.5px solid #df9e70;
+  box-shadow:0 14px 30px rgba(155,92,46,.18);
+  z-index:32;
+  cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.manager-excellence-fab:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 18px 36px rgba(155,92,46,.24);
+}
+.manager-excellence-fab i{font-size:22px}
+
+.manager-fab-tip{
+  position:absolute;
+  left:64px;
+  white-space:nowrap;
+  background:#fff;
+  color:#6f3a99;
+  border:1px solid #e5d9ec;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:9px;
+  font-weight:800;
+  box-shadow:0 10px 24px rgba(32,36,68,.10);
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(-4px);
+  transition:.18s;
+}
+.manager-excellence-fab:hover .manager-fab-tip{
+  opacity:1;
+  transform:none;
+}
+
+.manager-excellence-drawer{
+  position:absolute;
+  top:92px;
+  left:22px;
+  width:min(390px,calc(100% - 70px));
+  opacity:0;
+  transform:translateX(-14px) scale(.985);
+  pointer-events:none;
+  z-index:40;
+  transition:opacity .2s ease,transform .24s cubic-bezier(.2,.8,.2,1);
+}
+.manager-excellence-drawer.open{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+
+.manager-excellence-panel{
+  background:rgba(255,255,255,.99);
+  border:1px solid #eadfd6;
+  border-left:4px solid #b96c37;
+  border-radius:21px;
+  padding:16px;
+  box-shadow:0 24px 58px rgba(36,31,58,.20);
+}
+.manager-excellence-panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding-bottom:12px;
+  margin-bottom:10px;
+  border-bottom:1px solid #eee9f3;
+}
+.manager-excellence-panel-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.manager-excellence-panel-title>span{
+  width:42px;height:42px;
+  border-radius:13px;
+  background:#fff6ef;
+  color:#b96c37;
+  border:1px solid #edd0bc;
+  display:flex;align-items:center;justify-content:center;
+}
+.manager-excellence-panel-title h4{
+  margin:0;
+  color:#122e5a;
+  font-size:13px;
+}
+.manager-excellence-panel-title small{
+  display:block;
+  margin-top:2px;
+  color:#8a91a4;
+  font-size:8.5px;
+}
+.manager-excellence-close{
+  width:28px;height:28px;
+  border-radius:50%;
+  border:1px solid #e5e7ed;
+  background:#f7f8fa;
+  color:#7e8798;
+  cursor:pointer;
+}
+
+.manager-excellence-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.manager-excellence-row{
+  display:grid;
+  grid-template-columns:26px 38px 1fr auto;
+  align-items:center;
+  gap:9px;
+  min-height:58px;
+  padding:9px 10px;
+  border:1px solid #e8eaf0;
+  border-radius:13px;
+  background:#fff;
+}
+.manager-excellence-row.first{
+  border-color:#ead69d;
+  background:#fffcf3;
+}
+.mex-rank{
+  width:24px;height:24px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#eeeaf5;
+  color:#6a3f96;
+  font-size:8px;
+  font-weight:800;
+}
+.manager-excellence-row.first .mex-rank{
+  background:#f6d978;
+  color:#765600;
+}
+.mex-avatar{
+  width:36px;height:36px;
+  border-radius:11px;
+  background:linear-gradient(135deg,#6a4098,#3265ad);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;
+  font-weight:800;
+}
+.mex-copy b{
+  display:block;
+  color:#21375d;
+  font-size:9px;
+}
+.mex-copy small{
+  display:block;
+  margin-top:2px;
+  color:#939bad;
+  font-size:7px;
+}
+.manager-excellence-row strong{
+  color:#6e3e9d;
+  font-size:16px;
+  font-variant-numeric:tabular-nums;
+}
+
+@media(max-width:900px){
+  .manager-excellence-fab{
+    left:8px;
+    top:92px;
+  }
+  .manager-excellence-drawer{
+    left:18px;
+    top:154px;
+    width:calc(100% - 36px);
+  }
 }
 </style>
 
@@ -3132,7 +3470,7 @@ section.wrap{padding-top:62px;padding-bottom:62px}
 </header>
 <div class="wrap">
 <div class="stat-strip">
-<div class="stat-tile"><div class="num">10</div><div class="lbl">فروع ضمن منظومة موحّدة</div></div>
+<div class="stat-tile"><div class="num">12</div><div class="lbl">فرعًا ضمن منظومة موحّدة، تشمل التعليم الإلكتروني</div></div>
 <div class="stat-tile featured"><span class="tile-star"><i class="fa-solid fa-star"></i></span><div class="num">5</div><div class="lbl">أدوار رئيسية بتجربة مخصصة</div></div>
 <div class="stat-tile"><div class="num">AR / EN</div><div class="lbl">تجربة ثنائية اللغة بتصميم عربي أصيل</div></div>
 <div class="stat-tile"><div class="num">1</div><div class="lbl">رحلة رقمية أكاديمية متكاملة</div></div>
@@ -3766,9 +4104,8 @@ const roles = [
       {icon:'fa-square-check', title:'طلبات اعتماد الاختبارات', badge:'طلبان جديدان', bBg:'var(--ak-color-warning-soft)', bColor:'var(--ak-color-warning)', body:'مراجعة اختبارات المدربين واعتمادها قبل نشرها للمتدربات.', action:'مراجعة الطلبات', fact:'✅ اعتمادك هو آخر خطوة قبل وصول الاختبار لأي متدربة — لا يُنشر بدونه.'},
     ],
     items:[
-      {icon:'fa-gauge', label:'لوحة التحكم', target:'top'},
-      {icon:'fa-users-gear', label:'إدارة قائمة المتدربات', target:'op:0'},
       {icon:'fa-people-group', label:'إدارة الشعب', target:'op:1'},
+      {icon:'fa-users-gear', label:'إدارة قائمة المتدربات', target:'op:0'},
       {icon:'fa-square-check', label:'طلبات اعتماد الاختبارات', target:'op:2'},
       {icon:'fa-circle-info', label:'الأدلة الإرشادية', target:'top'},
     ]
@@ -3789,9 +4126,11 @@ const roles = [
       {icon:'fa-clipboard-check', title:'تقرير الامتثال', body:'متابعة التزام مقررات الفرع بالسياسات المركزية.', action:'عرض التقرير', fact:'📈 يُحدَّث تلقائيًا كل ما تغيّرت بيانات أي مقرر — دون إعداد يدوي.'},
     ],
     items:[
-      {icon:'fa-shield-halved', label:'لوحة مدير الفرع', target:'op:0'},
-      {icon:'fa-calendar-check', label:'تهيئة الربع', target:'op:1'},
-      {icon:'fa-circle-info', label:'الأدلة الإرشادية', target:'op:0'},
+      {icon:'fa-shield-halved', label:'لوحة مدير الفرع', target:'top'},
+      {icon:'fa-users-gear', label:'إدارة الطاقم', target:'top'},
+      {icon:'fa-calendar-check', label:'تهيئة الربع', target:'top'},
+      {icon:'fa-bullhorn', label:'الإعلانات', target:'top'},
+      {icon:'fa-circle-info', label:'الأدلة الإرشادية', target:'top'},
     ]
   },
 ];
@@ -3901,7 +4240,7 @@ function sidebarHtml(r){
       <nav class="rs-nav">
         ${r.items.map((it,idx)=>`<a href="#" class="rs-item${idx===0?' active':''}" data-nav="${it.target||'top'}" data-label="${it.label}" data-icon="${it.icon}"><i class="fa-solid ${it.icon}"></i><span>${it.label}</span></a>`).join('')}
       </nav>
-      <div class="rs-foot">
+      <div class="rs-foot${r.id==='trainee' ? ' dashboard-preview-trigger' : ''}"${r.id==='trainee' ? ` data-preview="trainee-profile" data-preview-title="الملف الشخصي" data-preview-icon="fa-id-card"` : ''}>
         <span class="rs-avatar">${r.initials}</span>
         <div><b>${r.sampleName}</b><span>${r.label}</span></div>
       </div>
@@ -3960,8 +4299,8 @@ function traineeMain(r){
           <h3>أهلاً بك، ${r.sampleName}</h3>
           <p>واصل التقدّم نحو أهدافك الأكاديمية</p>
           <div class="trainee-hero-actions">
-            <span class="trainee-btn primary"><i class="fa-regular fa-calendar"></i> عرض الجدول</span>
-            <span class="trainee-btn ghost"><i class="fa-solid fa-calendar-days"></i> التقويم الأكاديمي</span>
+            <span class="trainee-btn primary dashboard-preview-trigger" data-preview="lectures" data-preview-title="الجدول" data-preview-icon="fa-table-list"><i class="fa-regular fa-calendar"></i> عرض الجدول</span>
+            <span class="trainee-btn ghost dashboard-preview-trigger" data-preview="trainee-calendar" data-preview-title="التقويم الأكاديمي" data-preview-icon="fa-calendar-days"><i class="fa-solid fa-calendar-days"></i> التقويم الأكاديمي</span>
           </div>
         </div>
         <div class="trainee-hero-logo"><img id="traineeHeroLogo" alt="شعار أكاديميتي"></div>
@@ -4014,22 +4353,6 @@ function traineeMain(r){
         </div>
       </div>
 
-      <div class="trainee-subview scroll-target" id="profile-${r.id}">
-        <div class="trainee-subview-head"><h4><i class="fa-regular fa-id-card" style="color:${r.hex};margin-inline-end:7px"></i> الملف الشخصي</h4><span>عرض مبسّط من الواجهة الفعلية</span></div>
-        <div class="profile-clone">
-          ${[
-            ['الاسم الكامل',r.sampleName],['الهوية الوطنية/الإقامة','1•••••••••'],['الجنس','أنثى'],['رقم الجوال','05••••••••'],['البريد الإلكتروني','student@aol.edu.sa'],['المدينة','—'],['الدبلوم','دبلوم إدارة الأعمال'],['الربع','الربع الأول']
-          ].map(x=>`<div class="profile-field"><small>${x[0]}</small><b>${x[1]}</b></div>`).join('')}
-        </div>
-      </div>
-
-      <div class="trainee-subview scroll-target" id="cal-${r.id}">
-        <div class="trainee-subview-head"><h4><i class="fa-regular fa-calendar-days" style="color:${r.hex};margin-inline-end:7px"></i> التقويم الأكاديمي</h4><span>أغسطس 2026</span></div>
-        <div class="mini-calendar">
-          ${['أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة','سبت'].map(d=>`<div class="dow">${d}</div>`).join('')}
-          ${Array.from({length:28},(_,i)=>i+1).map(d=>`<div class="day">${d}${d===3?'<span class="event">اختبار نهائي</span>':''}${d===6?'<span class="event">مشاركة مفتوحة</span>':''}</div>`).join('')}
-        </div>
-      </div>
     </div>
   `;
 }
@@ -4192,84 +4515,185 @@ function trainerMain(r){
 }
 
 
+
 function managerMain(r){
   return `
-    <div class="manager-dashboard-app scroll-target" id="top-${r.id}">
-      <div class="manager-hero">
-        <div class="manager-hero-copy">
-          <span class="manager-chip">لوحة مدير الفرع</span>
-          <h3>مرحبًا، ${r.sampleName}</h3>
-          <p>متابعة مؤشرات الفرع والعمليات الأكاديمية من مكان واحد.</p>
-          <div class="manager-hero-actions">
-            <button class="manager-btn ghost dashboard-preview-trigger" data-preview="manager-calendar" data-preview-title="التقويم الأكاديمي" data-preview-icon="fa-calendar-days">التقويم الأكاديمي</button>
-            <button class="manager-btn primary dashboard-preview-trigger" data-preview="manager-schedule" data-preview-title="الجدول" data-preview-icon="fa-table-list">عرض الجدول</button>
+    <div class="manager-actual-app scroll-target" id="top-${r.id}">
+      <button type="button" class="manager-excellence-fab" aria-label="أفضل 3 متفوقين في الفرع">
+        <i class="fa-regular fa-star"></i>
+        <span class="manager-fab-tip">أفضل 3 متفوقين</span>
+      </button>
+
+      <div class="manager-excellence-drawer">
+        <div class="manager-excellence-panel">
+          <div class="manager-excellence-panel-head">
+            <div class="manager-excellence-panel-title">
+              <span><i class="fa-regular fa-star"></i></span>
+              <div>
+                <h4>أفضل 3 متفوقين في الفرع</h4>
+                <small>حسب نقاط التميّز</small>
+              </div>
+            </div>
+            <button type="button" class="manager-excellence-close" aria-label="إغلاق">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="manager-excellence-list">
+            <div class="manager-excellence-row first">
+              <span class="mex-rank">1</span>
+              <span class="mex-avatar">س</span>
+              <div class="mex-copy">
+                <b>سارة أحمد</b>
+                <small>المركز الأول</small>
+              </div>
+              <strong>99</strong>
+            </div>
+
+            <div class="manager-excellence-row second">
+              <span class="mex-rank">2</span>
+              <span class="mex-avatar">م</span>
+              <div class="mex-copy">
+                <b>متدرب متميز</b>
+                <small>المركز الثاني</small>
+              </div>
+              <strong>82</strong>
+            </div>
+
+            <div class="manager-excellence-row third">
+              <span class="mex-rank">3</span>
+              <span class="mex-avatar">ع</span>
+              <div class="mex-copy">
+                <b>متدرب متميز</b>
+                <small>المركز الثالث</small>
+              </div>
+              <strong>74</strong>
+            </div>
           </div>
         </div>
-        <div class="manager-hero-mark"><i class="fa-solid fa-building-user"></i></div>
+      </div>
+      <div class="manager-actual-head">
+        <div>
+          <h3>أكاديمية القطيف</h3>
+          <p>نظرة تنفيذية مختصرة عن حالة الفرع</p>
+        </div>
+        <span class="branch-stable">الفرع مستقر</span>
       </div>
 
-      <div class="manager-summary-grid">
-        <article class="manager-summary dashboard-preview-trigger" data-preview="manager-trainees" data-preview-title="المتدربون" data-preview-icon="fa-user-graduate">
-          <span class="ms-icon"><i class="fa-solid fa-user-graduate"></i></span>
-          <div><small>المتدربون</small><b>متابعة المسجلين</b><em>عرض الحالات والبيانات الأكاديمية</em></div>
+      <div class="manager-actual-grid">
+        <article class="manager-actual-card neutral">
+          <span class="mac-icon"><i class="fa-solid fa-calendar-check"></i></span>
+          <div class="mac-copy"><small>جاهزية الربع القادم</small><strong>—</strong></div>
         </article>
-        <article class="manager-summary dashboard-preview-trigger" data-preview="manager-trainers" data-preview-title="المدربون" data-preview-icon="fa-chalkboard-user">
-          <span class="ms-icon"><i class="fa-solid fa-chalkboard-user"></i></span>
-          <div><small>المدربون</small><b>متابعة الإسناد</b><em>المقررات والشعب المرتبطة بالفرع</em></div>
+
+        <article class="manager-actual-card neutral">
+          <span class="mac-icon"><i class="fa-solid fa-user-check"></i></span>
+          <div class="mac-copy"><small>اكتمال الإسناد</small><strong>—</strong></div>
         </article>
-        <article class="manager-summary dashboard-preview-trigger" data-preview="manager-followup" data-preview-title="تحتاج متابعة" data-preview-icon="fa-triangle-exclamation">
-          <span class="ms-icon warn"><i class="fa-solid fa-triangle-exclamation"></i></span>
-          <div><small>تحتاج متابعة</small><b>حالات تشغيلية</b><em>عناصر تستدعي مراجعة مدير الفرع</em></div>
+
+        <article class="manager-actual-card success dashboard-preview-trigger"
+          data-preview="manager-online-courses"
+          data-preview-title="مقررات التعليم الإلكتروني"
+          data-preview-icon="fa-laptop">
+          <span class="mac-icon"><i class="fa-solid fa-laptop"></i></span>
+          <div class="mac-copy"><small>مقررات التعليم الإلكتروني</small><strong>0</strong></div>
         </article>
-        <article class="manager-summary dashboard-preview-trigger" data-preview="manager-prep" data-preview-title="تهيئة الربع" data-preview-icon="fa-calendar-check">
-          <span class="ms-icon"><i class="fa-solid fa-calendar-check"></i></span>
-          <div><small>الربع الأكاديمي</small><b>تهيئة الربع</b><em>الوصول إلى متطلبات التهيئة</em></div>
+
+        <article class="manager-actual-card success dashboard-preview-trigger"
+          data-preview="manager-quizzes-followup"
+          data-preview-title="اختبارات تحتاج متابعة"
+          data-preview-icon="fa-file-circle-check">
+          <span class="mac-icon"><i class="fa-solid fa-file-circle-check"></i></span>
+          <div class="mac-copy"><small>اختبارات تحتاج متابعة</small><strong>0</strong></div>
+        </article>
+
+        <article class="manager-actual-card success dashboard-preview-trigger"
+          data-preview="manager-overdue"
+          data-preview-title="الحالات المتأخرة"
+          data-preview-icon="fa-clock">
+          <span class="mac-icon"><i class="fa-solid fa-clock"></i></span>
+          <div class="mac-copy"><small>الحالات المتأخرة</small><strong>0</strong></div>
+        </article>
+
+        <article class="manager-actual-card neutral dashboard-preview-trigger"
+          data-preview="manager-service-rating"
+          data-preview-title="تقييم خدمة العملاء"
+          data-preview-icon="fa-star">
+          <span class="mac-icon"><i class="fa-solid fa-star"></i></span>
+          <div class="mac-copy"><small>تقييم خدمة العملاء</small><strong>—</strong></div>
         </article>
       </div>
 
-      <div class="manager-grid">
-        <section class="manager-panel">
-          <div class="manager-panel-head">
-            <div><span>متابعة الفرع</span><h4>نظرة تشغيلية</h4></div>
-            <span class="manager-live"><i></i> محدث</span>
-          </div>
-          <div class="manager-ops">
-            <button class="manager-op dashboard-preview-trigger" data-preview="manager-trainees" data-preview-title="المتدربون" data-preview-icon="fa-user-graduate"><i class="fa-solid fa-user-graduate"></i><span>المتدربون</span><small>البيانات والحالة</small></button>
-            <button class="manager-op dashboard-preview-trigger" data-preview="manager-trainers" data-preview-title="المدربون" data-preview-icon="fa-chalkboard-user"><i class="fa-solid fa-chalkboard-user"></i><span>المدربون</span><small>الإسناد والمتابعة</small></button>
-            <button class="manager-op dashboard-preview-trigger" data-preview="manager-prep" data-preview-title="تهيئة الربع" data-preview-icon="fa-calendar-check"><i class="fa-solid fa-calendar-check"></i><span>تهيئة الربع</span><small>الاستعداد الأكاديمي</small></button>
-            <button class="manager-op dashboard-preview-trigger" data-preview="manager-guides" data-preview-title="الأدلة الإرشادية" data-preview-icon="fa-circle-info"><i class="fa-solid fa-circle-info"></i><span>الأدلة الإرشادية</span><small>الإجراءات المعتمدة</small></button>
-          </div>
-        </section>
+      <section class="manager-attention-card">
+        <div>
+          <h4>تحتاج انتباهك</h4>
+          <p>لا توجد عناصر حرجة في الوقت الحالي.</p>
+        </div>
+      </section>
 
-        <section class="manager-panel excellence-manager">
-          <div class="manager-panel-head">
-            <div><span>التميّز</span><h4>أعلى 3 متدربين في الفرع</h4></div>
-            <span class="manager-medal"><i class="fa-solid fa-star"></i></span>
-          </div>
-          <div class="manager-top3">
-            <div class="top3-item second"><span class="rank">2</span><div class="avatar">م</div><b>متدرب متميز</b><small>المستوى الفضي</small><strong>82</strong></div>
-            <div class="top3-item first"><span class="rank">1</span><div class="avatar">س</div><b>متدرب متميز</b><small>المستوى الذهبي</small><strong>99</strong></div>
-            <div class="top3-item third"><span class="rank">3</span><div class="avatar">ع</div><b>متدرب متميز</b><small>المستوى البرونزي</small><strong>74</strong></div>
-          </div>
-          <button class="manager-wide-action dashboard-preview-trigger" data-preview="manager-excellence" data-preview-title="نتائج التميّز" data-preview-icon="fa-star">عرض نتائج التميّز في الفرع</button>
-        </section>
-      </div>
+      <section class="manager-toptrainers-card dashboard-preview-trigger"
+        data-preview="manager-toptrainers"
+        data-preview-title="أفضل 3 مدربين"
+        data-preview-icon="fa-ranking-star">
+        <div>
+          <h4>أفضل 3 مدربين</h4>
+          <small>بناءً على نقاط التميّز المسجلة</small>
+          <p>لا توجد نقاط تميّز مسجلة للمدربين في هذا الفرع حتى الآن.</p>
+        </div>
+      </section>
     </div>
   `;
 }
 
 function supportMain(r){
+  const supportKpis = [
+    {icon:'fa-id-card', bg:'#2b67bd', num:'0', label:'طلبات تعديل البطاقة الرقمية', sub:'بانتظار الإجراء', subBg:'#f0f1f4', subColor:'#6b7284', key:'support-kpi-card-req'},
+    {icon:'fa-user-pen', bg:'#4a5670', num:'0', label:'طلبات تعديل الملف الشخصي', sub:'بانتظار الإجراء', subBg:'#f0f1f4', subColor:'#6b7284', key:'support-kpi-profile-req'},
+    {icon:'fa-file-circle-exclamation', bg:'#169578', num:'0', label:'أعذار بانتظار المراجعة', sub:'بانتظار الإجراء', subBg:'#f0f1f4', subColor:'#6b7284', key:'support-kpi-excuses'},
+    {icon:'fa-clock', bg:'#B3261E', num:'2', label:'تذاكر تجاوزت SLA', sub:'تحتاج أولوية', subBg:'#fbe7e5', subColor:'#B3261E', key:'support-kpi-sla'},
+    {icon:'fa-ticket', bg:'#B4761B', num:'3', label:'التذاكر المفتوحة', sub:'غير مغلقة', subBg:'#FDF2E2', subColor:'#B4761B', key:'support-tickets'},
+    {icon:'fa-users', bg:'#5D378A', num:'707', label:'المتدربون النشطون', sub:'ضمن الفرع فقط', subBg:'#F0EAF7', subColor:'#5D378A', key:'support-trainees'},
+  ];
+  const supportToday = [
+    {icon:'fa-stopwatch', bg:'#2b67bd', num:'9.5 س', label:'متوسط أول استجابة'},
+    {icon:'fa-bolt', bg:'#B4761B', num:'0', label:'عاجلة مفتوحة'},
+    {icon:'fa-user-check', bg:'#5D378A', num:'2', label:'مسندة لي'},
+    {icon:'fa-circle-check', bg:'#169578', num:'0', label:'مغلقة اليوم'},
+  ];
   return `
     <div class="support-dashboard-app scroll-target" id="top-${r.id}">
       <div class="support-hero">
-        <div>
-          <span class="support-chip">خدمة العملاء</span>
-          <h3>مرحبًا، ${r.sampleName}</h3>
-          <p>إدارة طلبات المتدربين والخدمات اليومية ضمن نطاق الفرع.</p>
+        <div class="support-hero-copy">
+          <span class="mini"><i class="fa-solid fa-circle" style="font-size:6px"></i> منصة أكاديمية التعلّم</span>
+          <h3>أهلاً بك، ${firstNameOf(r.sampleName)}</h3>
+          <p>واصل التقدم نحو أهدافك الأكاديمية!</p>
+          <div class="support-hero-actions">
+            <button class="support-btn primary dashboard-preview-trigger" data-preview="manager-schedule" data-preview-title="الجدول" data-preview-icon="fa-table-list">عرض الجدول</button>
+            <button class="support-btn ghost dashboard-preview-trigger" data-preview="manager-calendar" data-preview-title="التقويم الأكاديمي" data-preview-icon="fa-calendar-days">التقويم الأكاديمي</button>
+          </div>
         </div>
         <div class="support-hero-icon"><i class="fa-solid fa-headset"></i></div>
       </div>
 
+      <div class="support-kpi-head"><span>KPI</span><h4>مؤشرات الأداء الرئيسية</h4></div>
+      <div class="support-kpi-grid">
+        ${supportKpis.map(k=>`<div class="support-kpi-card dashboard-preview-trigger" data-preview="${k.key}" data-preview-title="${k.label}" data-preview-icon="${k.icon}">
+          <span class="kpi-ic" style="background:${k.bg}"><i class="fa-solid ${k.icon}"></i></span>
+          <div class="kpi-num">${k.num}</div>
+          <div class="kpi-lbl">${k.label}</div>
+          <span class="kpi-sub" style="background:${k.subBg};color:${k.subColor}">${k.sub}</span>
+        </div>`).join('')}
+      </div>
+
+      <div class="support-kpi-head"><span>اليوم</span><h4>ملخص الأداء</h4></div>
+      <div class="support-today-card">
+        <div class="support-today-grid">
+          ${supportToday.map(t=>`<div class="support-today-item"><span class="sti-ic" style="background:${t.bg}"><i class="fa-solid ${t.icon}"></i></span><b>${t.num}</b><small>${t.label}</small></div>`).join('')}
+        </div>
+        <button class="support-today-btn dashboard-preview-trigger" data-preview="support-tickets" data-preview-title="نظام التذاكر الأكاديمية" data-preview-icon="fa-ticket">فتح مركز التذاكر <i class="fa-solid fa-arrow-left"></i></button>
+      </div>
+
+      <div class="support-kpi-head"><span>الوصول السريع</span><h4>المهام والخدمات</h4></div>
       <div class="support-quick-grid">
         <article class="support-card dashboard-preview-trigger" data-preview="support-trainees" data-preview-title="إدارة المتدربين" data-preview-icon="fa-users">
           <span class="support-icon blue"><i class="fa-solid fa-users"></i></span>
@@ -4292,129 +4716,107 @@ function supportMain(r){
           <i class="fa-solid fa-chevron-left tail"></i>
         </article>
       </div>
-
-      <div class="support-lower-grid">
-        <section class="support-panel">
-          <div class="support-panel-head"><div><span>العمل اليومي</span><h4>الطلبات والمتابعة</h4></div><span class="support-status"><i></i> متاح</span></div>
-          <div class="support-list">
-            <button class="support-row dashboard-preview-trigger" data-preview="support-tickets" data-preview-title="التذاكر الأكاديمية" data-preview-icon="fa-ticket">
-              <span class="row-icon"><i class="fa-solid fa-ticket"></i></span><div><b>التذاكر الأكاديمية</b><small>الطلبات والاستفسارات الواردة</small></div><span class="row-state">متابعة</span>
-            </button>
-            <button class="support-row dashboard-preview-trigger" data-preview="support-card" data-preview-title="البطاقة الرقمية" data-preview-icon="fa-id-card">
-              <span class="row-icon"><i class="fa-solid fa-id-card"></i></span><div><b>البطاقة الرقمية</b><small>التحقق من بيانات البطاقة وحالتها</small></div><span class="row-state">إدارة</span>
-            </button>
-            <button class="support-row soon">
-              <span class="row-icon"><i class="fa-solid fa-inbox"></i></span><div><b>إدارة الطلبات</b><small>خدمات إضافية ستتاح من نفس اللوحة</small></div><span class="row-state muted">قريبًا</span>
-            </button>
-          </div>
-        </section>
-
-        <section class="support-panel support-guide">
-          <div class="support-panel-head"><div><span>المساندة</span><h4>أدلة وإجراءات</h4></div><span class="guide-icon"><i class="fa-solid fa-circle-info"></i></span></div>
-          <p>الوصول السريع إلى التعليمات والإجراءات المعتمدة التي تساعد خدمة العملاء على تنفيذ المعاملة بالطريقة الصحيحة.</p>
-          <button class="support-guide-btn dashboard-preview-trigger" data-preview="support-guides" data-preview-title="الأدلة الإرشادية" data-preview-icon="fa-circle-info">فتح الأدلة الإرشادية</button>
-        </section>
-      </div>
     </div>
   `;
 }
 
 
 function supervisorMain(r){
+  const svKpis = [
+    {icon:'fa-square-check', bg:'#eaf8f1', color:'#20926b', num:'0', label:'اختبارات بانتظار الاعتماد', sub:'بانتظار المراجعة'},
+    {icon:'fa-list-check', bg:'#f1f2f7', color:'#5a6479', num:'0', label:'المهام المفتوحة', sub:'قيد المتابعة'},
+    {icon:'fa-people-group', bg:'#f3ecfb', color:'#6d409a', num:'3', label:'الشعب الأكاديمية المنشأة', sub:'ضمن الربع الحالي'},
+    {icon:'fa-users', bg:'#eaf3ff', color:'#2e69b5', num:'7', label:'إجمالي المدربين', sub:'ضمن نطاق الإشراف'},
+  ];
+  const svTop3 = [
+    {rank:2, pct:'0%', name:'أماني ناصر الله النجراني', cls:'second'},
+    {rank:1, pct:'100%', name:'رتيه محمد سعد القحطاني', cls:'first'},
+    {rank:3, pct:'0%', name:'اريج عبدالله هلال السواط', cls:'third'},
+  ];
+  const svAlerts = [
+    {icon:'fa-user-slash', bg:'#B4761B', count:'3', title:'شعب تحتاج إسناد مدرب', sub:'شعب أكاديمية بلا مدرب'},
+    {icon:'fa-user-clock', bg:'#2b67bd', count:'7', title:'مدربون بدون تكليف', sub:'لم يسند لهم أي شعبة'},
+    {icon:'fa-calendar-xmark', bg:'#7040a4', count:'3', title:'شعب بدون جدول محاضرات', sub:'الأيام والأوقات غير محددة'},
+    {icon:'fa-calendar-day', bg:'#169578', count:'0', title:'مدربون بدون جدول محاضرات', sub:'لا يوجد جدول لأي شعبة مكلف بها'},
+    {icon:'fa-triangle-exclamation', bg:'#B3261E', count:'0', title:'مهام تحتاج تدخل المشرف', sub:'متأخرة أو لم يتم إنجازها'},
+  ];
   return `
     <div class="supervisor-dashboard-app scroll-target" id="top-${r.id}">
-      <div class="supervisor-page-head">
-        <div>
-          <span class="supervisor-breadcrumb">الرئيسية ‹ لوحة المشرف</span>
-          <h3>لوحة المشرف</h3>
-        </div>
-        <div class="supervisor-head-actions">
-          <span class="supervisor-notify"><i class="fa-regular fa-bell"></i><b>3</b></span>
-          <div class="supervisor-user">
-            <span class="supervisor-avatar">أ</span>
-            <div><b>أحمد المشرف</b><small>مشرف عام</small></div>
+      <div class="support-hero">
+        <div class="support-hero-copy">
+          <span class="mini"><i class="fa-solid fa-circle" style="font-size:6px"></i> منصة أكاديمية التعلّم</span>
+          <h3>أهلاً بك، ${firstNameOf(r.sampleName)}</h3>
+          <p>واصل التقدم نحو أهدافك الأكاديمية!</p>
+          <div class="support-hero-actions">
+            <button class="support-btn primary dashboard-preview-trigger" data-preview="manager-schedule" data-preview-title="الجدول" data-preview-icon="fa-table-list">عرض الجدول</button>
+            <button class="support-btn ghost dashboard-preview-trigger" data-preview="manager-calendar" data-preview-title="التقويم الأكاديمي" data-preview-icon="fa-calendar-days">التقويم الأكاديمي</button>
           </div>
         </div>
+        <div class="support-hero-icon"><i class="fa-solid fa-user-shield"></i></div>
       </div>
 
-      <section class="supervisor-welcome">
-        <span class="supervisor-welcome-icon"><i class="fa-solid fa-user-check"></i></span>
-        <div>
-          <h4>مرحباً بك، أحمد المشرف 👋</h4>
-          <p>هنا نظرة عامة على أداء المدربين والمهام في منصتك.</p>
+      <div class="sv-panel">
+        <div class="sv-section-head">
+          <span class="sv-tag">الإشراف الأكاديمي</span>
+          <h4>مركز متابعة اليوم</h4>
         </div>
-      </section>
+        <div class="sv-kpi-grid">
+          ${svKpis.map(k=>`<div class="sv-kpi-card dashboard-preview-trigger" data-preview="sv-review" data-preview-title="${k.label}" data-preview-icon="${k.icon}">
+            <span class="kpi-ic" style="background:${k.bg};color:${k.color}"><i class="fa-solid ${k.icon}"></i></span>
+            <div class="kpi-num">${k.num}</div>
+            <div class="kpi-lbl">${k.label}</div>
+            <div class="kpi-sub">${k.sub}</div>
+          </div>`).join('')}
+        </div>
 
-      <div class="supervisor-stats">
-        <article class="supervisor-stat dashboard-preview-trigger" data-preview="sv-trainers" data-preview-title="إجمالي المدربين" data-preview-icon="fa-users">
-          <span class="sv-stat-icon blue"><i class="fa-solid fa-users"></i></span>
-          <div><b>48</b><strong>إجمالي المدربين</strong><small>منضمين للمنصة</small></div>
-        </article>
-
-        <article class="supervisor-stat dashboard-preview-trigger" data-preview="sv-tasks" data-preview-title="المهام القائمة" data-preview-icon="fa-list-check">
-          <span class="sv-stat-icon amber"><i class="fa-solid fa-list-check"></i></span>
-          <div><b>12</b><strong>مهام قائمة</strong><small>تحتاج إلى متابعة</small></div>
-        </article>
-
-        <article class="supervisor-stat dashboard-preview-trigger" data-preview="sv-active" data-preview-title="المدربون النشطون" data-preview-icon="fa-circle-check">
-          <span class="sv-stat-icon green"><i class="fa-solid fa-circle-check"></i></span>
-          <div><b>41</b><strong>مدربون نشطون</strong><small>نشاط حديث داخل المنصة</small></div>
-        </article>
-
-        <article class="supervisor-stat dashboard-preview-trigger" data-preview="sv-review" data-preview-title="بحاجة مراجعة" data-preview-icon="fa-triangle-exclamation">
-          <span class="sv-stat-icon red"><i class="fa-solid fa-triangle-exclamation"></i></span>
-          <div><b>7</b><strong>بحاجة مراجعة</strong><small>حالات تستدعي المتابعة</small></div>
-        </article>
+        <div class="sv-subhead">
+          <div class="sv-subhead-copy">
+            <span class="sv-tag gold">النخب</span>
+            <h4>المدربون المتميزون</h4>
+            <p>أعلى 3 مدربين وفق مؤشر التميز الحالي</p>
+          </div>
+          <button class="sv-link-chip dashboard-preview-trigger" data-preview="sv-trainers" data-preview-title="المدربون المتميزون" data-preview-icon="fa-star">عرض المدربين <i class="fa-solid fa-arrow-left"></i></button>
+        </div>
+        <div class="manager-top3">
+          ${svTop3.map(t=>`<div class="top3-item ${t.cls}"><span class="rank">${t.rank}</span><div class="avatar">${t.name.trim().charAt(0)}</div><b>${t.name}</b><small>مؤشر التميز</small><strong>${t.pct}</strong></div>`).join('')}
+        </div>
       </div>
 
-      <div class="supervisor-main-grid">
+      <div class="sv-bottom-grid">
         <section class="supervisor-card">
           <div class="supervisor-card-head">
-            <div><span>النشاط الأخير</span><h4>آخر عمليات الدخول</h4><p>آخر عمليات الدخول للمنصة ضمن نطاقك</p></div>
-            <span class="supervisor-card-icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+            <div class="supervisor-card-head-copy"><h4>تنبيهات التشغيل الأكاديمي</h4><p>الحالات التي تحتاج انتباهك الآن</p></div>
+            <span class="sv-tag">تنبيهات المشرف</span>
           </div>
-          <div class="supervisor-login-list">
-            <div class="supervisor-login-row">
-              <span class="login-avatar">أ ج</span>
-              <div class="login-name"><b>أماني عبد الله الجزائري</b><small>دخول للمنصة</small></div>
-              <div class="login-time"><b>15 أغسطس 2026</b><small>AM 12:56</small></div>
-            </div>
-            <div class="supervisor-login-row">
-              <span class="login-avatar">ز ق</span>
-              <div class="login-name"><b>زينه محمد سعد القحطاني</b><small>دخول للمنصة</small></div>
-              <div class="login-time"><b>15 أغسطس 2026</b><small>AM 12:53</small></div>
-            </div>
-            <div class="supervisor-login-row">
-              <span class="login-avatar">أ م</span>
-              <div class="login-name"><b>أميره أحمد عبدالله المحمودي</b><small>دخول للمنصة</small></div>
-              <div class="login-time"><b>27 يوليو 2026</b><small>AM 11:03</small></div>
-            </div>
-            <div class="supervisor-login-row">
-              <span class="login-avatar">ر ح</span>
-              <div class="login-name"><b>ريانة طلال عبدالله الحربي</b><small>دخول للمنصة</small></div>
-              <div class="login-time"><b>9 يوليو 2026</b><small>PM 12:54</small></div>
-            </div>
+          <div class="sv-alert-list">
+            ${svAlerts.map(a=>`<button class="sv-alert-row dashboard-preview-trigger" data-preview="sv-review" data-preview-title="${a.title}" data-preview-icon="${a.icon}">
+              <span class="ar-ic" style="background:${a.bg}"><i class="fa-solid ${a.icon}"></i></span>
+              <span class="ar-count">${a.count}</span>
+              <div><b>${a.title}</b><small>${a.sub}</small></div>
+            </button>`).join('')}
           </div>
-          <button class="supervisor-link dashboard-preview-trigger" data-preview="sv-trainers" data-preview-title="استعراض المدربين" data-preview-icon="fa-users">استعراض المدربين <i class="fa-solid fa-chevron-left"></i></button>
         </section>
 
-        <section class="supervisor-card supervisor-priority">
+        <section class="supervisor-card">
           <div class="supervisor-card-head">
-            <div><span>المتابعة</span><h4>أولوية المتابعة</h4><p>التنبيهات التي تستدعي إجراء منك الآن</p></div>
-            <span class="supervisor-card-icon warn"><i class="fa-solid fa-circle-exclamation"></i></span>
+            <div class="supervisor-card-head-copy"><h4>أداء المهام</h4><p>ملخص إنجاز المهام المسندة للمدربين</p></div>
+            <button class="sv-link-chip dashboard-preview-trigger" data-preview="sv-tasks" data-preview-title="أداء المهام" data-preview-icon="fa-list-check">عرض المهام <i class="fa-solid fa-arrow-left"></i></button>
           </div>
-          <div class="supervisor-alert-box">
-            <span class="alert-icon"><i class="fa-solid fa-users"></i></span>
-            <div>
-              <b>مدربون لم يسجلوا الدخول منذ أكثر من 7 أيام</b>
-              <small>تواصل مع المدربين لضمان سير العملية التدريبية</small>
+          <div class="sv-task-body">
+            <div class="sv-ring-wrap">
+              <div class="sv-ring" data-pct="100%" style="--p:100"></div>
+              <small>نسبة الإنجاز</small>
+            </div>
+            <div class="sv-task-stats">
+              <div class="sv-task-stat"><b style="color:#B4761B">0</b><small>قيد التنفيذ</small></div>
+              <div class="sv-task-stat"><b style="color:#148F6B">1</b><small>مكتملة</small></div>
+              <div class="sv-task-stat"><b style="color:#6b7284">0</b><small>أخرى</small></div>
+              <div class="sv-task-stat"><b style="color:#B3261E">0</b><small>متأخرة</small></div>
             </div>
           </div>
-          <button class="supervisor-link dashboard-preview-trigger" data-preview="sv-review" data-preview-title="حالات المتابعة" data-preview-icon="fa-triangle-exclamation">عرض جميع حالات المتابعة <i class="fa-solid fa-chevron-left"></i></button>
+          <div class="sv-progress-track"><div class="sv-progress-fill" style="width:100%"></div></div>
         </section>
       </div>
-
-      <div class="supervisor-update"><i class="fa-solid fa-circle-info"></i> آخر تحديث: اليوم، 10:30 ص</div>
     </div>
   `;
 }
@@ -4455,9 +4857,11 @@ function resolveTargetId(r, raw){
 
 const ROLE_HELP_DESCRIPTIONS = {
   'لوحة التحكم':'تعرض أهم المؤشرات والمهام اليومية الخاصة بالدور في شاشة واحدة.',
-  'لوحة مدير الفرع':'متابعة أداء الفرع ومؤشراته والعمليات الأكاديمية ضمن نطاق الفرع.',
+  'لوحة المدير':'متابعة أداء الفرع ومؤشراته والعمليات الأكاديمية ضمن نطاق الفرع.',
   'إدارة المتدربين':'متابعة المتدربين وبياناتهم الأكاديمية وحالتهم ضمن نطاق الصلاحية.',
   'إدارة المدربين':'متابعة المدربين وإسنادهم إلى الشعب والمقررات المرتبطة بهم.',
+  'إدارة الطاقم':'إدارة طاقم الفرع ومتابعة الموظفين والأدوار المرتبطة بالفرع ضمن نطاق الصلاحية.',
+  'الإعلانات':'إنشاء ومتابعة إعلانات الفرع الموجهة للمستفيدين ضمن نطاق الفرع.',
   'متابعة الحضور':'متابعة الحضور والغياب ومراجعة السجلات المرتبطة بالمتدربين.',
   'نظام التذاكر الأكاديمية':'استقبال الطلبات والاستفسارات ومتابعة الردود والحالات حتى الإغلاق.',
   'إدارة البطاقة الرقمية':'إدارة البطاقة الرقمية والتحقق من بيانات المستفيد وحالة البطاقة.',
@@ -4465,7 +4869,7 @@ const ROLE_HELP_DESCRIPTIONS = {
   'اعتماد الاختبارات':'مراجعة الاختبارات المرسلة والتحقق منها واعتمادها وفق الصلاحيات.',
   'مكتبتي':'الوصول إلى المواد والملفات التعليمية المتاحة للدور.',
   'استراتيجياتي':'الوصول إلى الأدوات والاستراتيجيات التعليمية المساندة.',
-  'تهيئة الربع':'تهيئة الربع الأكاديمي وربط عناصره التشغيلية قبل بدء الدراسة.',
+  'تهيئة الربع القادم':'تهيئة الربع الأكاديمي وربط عناصره التشغيلية قبل بدء الدراسة.',
   'الحالة الإرشادية':'عرض الإرشادات والتنبيهات التي تساعد المستخدم على استكمال إجراءاته.',
   'الأدلة الإرشادية':'الوصول إلى الأدلة والتعليمات المعتمدة الخاصة باستخدام المنصة.',
   'مساري التعليمي':'يعرض تقدم المتدرب في الدبلوم والمقررات المرتبطة بمساره.',
@@ -4570,6 +4974,17 @@ function openDetailWindow(trigger,r){
     }else{
       body='<div class="preview-muted">لا توجد تفاصيل إضافية لهذه البطاقة.</div>';
     }
+  } else if(type==='trainee-profile' && r){
+    body=`<div class="profile-clone">
+      ${[
+        ['الاسم الكامل',r.sampleName],['الهوية الوطنية/الإقامة','1•••••••••'],['الجنس','أنثى'],['رقم الجوال','05••••••••'],['البريد الإلكتروني','student@aol.edu.sa'],['المدينة','—'],['الدبلوم','دبلوم إدارة الأعمال'],['الربع','الربع الأول']
+      ].map(x=>`<div class="profile-field"><small>${x[0]}</small><b>${x[1]}</b></div>`).join('')}
+    </div>`;
+  } else if(type==='trainee-calendar'){
+    body=`<div class="mini-calendar">
+      ${['أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة','سبت'].map(d=>`<div class="dow">${d}</div>`).join('')}
+      ${Array.from({length:28},(_,i)=>i+1).map(d=>`<div class="day">${d}${d===3?'<span class="event">اختبار نهائي</span>':''}${d===6?'<span class="event">مشاركة مفتوحة</span>':''}</div>`).join('')}
+    </div>`;
   } else {
     body='<div class="preview-muted">لا توجد تفاصيل إضافية لهذه البطاقة.</div>';
   }
@@ -4944,6 +5359,16 @@ showRoleHelp = function(r, link){
   rail.querySelector('p').textContent=roleHelpText(label);
   rail.classList.add('open');
   main.querySelector('.role-local-dim').classList.add('active');
+  // The rail is pinned near the top of .role-main (by design, so it reads as
+  // part of the dashboard rather than a floating popup) — but .role-main can
+  // be much taller than the viewport, so if the user had scrolled down into
+  // the dashboard before clicking a sidebar item, that anchor point can land
+  // above the visible area (or behind the sticky site header). Bring the
+  // dashboard's own top (a .scroll-target, so it already accounts for the
+  // sticky header's height) into view so the rail is never hidden/clipped.
+  requestAnimationFrame(()=>{
+    (document.getElementById('top-'+r.id) || main).scrollIntoView({behavior:'smooth', block:'start'});
+  });
 };
 
 closeRoleHelp = function(main){
@@ -4955,7 +5380,10 @@ closeRoleHelp = function(main){
 };
 
 openDetailWindow = function(trigger,r){
-  const main=trigger.closest('.role-main');
+  // Most triggers live inside .role-main already; a few (e.g. the sidebar
+  // profile avatar) sit in .role-sidebar instead, so fall back to the
+  // matching .role-main within the same role panel.
+  const main=trigger.closest('.role-main') || trigger.closest('.role-panel')?.querySelector('.role-main');
   if(!main) return;
   closeRoleHelp(main);
   const sheet=main.querySelector('.role-detail-sheet');
@@ -4972,6 +5400,17 @@ openDetailWindow = function(trigger,r){
   }else if(type==='role-stat' && r){
     const i=parseInt(trigger.dataset.statIndex||'0',10), op=r.ops&&r.ops[i%r.ops.length];
     body=op?`<table class="preview-table"><thead><tr><th>المؤشر</th><th>العملية المرتبطة</th><th>الوصف</th></tr></thead><tbody><tr><td>${title}</td><td>${op.title}</td><td>${op.body}</td></tr></tbody></table>`:'<div class="preview-muted">لا توجد تفاصيل إضافية.</div>';
+  }else if(type==='trainee-profile' && r){
+    body=`<div class="profile-clone">
+      ${[
+        ['الاسم الكامل',r.sampleName],['الهوية الوطنية/الإقامة','1•••••••••'],['الجنس','أنثى'],['رقم الجوال','05••••••••'],['البريد الإلكتروني','student@aol.edu.sa'],['المدينة','—'],['الدبلوم','دبلوم إدارة الأعمال'],['الربع','الربع الأول']
+      ].map(x=>`<div class="profile-field"><small>${x[0]}</small><b>${x[1]}</b></div>`).join('')}
+    </div>`;
+  }else if(type==='trainee-calendar'){
+    body=`<div class="mini-calendar">
+      ${['أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة','سبت'].map(d=>`<div class="dow">${d}</div>`).join('')}
+      ${Array.from({length:28},(_,i)=>i+1).map(d=>`<div class="day">${d}${d===3?'<span class="event">اختبار نهائي</span>':''}${d===6?'<span class="event">مشاركة مفتوحة</span>':''}</div>`).join('')}
+    </div>`;
   }else body='<div class="preview-muted">لا توجد تفاصيل إضافية.</div>';
   sheet.querySelector('.role-detail-body').innerHTML=body;
   sheet.classList.add('open');
@@ -4994,6 +5433,44 @@ panelsEl.addEventListener('click',function(e){
 },true);
 
 
+
+// v56 — keep dashboard sharp when sidebar help opens.
+if (typeof showRoleHelp === 'function') {
+  const _akShowRoleHelpNoBlur = showRoleHelp;
+  showRoleHelp = function(r, link){
+    _akShowRoleHelpNoBlur(r, link);
+    const main = link?.closest('.role-shell')?.querySelector('.role-main') || link?.closest('.role-main');
+    if(main){
+      const dim = main.querySelector('.role-local-dim');
+      if(dim){
+        dim.classList.remove('active');
+        dim.style.backdropFilter = 'none';
+        dim.style.webkitBackdropFilter = 'none';
+      }
+    }
+  };
+}
+
+
+/* v61 — branch manager excellence side control */
+panelsEl.addEventListener('click',function(e){
+  const fab=e.target.closest('.manager-excellence-fab');
+  if(fab){
+    e.preventDefault();
+    e.stopPropagation();
+    const app=fab.closest('.manager-actual-app');
+    app?.querySelector('.manager-excellence-drawer')?.classList.toggle('open');
+    return;
+  }
+
+  const close=e.target.closest('.manager-excellence-close');
+  if(close){
+    e.preventDefault();
+    e.stopPropagation();
+    close.closest('.manager-excellence-drawer')?.classList.remove('open');
+  }
+},true);
+
 /* v37 — trainee excellence floating control */
 panelsEl.addEventListener('click',function(e){
   const fab=e.target.closest('.trainee-excellence-fab');
@@ -5013,19 +5490,29 @@ panelsEl.addEventListener('click',function(e){
 </script>
 
 <script>
-document.addEventListener('click', function(e){
-  const card = e.target.closest('[data-entry-role]');
-  if(!card) return;
-  requestAnimationFrame(()=>{
-    document.querySelectorAll('.role-context-rail.open').forEach(x=>x.classList.remove('open'));
-    document.querySelectorAll('.role-detail-sheet.open').forEach(x=>x.classList.remove('open'));
-    document.querySelectorAll('.role-local-dim.active').forEach(x=>x.classList.remove('active'));
-    setTimeout(()=>{
-      const active = document.querySelector('#rolePanels .role-panel.active .role-shell');
-      active?.scrollIntoView({behavior:'smooth', block:'start'});
-    },80);
-  });
-}, true);
+(function(){
+  const oldSelectRole = window.selectRole;
+  if(typeof oldSelectRole === 'function'){
+    window.selectRole = function(id, opts){
+      document.querySelectorAll('.role-context-rail.open').forEach(x=>x.classList.remove('open'));
+      document.querySelectorAll('.role-detail-sheet.open').forEach(x=>x.classList.remove('open'));
+      document.querySelectorAll('.role-local-dim.active').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.manager-excellence-drawer.open').forEach(x=>x.classList.remove('open'));
+
+      oldSelectRole(id, opts);
+
+      const role = (window.roles || []).find?.(x=>x.id===id);
+      const liveTitle = document.getElementById('rolesLiveTitle');
+      if(role && liveTitle){
+        liveTitle.textContent = role.label;
+      }
+    };
+  }
+
+  // Remove any old subtitle wording that feels like presentation chrome.
+  const liveSmall = document.querySelector('.roles-live-title small');
+  if(liveSmall) liveSmall.textContent = 'تجربة مباشرة من لوحة الدور';
+})();
 </script>
 
 </body>
