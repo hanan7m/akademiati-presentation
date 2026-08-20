@@ -3182,6 +3182,263 @@ section.wrap{padding-top:62px;padding-bottom:62px}
 }
 </style>
 
+
+<style>
+/* v60 — actual Branch Manager dashboard; staff and announcements remain sidebar-only */
+.manager-actual-app{
+  display:flex;flex-direction:column;gap:14px;
+  background:#fff;border:1px solid #e5e9ef;border-radius:22px;padding:20px;
+  box-shadow:0 10px 28px rgba(31,40,75,.06)
+}
+.manager-actual-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  padding:4px 2px 8px
+}
+.manager-actual-head h3{margin:0;color:#20355d;font-size:17px}
+.manager-actual-head p{margin:4px 0 0;color:#8d96a8;font-size:8.5px}
+.branch-stable{
+  padding:6px 10px;border-radius:999px;background:#e8f7f1;color:#2a8e69;
+  font-size:8px;font-weight:800;white-space:nowrap
+}
+.manager-actual-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
+}
+.manager-actual-card{
+  position:relative;min-height:155px;border:1px solid #e7eaf0;border-radius:18px;
+  background:#fff;padding:20px;display:flex;align-items:flex-start;justify-content:space-between;
+  box-shadow:0 5px 16px rgba(31,40,75,.035)
+}
+.manager-actual-card.success{
+  border-color:#cfe9df;background:linear-gradient(180deg,#fff,#fbfffd)
+}
+.mac-icon{
+  width:48px;height:48px;border-radius:15px;background:#f1f3f6;color:#9aa3b2;
+  display:flex;align-items:center;justify-content:center;font-size:17px
+}
+.manager-actual-card.success .mac-icon{
+  background:#e6f6ee;color:#218c63
+}
+.mac-copy{
+  flex:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;
+  min-height:112px;padding-inline-start:12px
+}
+.mac-copy small{font-size:9px;color:#4e5c76;font-weight:700}
+.mac-copy strong{font-size:20px;color:#21375f;line-height:1}
+.manager-attention-card,
+.manager-toptrainers-card{
+  min-height:86px;border:1px solid #e6e9ef;border-radius:18px;background:#fbfcfe;
+  padding:16px 18px;text-align:right
+}
+.manager-attention-card h4,
+.manager-toptrainers-card h4{margin:0;color:#23385d;font-size:10px}
+.manager-attention-card p{
+  margin:7px 0 0;color:#278a69;font-size:8px;font-weight:700
+}
+.manager-toptrainers-card{
+  min-height:110px;background:#fff
+}
+.manager-toptrainers-card small{
+  display:block;margin-top:5px;color:#8c95a7;font-size:7.5px
+}
+.manager-toptrainers-card p{
+  margin:13px 0 0;color:#778196;font-size:8px
+}
+@media(max-width:800px){
+  .manager-actual-grid{grid-template-columns:1fr}
+  .manager-actual-card{min-height:135px}
+}
+</style>
+
+
+<style>
+/* v61 — Branch Manager excellence side star */
+.manager-actual-app{
+  position:relative!important;
+  overflow:visible!important;
+}
+
+.manager-excellence-fab{
+  position:absolute;
+  top:118px;
+  left:-45px;
+  width:54px;height:54px;
+  border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  background:#fffaf6;
+  color:#b96c37;
+  border:1.5px solid #df9e70;
+  box-shadow:0 14px 30px rgba(155,92,46,.18);
+  z-index:32;
+  cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.manager-excellence-fab:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 18px 36px rgba(155,92,46,.24);
+}
+.manager-excellence-fab i{font-size:22px}
+
+.manager-fab-tip{
+  position:absolute;
+  left:64px;
+  white-space:nowrap;
+  background:#fff;
+  color:#6f3a99;
+  border:1px solid #e5d9ec;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:9px;
+  font-weight:800;
+  box-shadow:0 10px 24px rgba(32,36,68,.10);
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(-4px);
+  transition:.18s;
+}
+.manager-excellence-fab:hover .manager-fab-tip{
+  opacity:1;
+  transform:none;
+}
+
+.manager-excellence-drawer{
+  position:absolute;
+  top:92px;
+  left:22px;
+  width:min(390px,calc(100% - 70px));
+  opacity:0;
+  transform:translateX(-14px) scale(.985);
+  pointer-events:none;
+  z-index:40;
+  transition:opacity .2s ease,transform .24s cubic-bezier(.2,.8,.2,1);
+}
+.manager-excellence-drawer.open{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+
+.manager-excellence-panel{
+  background:rgba(255,255,255,.99);
+  border:1px solid #eadfd6;
+  border-left:4px solid #b96c37;
+  border-radius:21px;
+  padding:16px;
+  box-shadow:0 24px 58px rgba(36,31,58,.20);
+}
+.manager-excellence-panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding-bottom:12px;
+  margin-bottom:10px;
+  border-bottom:1px solid #eee9f3;
+}
+.manager-excellence-panel-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.manager-excellence-panel-title>span{
+  width:42px;height:42px;
+  border-radius:13px;
+  background:#fff6ef;
+  color:#b96c37;
+  border:1px solid #edd0bc;
+  display:flex;align-items:center;justify-content:center;
+}
+.manager-excellence-panel-title h4{
+  margin:0;
+  color:#122e5a;
+  font-size:13px;
+}
+.manager-excellence-panel-title small{
+  display:block;
+  margin-top:2px;
+  color:#8a91a4;
+  font-size:8.5px;
+}
+.manager-excellence-close{
+  width:28px;height:28px;
+  border-radius:50%;
+  border:1px solid #e5e7ed;
+  background:#f7f8fa;
+  color:#7e8798;
+  cursor:pointer;
+}
+
+.manager-excellence-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.manager-excellence-row{
+  display:grid;
+  grid-template-columns:26px 38px 1fr auto;
+  align-items:center;
+  gap:9px;
+  min-height:58px;
+  padding:9px 10px;
+  border:1px solid #e8eaf0;
+  border-radius:13px;
+  background:#fff;
+}
+.manager-excellence-row.first{
+  border-color:#ead69d;
+  background:#fffcf3;
+}
+.mex-rank{
+  width:24px;height:24px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#eeeaf5;
+  color:#6a3f96;
+  font-size:8px;
+  font-weight:800;
+}
+.manager-excellence-row.first .mex-rank{
+  background:#f6d978;
+  color:#765600;
+}
+.mex-avatar{
+  width:36px;height:36px;
+  border-radius:11px;
+  background:linear-gradient(135deg,#6a4098,#3265ad);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;
+  font-weight:800;
+}
+.mex-copy b{
+  display:block;
+  color:#21375d;
+  font-size:9px;
+}
+.mex-copy small{
+  display:block;
+  margin-top:2px;
+  color:#939bad;
+  font-size:7px;
+}
+.manager-excellence-row strong{
+  color:#6e3e9d;
+  font-size:16px;
+  font-variant-numeric:tabular-nums;
+}
+
+@media(max-width:900px){
+  .manager-excellence-fab{
+    left:8px;
+    top:92px;
+  }
+  .manager-excellence-drawer{
+    left:18px;
+    top:154px;
+    width:calc(100% - 36px);
+  }
+}
+</style>
+
 </head>
 <body>
 <div aria-hidden="true" class="scroll-progress"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
@@ -4258,70 +4515,134 @@ function trainerMain(r){
 }
 
 
+
 function managerMain(r){
-  const mgrKpis = [
-    {icon:'fa-laptop', num:'0', label:'مقررات التعليم الإلكتروني', sub:'مقررات الفرع التي تُدرّس حاليًا عبر التعليم الإلكتروني', key:'mgr-elearning'},
-    {icon:'fa-user-check', num:'—', label:'اكتمال الإسناد', sub:'المقررات المسندة لمدربين', key:'manager-trainers'},
-    {icon:'fa-calendar-check', num:'—', label:'جاهزية الربع القادم', sub:'اكتمال سلسلة التهيئة الأكاديمية', key:'manager-prep'},
-    {icon:'fa-star', num:'—', label:'تقييم خدمة العملاء', sub:'لا توجد تقييمات مكتملة حتى الآن', key:'mgr-csat'},
-    {icon:'fa-clock', num:'0', label:'حالات متأخرة', sub:'تذاكر تجاوزت المدة المستهدفة', key:'manager-followup'},
-    {icon:'fa-file-circle-check', num:'0', label:'اختبارات تحتاج متابعة', sub:'بانتظار المراجعة أو إعادة المراجعة', key:'mgr-exams'},
-  ];
   return `
-    <div class="manager-dashboard-app scroll-target" id="top-${r.id}">
-      <div class="support-hero">
-        <div class="support-hero-copy">
-          <span class="mini"><i class="fa-solid fa-circle" style="font-size:6px"></i> منصة أكاديمية التعلّم</span>
-          <h3>أهلاً بك، ${firstNameOf(r.sampleName)}</h3>
-          <p>واصل التقدم نحو أهدافك الأكاديمية!</p>
-          <div class="support-hero-actions">
-            <button class="support-btn primary dashboard-preview-trigger" data-preview="manager-schedule" data-preview-title="الجدول" data-preview-icon="fa-table-list">عرض الجدول</button>
-            <button class="support-btn ghost dashboard-preview-trigger" data-preview="manager-calendar" data-preview-title="التقويم الأكاديمي" data-preview-icon="fa-calendar-days">التقويم الأكاديمي</button>
+    <div class="manager-actual-app scroll-target" id="top-${r.id}">
+      <button type="button" class="manager-excellence-fab" aria-label="أفضل 3 متفوقين في الفرع">
+        <i class="fa-regular fa-star"></i>
+        <span class="manager-fab-tip">أفضل 3 متفوقين</span>
+      </button>
+
+      <div class="manager-excellence-drawer">
+        <div class="manager-excellence-panel">
+          <div class="manager-excellence-panel-head">
+            <div class="manager-excellence-panel-title">
+              <span><i class="fa-regular fa-star"></i></span>
+              <div>
+                <h4>أفضل 3 متفوقين في الفرع</h4>
+                <small>حسب نقاط التميّز</small>
+              </div>
+            </div>
+            <button type="button" class="manager-excellence-close" aria-label="إغلاق">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="manager-excellence-list">
+            <div class="manager-excellence-row first">
+              <span class="mex-rank">1</span>
+              <span class="mex-avatar">س</span>
+              <div class="mex-copy">
+                <b>سارة أحمد</b>
+                <small>المركز الأول</small>
+              </div>
+              <strong>99</strong>
+            </div>
+
+            <div class="manager-excellence-row second">
+              <span class="mex-rank">2</span>
+              <span class="mex-avatar">م</span>
+              <div class="mex-copy">
+                <b>متدرب متميز</b>
+                <small>المركز الثاني</small>
+              </div>
+              <strong>82</strong>
+            </div>
+
+            <div class="manager-excellence-row third">
+              <span class="mex-rank">3</span>
+              <span class="mex-avatar">ع</span>
+              <div class="mex-copy">
+                <b>متدرب متميز</b>
+                <small>المركز الثالث</small>
+              </div>
+              <strong>74</strong>
+            </div>
           </div>
         </div>
-        <div class="support-hero-icon"><i class="fa-solid fa-building-user"></i></div>
+      </div>
+      <div class="manager-actual-head">
+        <div>
+          <h3>أكاديمية القطيف</h3>
+          <p>نظرة تنفيذية مختصرة عن حالة الفرع</p>
+        </div>
+        <span class="branch-stable">الفرع مستقر</span>
       </div>
 
-      <div class="mgr-panel">
-        <div class="mgr-panel-head">
-          <div class="mgr-panel-head-copy">
-            <h4>أكاديمية الأحساء</h4>
-            <p>ملخص تنفيذي سريع لحالة الفرع</p>
-          </div>
-          <span class="mgr-status-pill"><i></i> الفرع مستقر</span>
-        </div>
+      <div class="manager-actual-grid">
+        <article class="manager-actual-card neutral">
+          <span class="mac-icon"><i class="fa-solid fa-calendar-check"></i></span>
+          <div class="mac-copy"><small>جاهزية الربع القادم</small><strong>—</strong></div>
+        </article>
 
-        <div class="mgr-kpi-grid">
-          ${mgrKpis.map(k=>`<div class="mgr-kpi-card dashboard-preview-trigger" data-preview="${k.key}" data-preview-title="${k.label}" data-preview-icon="${k.icon}">
-            <span class="kpi-ic"><i class="fa-solid ${k.icon}"></i></span>
-            <div class="kpi-lbl">${k.label}</div>
-            <div class="kpi-num">${k.num}</div>
-            <div class="kpi-sub">${k.sub}</div>
-          </div>`).join('')}
-        </div>
+        <article class="manager-actual-card neutral">
+          <span class="mac-icon"><i class="fa-solid fa-user-check"></i></span>
+          <div class="mac-copy"><small>اكتمال الإسناد</small><strong>—</strong></div>
+        </article>
 
-        <div class="mgr-empty-row">
-          <span class="mgr-empty-title">تحتاج انتباهك</span>
-          <div class="mgr-empty-body"><b style="color:#20926b">لا توجد حالات حرجة حاليًا.</b></div>
-        </div>
-        <div class="mgr-empty-row">
-          <span class="mgr-empty-title">أفضل 3 مدربين</span>
-          <div class="mgr-empty-body">
-            <b style="color:#3a4660">لا توجد نقاط تميز للمدربين ضمن الفرع حتى الآن.</b>
-            <small>حسب نقاط التميز المسجلة</small>
-          </div>
-        </div>
+        <article class="manager-actual-card success dashboard-preview-trigger"
+          data-preview="manager-online-courses"
+          data-preview-title="مقررات التعليم الإلكتروني"
+          data-preview-icon="fa-laptop">
+          <span class="mac-icon"><i class="fa-solid fa-laptop"></i></span>
+          <div class="mac-copy"><small>مقررات التعليم الإلكتروني</small><strong>0</strong></div>
+        </article>
+
+        <article class="manager-actual-card success dashboard-preview-trigger"
+          data-preview="manager-quizzes-followup"
+          data-preview-title="اختبارات تحتاج متابعة"
+          data-preview-icon="fa-file-circle-check">
+          <span class="mac-icon"><i class="fa-solid fa-file-circle-check"></i></span>
+          <div class="mac-copy"><small>اختبارات تحتاج متابعة</small><strong>0</strong></div>
+        </article>
+
+        <article class="manager-actual-card success dashboard-preview-trigger"
+          data-preview="manager-overdue"
+          data-preview-title="الحالات المتأخرة"
+          data-preview-icon="fa-clock">
+          <span class="mac-icon"><i class="fa-solid fa-clock"></i></span>
+          <div class="mac-copy"><small>الحالات المتأخرة</small><strong>0</strong></div>
+        </article>
+
+        <article class="manager-actual-card neutral dashboard-preview-trigger"
+          data-preview="manager-service-rating"
+          data-preview-title="تقييم خدمة العملاء"
+          data-preview-icon="fa-star">
+          <span class="mac-icon"><i class="fa-solid fa-star"></i></span>
+          <div class="mac-copy"><small>تقييم خدمة العملاء</small><strong>—</strong></div>
+        </article>
       </div>
+
+      <section class="manager-attention-card">
+        <div>
+          <h4>تحتاج انتباهك</h4>
+          <p>لا توجد عناصر حرجة في الوقت الحالي.</p>
+        </div>
+      </section>
+
+      <section class="manager-toptrainers-card dashboard-preview-trigger"
+        data-preview="manager-toptrainers"
+        data-preview-title="أفضل 3 مدربين"
+        data-preview-icon="fa-ranking-star">
+        <div>
+          <h4>أفضل 3 مدربين</h4>
+          <small>بناءً على نقاط التميّز المسجلة</small>
+          <p>لا توجد نقاط تميّز مسجلة للمدربين في هذا الفرع حتى الآن.</p>
+        </div>
+      </section>
     </div>
   `;
-}
-
-// Strips an honorific prefix (أ./م./د.) from a full sample name and
-// returns just the given name — used by the welcome-hero headers that
-// mirror the live product's "أهلاً بك، <first name>" greeting.
-function firstNameOf(full){
-  const cleaned = (full || '').replace(/^(أ\.|م\.|د\.)\s*/, '').trim();
-  return cleaned.split(/\s+/)[0] || full;
 }
 
 function supportMain(r){
@@ -5130,6 +5451,26 @@ if (typeof showRoleHelp === 'function') {
   };
 }
 
+
+/* v61 — branch manager excellence side control */
+panelsEl.addEventListener('click',function(e){
+  const fab=e.target.closest('.manager-excellence-fab');
+  if(fab){
+    e.preventDefault();
+    e.stopPropagation();
+    const app=fab.closest('.manager-actual-app');
+    app?.querySelector('.manager-excellence-drawer')?.classList.toggle('open');
+    return;
+  }
+
+  const close=e.target.closest('.manager-excellence-close');
+  if(close){
+    e.preventDefault();
+    e.stopPropagation();
+    close.closest('.manager-excellence-drawer')?.classList.remove('open');
+  }
+},true);
+
 /* v37 — trainee excellence floating control */
 panelsEl.addEventListener('click',function(e){
   const fab=e.target.closest('.trainee-excellence-fab');
@@ -5156,6 +5497,7 @@ panelsEl.addEventListener('click',function(e){
       document.querySelectorAll('.role-context-rail.open').forEach(x=>x.classList.remove('open'));
       document.querySelectorAll('.role-detail-sheet.open').forEach(x=>x.classList.remove('open'));
       document.querySelectorAll('.role-local-dim.active').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.manager-excellence-drawer.open').forEach(x=>x.classList.remove('open'));
 
       oldSelectRole(id, opts);
 
