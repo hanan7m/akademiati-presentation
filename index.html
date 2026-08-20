@@ -2454,7 +2454,7 @@
 .support-card{position:relative;display:flex;align-items:center;gap:13px;background:#fff;border:1px solid #e5e8ef;border-radius:16px;padding:15px 42px 15px 15px;cursor:pointer;box-shadow:0 6px 17px rgba(31,40,75,.04)}
 .support-icon{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;color:#fff;flex:0 0 auto}.support-icon.blue{background:#2b67bd}.support-icon.green{background:#169578}.support-icon.purple{background:#7040a4}.support-icon.amber{background:#c78335}
 .support-card h4{margin:0 0 5px;color:#20365e;font-size:11px}.support-card p{margin:0;color:#8993a6;font-size:8px;line-height:1.7}.support-card .tail{position:absolute;left:15px;color:#a2a8b5;font-size:10px}
-
+.support-lower-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:10px}
 .support-list{display:flex;flex-direction:column;gap:7px}.support-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;width:100%;border:1px solid #e7eaf0;background:#fbfcfe;border-radius:12px;padding:10px;text-align:right;font:inherit;cursor:pointer}.row-icon{width:33px;height:33px;border-radius:10px;background:#eeeaf5;color:#684098;display:flex;align-items:center;justify-content:center}.support-row b{display:block;color:#263a5e;font-size:9px}.support-row small{display:block;color:#939bad;font-size:7.5px;margin-top:3px}.row-state{padding:4px 7px;border-radius:8px;background:#eaf3ff;color:#2c67aa;font-size:7px;font-weight:800}.row-state.muted{background:#f0f1f4;color:#8d95a5}.support-row.soon{cursor:default;opacity:.8}
 .guide-icon{width:33px;height:33px;border-radius:10px;background:#eeeaf5;color:#684098;display:flex!important;align-items:center;justify-content:center}.support-guide p{color:#7f899d;font-size:9px;line-height:1.9}.support-guide-btn{width:100%;height:38px;border:0;border-radius:10px;background:#644091;color:#fff;font:inherit;font-size:9px;font-weight:800;cursor:pointer;margin-top:8px}
 .support-kpi-head{display:flex;flex-direction:column;gap:4px;margin:4px 2px 2px;text-align:right}
@@ -3184,257 +3184,862 @@ section.wrap{padding-top:62px;padding-bottom:62px}
 
 
 <style>
-/* v60 — actual Branch Manager dashboard; staff and announcements remain sidebar-only */
-.manager-actual-app{
-  display:flex;flex-direction:column;gap:14px;
-  background:#fff;border:1px solid #e5e9ef;border-radius:22px;padding:20px;
-  box-shadow:0 10px 28px rgba(31,40,75,.06)
-}
-.manager-actual-head{
-  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
-  padding:4px 2px 8px
-}
-.manager-actual-head h3{margin:0;color:#20355d;font-size:17px}
-.manager-actual-head p{margin:4px 0 0;color:#8d96a8;font-size:8.5px}
-.branch-stable{
-  padding:6px 10px;border-radius:999px;background:#e8f7f1;color:#2a8e69;
-  font-size:8px;font-weight:800;white-space:nowrap
-}
-.manager-actual-grid{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
-}
-.manager-actual-card{
-  position:relative;min-height:155px;border:1px solid #e7eaf0;border-radius:18px;
-  background:#fff;padding:20px;display:flex;align-items:flex-start;justify-content:space-between;
-  box-shadow:0 5px 16px rgba(31,40,75,.035)
-}
-.manager-actual-card.success{
-  border-color:#cfe9df;background:linear-gradient(180deg,#fff,#fbfffd)
-}
-.mac-icon{
-  width:48px;height:48px;border-radius:15px;background:#f1f3f6;color:#9aa3b2;
-  display:flex;align-items:center;justify-content:center;font-size:17px
-}
-.manager-actual-card.success .mac-icon{
-  background:#e6f6ee;color:#218c63
-}
-.mac-copy{
-  flex:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;
-  min-height:112px;padding-inline-start:12px
-}
-.mac-copy small{font-size:9px;color:#4e5c76;font-weight:700}
-.mac-copy strong{font-size:20px;color:#21375f;line-height:1}
-.manager-attention-card,
-.manager-toptrainers-card{
-  min-height:86px;border:1px solid #e6e9ef;border-radius:18px;background:#fbfcfe;
-  padding:16px 18px;text-align:right
-}
-.manager-attention-card h4,
-.manager-toptrainers-card h4{margin:0;color:#23385d;font-size:10px}
-.manager-attention-card p{
-  margin:7px 0 0;color:#278a69;font-size:8px;font-weight:700
-}
-.manager-toptrainers-card{
-  min-height:110px;background:#fff
-}
-.manager-toptrainers-card small{
-  display:block;margin-top:5px;color:#8c95a7;font-size:7.5px
-}
-.manager-toptrainers-card p{
-  margin:13px 0 0;color:#778196;font-size:8px
-}
-@media(max-width:800px){
-  .manager-actual-grid{grid-template-columns:1fr}
-  .manager-actual-card{min-height:135px}
+/* v64 — applied directly to the user's uploaded file */
+.trainer-schedule-preview{display:flex;flex-direction:column;gap:12px}
+.trainer-schedule-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid #e8ebf1}
+.trainer-schedule-head b{display:block;color:#20355d;font-size:12px}.trainer-schedule-head small{display:block;margin-top:3px;color:#919aac;font-size:8px}
+.trainer-schedule-head>span{padding:5px 9px;border-radius:999px;background:#eee8f6;color:#664092;font-size:7.5px;font-weight:800}
+.trainer-schedule-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.trainer-day{min-height:105px;padding:10px;border:1px solid #e6e9ef;border-radius:12px;background:#fbfcfe;display:flex;flex-direction:column;gap:6px}
+.trainer-day b{font-size:9px;color:#25395d}.trainer-day small{font-size:7px;color:#949cad;line-height:1.6}.trainer-day em{font-style:normal;color:#6d409a;font-size:7px;font-weight:800}
+.trainer-day.active{background:#f6f0fb;border-color:#d9c9ea}
+
+.manager-hero-logo{width:210px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.manager-hero-logo img{width:190px;max-height:135px;object-fit:contain;display:block}
+
+.manager-dashboard-app{position:relative!important;overflow:visible!important}
+.manager-excellence-fab{position:absolute;left:-44px;top:112px;width:52px;height:52px;border-radius:17px;display:flex;align-items:center;justify-content:center;background:#fffaf6;color:#b96c37;border:1.5px solid #df9e70;box-shadow:0 13px 28px rgba(155,92,46,.18);z-index:32;cursor:pointer}
+.manager-excellence-fab i{font-size:21px}
+.manager-fab-tip{position:absolute;left:62px;white-space:nowrap;background:#fff;color:#6f3a99;border:1px solid #e5d9ec;padding:6px 10px;border-radius:10px;font-size:8.5px;font-weight:800;opacity:0;pointer-events:none;box-shadow:0 9px 22px rgba(32,36,68,.10);transition:.18s}
+.manager-excellence-fab:hover .manager-fab-tip{opacity:1}
+.manager-excellence-drawer{position:absolute;left:20px;top:88px;width:min(380px,calc(100% - 70px));opacity:0;transform:translateX(-12px) scale(.985);pointer-events:none;z-index:40;transition:opacity .2s ease,transform .22s ease}
+.manager-excellence-drawer.open{opacity:1;transform:none;pointer-events:auto}
+.manager-excellence-panel{background:#fff;border:1px solid #eadfd6;border-left:4px solid #b96c37;border-radius:19px;padding:14px;box-shadow:0 22px 52px rgba(36,31,58,.19)}
+.manager-excellence-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #eee9f3}
+.manager-excellence-panel-title{display:flex;align-items:center;gap:9px}.manager-excellence-panel-title>span{width:38px;height:38px;border-radius:11px;background:#fff6ef;color:#b96c37;border:1px solid #edd0bc;display:flex;align-items:center;justify-content:center}
+.manager-excellence-panel-title h4{margin:0;font-size:11px;color:#17315c}.manager-excellence-panel-title small{display:block;margin-top:2px;font-size:7px;color:#8c94a6}
+.manager-excellence-close{width:27px;height:27px;border-radius:50%;border:1px solid #e4e7ed;background:#f7f8fa;color:#7d8697;cursor:pointer}
+.manager-excellence-empty{padding:11px;border-radius:10px;background:#faf8fc;color:#747d91;font-size:7.5px;line-height:1.7}
+
+@media(max-width:760px){
+  .trainer-schedule-grid{grid-template-columns:1fr 1fr}
+  .manager-hero-logo{display:none}
+  .manager-excellence-fab{left:6px}
+  .manager-excellence-drawer{left:12px;width:calc(100% - 24px)}
 }
 </style>
 
 
 <style>
-/* v61 — Branch Manager excellence side star */
-.manager-actual-app{
+/* v65 — manager full-data demo states */
+.mgr-status-pill.demo-followup{
+  background:#fff2df!important;
+  color:#b4761b!important;
+}
+.mgr-status-pill.demo-followup i{
+  background:#d08b24!important;
+}
+
+.mgr-attention-filled .mgr-empty-title{
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
+}
+.mgr-attention-filled .mgr-empty-title em{
+  width:20px;height:20px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:#fff0d9;color:#b4761b;font-style:normal;
+  font-size:8px;font-weight:800;
+}
+.mgr-attention-filled .mgr-empty-body{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:12px!important;
+}
+.mgr-alert-item{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  color:#7b4e16!important;
+  font-size:8px!important;
+}
+.mgr-alert-item i{color:#c07d20!important}
+
+.mgr-top3-filled{
+  position:relative!important;
+}
+.mgr-top3-caption{
+  display:block!important;
+  margin:-5px 0 10px!important;
+  color:#8d95a7!important;
+  font-size:7px!important;
+}
+.mgr-top3-list{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:8px!important;
+}
+.mgr-top3-person{
+  min-height:58px!important;
+  display:grid!important;
+  grid-template-columns:28px 1fr!important;
+  gap:8px!important;
+  align-items:center!important;
+  padding:9px 10px!important;
+  border:1px solid #e5e8ef!important;
+  border-radius:12px!important;
+  background:#fafbfe!important;
+}
+.mgr-top3-person.first{
+  border-color:#ead8a7!important;
+  background:#fffdf7!important;
+}
+.mgr-rank{
+  width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#eeeaf5;color:#6a3f95;
+  font-size:8px;font-weight:800;
+}
+.mgr-top3-person.first .mgr-rank{
+  background:#fff0bf;color:#966d00;
+}
+.mgr-top3-person b{
+  display:block!important;
+  color:#263a5e!important;
+  font-size:8px!important;
+  line-height:1.45!important;
+}
+.mgr-top3-person small{
+  display:block!important;
+  margin-top:2px!important;
+  color:#8f98aa!important;
+  font-size:6.8px!important;
+}
+
+@media(max-width:780px){
+  .mgr-top3-list{grid-template-columns:1fr!important}
+}
+</style>
+
+
+<style>
+/* v66 — manager identity + horizontal RTL top 3 + trainee excellence repair */
+
+/* Manager Top 3: horizontal, stretched, right-to-left */
+.mgr-top3-list{
+  direction:rtl!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;
+  width:100%!important;
+}
+.mgr-top3-person{
+  direction:rtl!important;
+  min-height:72px!important;
+  display:grid!important;
+  grid-template-columns:auto 1fr!important;
+  align-items:center!important;
+  gap:12px!important;
+  padding:12px 14px!important;
+  border-radius:14px!important;
+  text-align:right!important;
+}
+.mgr-top3-person.first{order:1!important}
+.mgr-top3-person.second{order:2!important}
+.mgr-top3-person.third{order:3!important}
+.mgr-rank{
+  width:34px!important;
+  height:34px!important;
+  flex:0 0 34px!important;
+  font-size:10px!important;
+}
+.mgr-top3-person b{
+  font-size:9px!important;
+  line-height:1.6!important;
+  text-align:right!important;
+}
+.mgr-top3-person small{
+  font-size:7.5px!important;
+  text-align:right!important;
+}
+.mgr-top3-filled .mgr-empty-title,
+.mgr-top3-caption{
+  text-align:right!important;
+}
+
+/* Trainee excellence: restore compact side-button behavior.
+   The drawer must remain a compact floating card, not a tall left panel. */
+.trainee-app{
   position:relative!important;
   overflow:visible!important;
 }
-
-.manager-excellence-fab{
-  position:absolute;
-  top:118px;
-  left:-45px;
-  width:54px;height:54px;
-  border-radius:18px;
-  display:flex;align-items:center;justify-content:center;
-  background:#fffaf6;
-  color:#b96c37;
-  border:1.5px solid #df9e70;
-  box-shadow:0 14px 30px rgba(155,92,46,.18);
-  z-index:32;
-  cursor:pointer;
-  transition:transform .2s ease,box-shadow .2s ease;
+.trainee-excellence-fab{
+  position:absolute!important;
+  top:118px!important;
+  left:-10px!important;
+  right:auto!important;
+  inset-inline-start:auto!important;
+  inset-inline-end:auto!important;
+  width:54px!important;
+  height:54px!important;
+  border-radius:17px!important;
+  padding:0!important;
+  z-index:120!important;
+  border:1.5px solid #df9e70!important;
+  background:#fffaf6!important;
+  color:#b96c37!important;
+  box-shadow:0 12px 26px rgba(155,92,46,.18)!important;
 }
-.manager-excellence-fab:hover{
-  transform:translateY(-3px) scale(1.03);
-  box-shadow:0 18px 36px rgba(155,92,46,.24);
+.trainee-excellence-fab i{
+  font-size:22px!important;
 }
-.manager-excellence-fab i{font-size:22px}
-
-.manager-fab-tip{
-  position:absolute;
-  left:64px;
-  white-space:nowrap;
-  background:#fff;
-  color:#6f3a99;
-  border:1px solid #e5d9ec;
-  padding:6px 10px;
-  border-radius:10px;
-  font-size:9px;
-  font-weight:800;
-  box-shadow:0 10px 24px rgba(32,36,68,.10);
-  opacity:0;
-  pointer-events:none;
-  transform:translateX(-4px);
-  transition:.18s;
-}
-.manager-excellence-fab:hover .manager-fab-tip{
-  opacity:1;
-  transform:none;
+.trainee-excellence-fab .fab-tip{
+  left:62px!important;
+  right:auto!important;
+  inset-inline-start:auto!important;
+  inset-inline-end:auto!important;
 }
 
-.manager-excellence-drawer{
-  position:absolute;
-  top:92px;
-  left:22px;
-  width:min(390px,calc(100% - 70px));
-  opacity:0;
-  transform:translateX(-14px) scale(.985);
-  pointer-events:none;
-  z-index:40;
-  transition:opacity .2s ease,transform .24s cubic-bezier(.2,.8,.2,1);
+/* Drawer compact size */
+.trainee-excellence-drawer{
+  position:absolute!important;
+  top:92px!important;
+  left:54px!important;
+  right:auto!important;
+  inset-inline-start:auto!important;
+  inset-inline-end:auto!important;
+  width:min(390px,calc(100% - 80px))!important;
+  max-width:390px!important;
+  height:auto!important;
+  max-height:none!important;
+  opacity:0!important;
+  transform:translateX(-14px) scale(.985)!important;
+  pointer-events:none!important;
+  z-index:130!important;
 }
-.manager-excellence-drawer.open{
-  opacity:1;
-  transform:none;
-  pointer-events:auto;
+.trainee-excellence-drawer.open{
+  opacity:1!important;
+  transform:none!important;
+  pointer-events:auto!important;
 }
-
-.manager-excellence-panel{
-  background:rgba(255,255,255,.99);
-  border:1px solid #eadfd6;
-  border-left:4px solid #b96c37;
-  border-radius:21px;
-  padding:16px;
-  box-shadow:0 24px 58px rgba(36,31,58,.20);
-}
-.manager-excellence-panel-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding-bottom:12px;
-  margin-bottom:10px;
-  border-bottom:1px solid #eee9f3;
-}
-.manager-excellence-panel-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.manager-excellence-panel-title>span{
-  width:42px;height:42px;
-  border-radius:13px;
-  background:#fff6ef;
-  color:#b96c37;
-  border:1px solid #edd0bc;
-  display:flex;align-items:center;justify-content:center;
-}
-.manager-excellence-panel-title h4{
-  margin:0;
-  color:#122e5a;
-  font-size:13px;
-}
-.manager-excellence-panel-title small{
-  display:block;
-  margin-top:2px;
-  color:#8a91a4;
-  font-size:8.5px;
-}
-.manager-excellence-close{
-  width:28px;height:28px;
-  border-radius:50%;
-  border:1px solid #e5e7ed;
-  background:#f7f8fa;
-  color:#7e8798;
-  cursor:pointer;
+.trainee-excellence-panel{
+  width:100%!important;
+  max-height:none!important;
+  overflow:visible!important;
+  padding:16px!important;
+  border-radius:20px!important;
+  background:#fff!important;
+  border:1px solid #eadfd6!important;
+  border-right:4px solid #b96c37!important;
+  border-left:1px solid #eadfd6!important;
+  box-shadow:0 22px 52px rgba(36,31,58,.19)!important;
 }
 
-.manager-excellence-list{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+/* Ensure no legacy CSS turns it into a full-height sidebar */
+.role-panel[data-role="trainee"] .trainee-excellence-drawer{
+  width:min(390px,calc(100% - 80px))!important;
+  top:92px!important;
+  left:54px!important;
+  right:auto!important;
 }
-.manager-excellence-row{
-  display:grid;
-  grid-template-columns:26px 38px 1fr auto;
-  align-items:center;
-  gap:9px;
-  min-height:58px;
-  padding:9px 10px;
-  border:1px solid #e8eaf0;
-  border-radius:13px;
-  background:#fff;
+.role-panel[data-role="trainee"] .trainee-excellence-fab{
+  left:-10px!important;
+  right:auto!important;
+  top:118px!important;
 }
-.manager-excellence-row.first{
-  border-color:#ead69d;
-  background:#fffcf3;
-}
-.mex-rank{
-  width:24px;height:24px;
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  background:#eeeaf5;
-  color:#6a3f96;
-  font-size:8px;
-  font-weight:800;
-}
-.manager-excellence-row.first .mex-rank{
-  background:#f6d978;
-  color:#765600;
-}
-.mex-avatar{
-  width:36px;height:36px;
-  border-radius:11px;
-  background:linear-gradient(135deg,#6a4098,#3265ad);
-  color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;
-  font-weight:800;
-}
-.mex-copy b{
-  display:block;
-  color:#21375d;
-  font-size:9px;
-}
-.mex-copy small{
-  display:block;
-  margin-top:2px;
-  color:#939bad;
-  font-size:7px;
-}
-.manager-excellence-row strong{
-  color:#6e3e9d;
-  font-size:16px;
-  font-variant-numeric:tabular-nums;
+
+/* Keep excellence contents compact */
+.trainee-excellence-panel-head{margin-bottom:10px!important}
+.trainee-excellence-score{margin:8px 0 5px!important}
+.trainee-excellence-score b{font-size:30px!important}
+.trainee-excellence-text{font-size:9.5px!important}
+.trainee-excellence-mini{gap:7px!important}
+.trainee-excellence-mini>div{padding:8px 6px!important}
+
+/* If detailed excellence sections exist in this build, hide them inside the floating drawer.
+   The side popup is meant to be a summary only. */
+.trainee-excellence-drawer .ex-details,
+.trainee-excellence-drawer .ex-next,
+.trainee-excellence-drawer .ex-footnote,
+.trainee-excellence-drawer .ex-section-title{
+  display:none!important;
 }
 
 @media(max-width:900px){
-  .manager-excellence-fab{
-    left:8px;
-    top:92px;
+  .mgr-top3-list{grid-template-columns:1fr!important}
+  .trainee-excellence-fab{
+    left:8px!important;
+    top:92px!important;
   }
-  .manager-excellence-drawer{
-    left:18px;
-    top:154px;
-    width:calc(100% - 36px);
+  .trainee-excellence-drawer,
+  .role-panel[data-role="trainee"] .trainee-excellence-drawer{
+    left:18px!important;
+    top:154px!important;
+    width:calc(100% - 36px)!important;
+    max-width:none!important;
+  }
+}
+</style>
+
+
+<style>
+/* v67 — contributor cards match the square core-team language */
+.team-contributors{
+  max-width:1180px!important;
+  margin-top:28px!important;
+}
+.team-contributors-title{
+  margin-bottom:14px!important;
+  font-size:12px!important;
+}
+
+.team-contributor-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
+  align-items:stretch!important;
+}
+
+.team-contributor-card{
+  min-height:230px!important;
+  aspect-ratio:1 / 1!important;
+  padding:18px 14px!important;
+  border-radius:20px!important;
+  background:#fff!important;
+  border:1px solid #e7e6ed!important;
+  box-shadow:0 10px 26px rgba(30,38,75,.07)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:9px!important;
+  text-align:center!important;
+}
+
+.team-contributor-card .team-avatar{
+  width:56px!important;
+  height:56px!important;
+  flex:0 0 56px!important;
+  margin:0 auto 3px!important;
+  border-radius:18px!important;
+  background:linear-gradient(135deg,#eaf4ff,#f3eafb)!important;
+  color:#57338a!important;
+  font-size:21px!important;
+}
+
+.team-contributor-card>div:last-child{
+  width:100%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+}
+
+.team-contributor-card h4{
+  margin:0 0 5px!important;
+  color:#092e63!important;
+  font-size:15px!important;
+  text-align:center!important;
+}
+
+.team-contributor-role{
+  max-width:100%!important;
+  justify-content:center!important;
+  margin:0 auto 8px!important;
+  padding:4px 8px!important;
+  font-size:9px!important;
+  line-height:1.5!important;
+  text-align:center!important;
+}
+
+.team-contributor-tags{
+  width:100%!important;
+  margin-top:3px!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  justify-content:center!important;
+  gap:5px!important;
+}
+
+.team-contributor-tags span{
+  margin:0!important;
+  padding:3px 7px!important;
+  font-size:8px!important;
+  line-height:1.4!important;
+}
+
+/* Cards with more tags remain the same size and wrap neatly. */
+.team-contributor-card:last-child .team-contributor-tags{
+  max-width:210px!important;
+}
+
+@media(max-width:980px){
+  .team-contributor-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .team-contributor-card{
+    aspect-ratio:auto!important;
+    min-height:220px!important;
+  }
+}
+@media(max-width:560px){
+  .team-contributor-grid{
+    grid-template-columns:1fr!important;
+  }
+  .team-contributor-card{
+    min-height:210px!important;
+  }
+}
+</style>
+
+
+<style>
+/* v68 — force the trainee excellence popup to match the compact reference */
+.role-panel[data-role="trainee"] .trainee-excellence-drawer{
+  position:absolute!important;
+  top:92px!important;
+  left:54px!important;
+  right:auto!important;
+  width:490px!important;
+  max-width:calc(100% - 90px)!important;
+  height:auto!important;
+  max-height:none!important;
+  opacity:0!important;
+  transform:translateX(-12px) scale(.985)!important;
+  pointer-events:none!important;
+  z-index:130!important;
+}
+.role-panel[data-role="trainee"] .trainee-excellence-drawer.open{
+  opacity:1!important;
+  transform:none!important;
+  pointer-events:auto!important;
+}
+
+.trainee-excellence-summary-v68{
+  width:100%!important;
+  min-height:0!important;
+  padding:18px 20px 20px!important;
+  background:#fff!important;
+  border:1px solid #eee5dd!important;
+  border-right:4px solid #b96c37!important;
+  border-radius:24px!important;
+  box-shadow:0 22px 50px rgba(28,31,60,.18)!important;
+  color:#17315c!important;
+  overflow:hidden!important;
+}
+
+.tex68-head{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+  margin-bottom:4px!important;
+}
+.tex68-title{
+  display:flex!important;
+  align-items:flex-start!important;
+  gap:12px!important;
+  margin-inline-start:auto!important;
+}
+.tex68-title h4{
+  margin:0!important;
+  font-size:18px!important;
+  line-height:1.35!important;
+  color:#17315c!important;
+  font-weight:800!important;
+}
+.tex68-title small{
+  display:block!important;
+  margin-top:3px!important;
+  font-size:10px!important;
+  color:#9299a8!important;
+}
+.tex68-star{
+  width:50px!important;
+  height:50px!important;
+  border-radius:16px!important;
+  border:1.5px solid #e4a476!important;
+  background:#fff9f4!important;
+  color:#b96c37!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex:0 0 auto!important;
+}
+.tex68-star i{font-size:22px!important}
+
+.trainee-excellence-summary-v68 .trainee-excellence-close{
+  width:36px!important;
+  height:36px!important;
+  border-radius:50%!important;
+  border:1px solid #e4e7ed!important;
+  background:#f7f8fa!important;
+  color:#8d96a7!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  cursor:pointer!important;
+  flex:0 0 auto!important;
+}
+
+.tex68-score{
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:flex-start!important;
+  gap:8px!important;
+  margin-top:4px!important;
+  direction:rtl!important;
+}
+.tex68-score b{
+  font-size:40px!important;
+  line-height:1!important;
+  color:#6f3ca3!important;
+  font-weight:800!important;
+}
+.tex68-score span{
+  font-size:14px!important;
+  color:#b96c37!important;
+  font-weight:800!important;
+  padding-bottom:4px!important;
+}
+
+.tex68-message{
+  margin:10px 0 12px!important;
+  font-size:11px!important;
+  color:#727b90!important;
+  text-align:right!important;
+}
+
+.tex68-progress{
+  height:7px!important;
+  border-radius:999px!important;
+  background:#ece6f4!important;
+  overflow:hidden!important;
+  margin-bottom:16px!important;
+}
+.tex68-progress span{
+  display:block!important;
+  width:19%!important;
+  height:100%!important;
+  margin-left:auto!important;
+  border-radius:999px!important;
+  background:linear-gradient(90deg,#b96c37,#6f3ca3)!important;
+}
+
+.tex68-levels{
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:10px!important;
+}
+.tex68-levels>div{
+  min-height:76px!important;
+  border:1px solid #e4e7ed!important;
+  border-radius:14px!important;
+  background:#fafbfc!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+}
+.tex68-levels b{
+  display:block!important;
+  font-size:13px!important;
+  color:#21365d!important;
+  margin-bottom:3px!important;
+}
+.tex68-levels small{
+  font-size:10px!important;
+  color:#8d96a8!important;
+}
+
+/* Kill legacy detailed panel rules inside this drawer */
+.trainee-excellence-drawer .trainee-excellence-panel,
+.trainee-excellence-drawer .ex-head,
+.trainee-excellence-drawer .ex-levels,
+.trainee-excellence-drawer .ex-details,
+.trainee-excellence-drawer .ex-next,
+.trainee-excellence-drawer .ex-footnote,
+.trainee-excellence-drawer .ex-section-title{
+  display:none!important;
+}
+
+/* Side star remains small */
+.role-panel[data-role="trainee"] .trainee-excellence-fab{
+  position:absolute!important;
+  top:118px!important;
+  left:-10px!important;
+  right:auto!important;
+  width:54px!important;
+  height:54px!important;
+  border-radius:17px!important;
+  z-index:140!important;
+}
+
+@media(max-width:700px){
+  .role-panel[data-role="trainee"] .trainee-excellence-drawer{
+    left:16px!important;
+    top:154px!important;
+    width:calc(100% - 32px)!important;
+    max-width:none!important;
+  }
+  .trainee-excellence-summary-v68{
+    padding:16px!important;
+  }
+  .tex68-title h4{font-size:16px!important}
+  .tex68-score b{font-size:34px!important}
+}
+</style>
+
+
+<style>
+/* v69 — specialty badge for each contributor */
+.team-contributor-card{
+  position:relative!important;
+  overflow:hidden!important;
+  padding-top:44px!important;
+}
+
+.contributor-badge{
+  position:absolute!important;
+  top:12px!important;
+  right:12px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:5px!important;
+  min-height:25px!important;
+  padding:4px 9px!important;
+  border-radius:999px!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  border:1px solid transparent!important;
+  box-shadow:0 4px 12px rgba(31,40,75,.05)!important;
+  z-index:2!important;
+}
+.contributor-badge i{
+  font-size:9px!important;
+}
+
+/* Each contributor gets a subtle specialty identity */
+.contributor-ai .contributor-badge{
+  background:#f2ebf9!important;
+  color:#6a3b98!important;
+  border-color:#e0d1ef!important;
+}
+.contributor-infra .contributor-badge{
+  background:#eaf3fb!important;
+  color:#245f98!important;
+  border-color:#d4e5f4!important;
+}
+.contributor-design .contributor-badge{
+  background:#fff3e8!important;
+  color:#aa6a25!important;
+  border-color:#f0ddc7!important;
+}
+.contributor-cyber .contributor-badge{
+  background:#eaf7f2!important;
+  color:#248462!important;
+  border-color:#d2ebdf!important;
+}
+
+/* tiny accent line tied to the badge, while keeping the card style unified */
+.team-contributor-card::before{
+  content:""!important;
+  position:absolute!important;
+  top:0!important;
+  right:20px!important;
+  left:20px!important;
+  height:3px!important;
+  border-radius:0 0 5px 5px!important;
+  background:#d9dce6!important;
+}
+.contributor-ai::before{background:#8a5aba!important}
+.contributor-infra::before{background:#4b86bc!important}
+.contributor-design::before{background:#d4974d!important}
+.contributor-cyber::before{background:#4d9c7d!important}
+
+@media(max-width:560px){
+  .contributor-badge{
+    top:10px!important;
+    right:10px!important;
+  }
+}
+</style>
+
+
+<style>
+/* v70 — trainee excellence matches the latest real interface reference */
+.role-panel[data-role="trainee"] .trainee-excellence-drawer{
+  position:absolute!important;
+  top:78px!important;
+  left:48px!important;
+  right:auto!important;
+  width:380px!important;
+  max-width:calc(100% - 72px)!important;
+  opacity:0!important;
+  transform:translateX(-12px) scale(.985)!important;
+  pointer-events:none!important;
+  z-index:130!important;
+}
+.role-panel[data-role="trainee"] .trainee-excellence-drawer.open{
+  opacity:1!important;
+  transform:none!important;
+  pointer-events:auto!important;
+}
+
+.trainee-excellence-actual{
+  width:100%!important;
+  padding:16px 18px 18px!important;
+  background:#fff!important;
+  border:1px solid #ece5df!important;
+  border-right:4px solid #b96c37!important;
+  border-radius:22px!important;
+  box-shadow:0 22px 50px rgba(28,31,60,.18)!important;
+  color:#17315c!important;
+}
+
+.tex70-head{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+}
+.tex70-title{
+  display:flex!important;
+  flex-direction:row-reverse!important;
+  align-items:center!important;
+  gap:11px!important;
+}
+.tex70-title h4{
+  margin:0!important;
+  font-size:18px!important;
+  color:#17315c!important;
+}
+.tex70-star{
+  width:50px!important;height:50px!important;border-radius:15px!important;
+  background:#fff8f2!important;border:1px solid #e4a477!important;
+  color:#f2db22!important;display:flex!important;align-items:center!important;justify-content:center!important;
+}
+.tex70-star i{font-size:22px!important}
+.trainee-excellence-actual .trainee-excellence-close{
+  display:none!important;
+}
+
+.tex70-total{
+  margin-top:4px!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  gap:6px!important;
+  justify-content:flex-start!important;
+}
+.tex70-total b{font-size:42px!important;line-height:1!important;color:#6d3a9f!important}
+.tex70-total span{font-size:13px!important;color:#b96c37!important;font-weight:800!important;padding-bottom:4px!important}
+
+.tex70-progress{
+  margin:5px 0 12px!important;height:6px!important;border-radius:999px!important;
+  background:#ece7f3!important;overflow:hidden!important;
+}
+.tex70-progress span{
+  display:block!important;width:29%!important;height:100%!important;margin-left:auto!important;
+  background:linear-gradient(90deg,#b96c37,#6d3a9f)!important;border-radius:999px!important;
+}
+
+.tex70-section-title{
+  text-align:center!important;font-size:10px!important;font-weight:800!important;
+  color:#7d8599!important;margin:8px 0!important;
+}
+
+.tex70-levels{
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:8px!important;
+  align-items:end!important;
+  direction:rtl!important;
+}
+.tex70-level{
+  min-height:78px!important;
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:8px 5px!important;
+  border:1px solid #e5e7ed!important;
+  border-radius:13px!important;
+  background:#fafbfc!important;
+  color:#a2a8b5!important;
+}
+.tex70-level i{font-size:14px!important;margin-bottom:4px!important}
+.tex70-level b{font-size:8.5px!important}
+.tex70-level small{font-size:7px!important;margin-top:1px!important}
+.tex70-level.gold{background:#fffdf5!important;border-color:#e8ddbb!important;color:#b59d53!important}
+.tex70-level.bronze.active{border:1px dashed #d99b6d!important;background:#fff8f2!important;color:#b96c37!important}
+.tex70-step{
+  position:absolute!important;top:-7px!important;right:-6px!important;
+  width:18px!important;height:18px!important;border-radius:50%!important;background:#b96c37!important;color:#fff!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;font-size:7px!important;font-weight:800!important;
+}
+
+.tex70-streak{
+  margin-top:12px!important;
+  display:grid!important;
+  grid-template-columns:auto 1fr auto!important;
+  align-items:center!important;
+  gap:9px!important;
+  padding:10px!important;
+  border:1px solid #efcfb4!important;
+  border-radius:12px!important;
+  background:#fff8ef!important;
+}
+.tex70-fire{
+  width:34px!important;height:34px!important;border-radius:10px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  color:#a8673c!important;background:#fff0df!important;
+}
+.tex70-streak div small{display:block!important;font-size:6.5px!important;color:#a06b41!important}
+.tex70-streak div b{display:block!important;font-size:8px!important;color:#b45c18!important;margin-top:1px!important}
+.tex70-streak div p{margin:3px 0 0!important;font-size:6.2px!important;color:#8f8177!important}
+.tex70-streak strong{font-size:12px!important;color:#b45c18!important;text-align:center!important}
+.tex70-streak strong small{display:block!important;font-size:5.8px!important;font-weight:700!important;color:#a07b5b!important}
+
+.tex70-divider{
+  display:flex!important;align-items:center!important;gap:8px!important;margin:12px 0 9px!important;
+  color:#7d8599!important;font-size:9px!important;font-weight:800!important;
+}
+.tex70-divider:before,.tex70-divider:after{content:""!important;height:1px!important;background:#ebe7ef!important;flex:1!important}
+
+.tex70-detail{
+  display:grid!important;
+  grid-template-columns:40px 1fr auto!important;
+  gap:9px!important;
+  align-items:center!important;
+  padding:9px 10px!important;
+  border:1px solid #e5e8ef!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  margin-top:7px!important;
+}
+.tex70-detail-icon{
+  width:36px!important;height:36px!important;border-radius:10px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+}
+.tex70-detail-icon.blue{background:#edf5ff!important;color:#2368b7!important}
+.tex70-detail-icon.green{background:#eaf8f4!important;color:#079b78!important}
+.tex70-detail div b{display:block!important;font-size:10px!important;color:#17315c!important}
+.tex70-detail div small{display:block!important;font-size:7px!important;font-weight:800!important;margin-top:1px!important}
+.tex70-detail:first-of-type div small{color:#2368b7!important}
+.tex70-detail:last-child div small{color:#079b78!important}
+.tex70-detail strong{font-size:8px!important;color:#8790a2!important}
+.tex70-detail strong span{font-size:16px!important;color:#0d53a2!important}
+.tex70-detail:last-child strong span{color:#079b78!important}
+
+/* keep the star button small and independent */
+.role-panel[data-role="trainee"] .trainee-excellence-fab{
+  position:absolute!important;
+  top:10px!important;
+  left:-10px!important;
+  width:54px!important;
+  height:54px!important;
+  border-radius:17px!important;
+  z-index:140!important;
+}
+
+@media(max-width:700px){
+  .role-panel[data-role="trainee"] .trainee-excellence-drawer{
+    left:12px!important;
+    top:70px!important;
+    width:calc(100% - 24px)!important;
+    max-width:none!important;
   }
 }
 </style>
@@ -3841,7 +4446,8 @@ section.wrap{padding-top:62px;padding-bottom:62px}
   <div class="team-contributors">
     <div class="team-contributors-title">مساهمات تخصصية</div>
     <div class="team-contributor-grid">
-      <div class="team-contributor-card">
+      <div class="team-contributor-card contributor-ai">
+        <span class="contributor-badge"><i class="fa-solid fa-brain"></i> AI</span>
         <div class="team-avatar">ج</div>
         <div>
           <h4>جود</h4>
@@ -3854,7 +4460,8 @@ section.wrap{padding-top:62px;padding-bottom:62px}
         </div>
       </div>
 
-      <div class="team-contributor-card">
+      <div class="team-contributor-card contributor-infra">
+        <span class="contributor-badge"><i class="fa-solid fa-server"></i> البنية التحتية</span>
         <div class="team-avatar">خ</div>
         <div>
           <h4>خالد الشمراني</h4>
@@ -3865,7 +4472,8 @@ section.wrap{padding-top:62px;padding-bottom:62px}
         </div>
       </div>
 
-      <div class="team-contributor-card">
+      <div class="team-contributor-card contributor-design">
+        <span class="contributor-badge"><i class="fa-solid fa-pen-ruler"></i> التصميم</span>
         <div class="team-avatar">ي</div>
         <div>
           <h4>يوسف مدلله</h4>
@@ -3876,7 +4484,8 @@ section.wrap{padding-top:62px;padding-bottom:62px}
         </div>
       </div>
 
-      <div class="team-contributor-card">
+      <div class="team-contributor-card contributor-cyber">
+        <span class="contributor-badge"><i class="fa-solid fa-shield-halved"></i> الأمن السيبراني</span>
         <div class="team-avatar">ح</div>
         <div>
           <h4>حصة</h4>
@@ -4111,7 +4720,7 @@ const roles = [
     ]
   },
   {
-    id:'manager', label:'مدير الفرع', icon:'fa-shield-halved', hex:'#13315E', sampleName:'أ. فيصل القحطاني', initials:'ف.ق',
+    id:'manager', label:'مدير الفرع', icon:'fa-shield-halved', hex:'#13315E', sampleName:'عائشة', initials:'ع',
     mission:'رؤية شاملة لأداء الفرع وتهيئته وامتثاله، مع أدوات التخطيط والإعلان والمتابعة ضمن نطاق الفرع.',
     stats:[
       {v:'12', l:'مدربون نشطون'},
@@ -4126,9 +4735,9 @@ const roles = [
       {icon:'fa-clipboard-check', title:'تقرير الامتثال', body:'متابعة التزام مقررات الفرع بالسياسات المركزية.', action:'عرض التقرير', fact:'📈 يُحدَّث تلقائيًا كل ما تغيّرت بيانات أي مقرر — دون إعداد يدوي.'},
     ],
     items:[
-      {icon:'fa-shield-halved', label:'لوحة مدير الفرع', target:'top'},
+      {icon:'fa-shield-halved', label:'لوحة المدير', target:'top'},
       {icon:'fa-users-gear', label:'إدارة الطاقم', target:'top'},
-      {icon:'fa-calendar-check', label:'تهيئة الربع', target:'top'},
+      {icon:'fa-calendar-check', label:'تهيئة الربع القادم', target:'top'},
       {icon:'fa-bullhorn', label:'الإعلانات', target:'top'},
       {icon:'fa-circle-info', label:'الأدلة الإرشادية', target:'top'},
     ]
@@ -4275,21 +4884,74 @@ function traineeMain(r){
         <span class="fab-tip">نقاط التميّز</span>
       </button>
       <div class="trainee-excellence-drawer">
-        <div class="trainee-excellence-panel">
-          <div class="trainee-excellence-panel-head">
-            <div class="trainee-excellence-panel-title">
-              <span><i class="fa-regular fa-star"></i></span>
-              <div><h4>مرشح للتميّز</h4><small>رصيد التميّز</small></div>
+        <div class="trainee-excellence-actual">
+          <div class="tex70-head">
+            <div class="tex70-title">
+              <div>
+                <h4>نقاط التميز</h4>
+              </div>
+              <span class="tex70-star"><i class="fa-solid fa-star"></i></span>
             </div>
-            <button type="button" class="trainee-excellence-close"><i class="fa-solid fa-xmark"></i></button>
+            <button type="button" class="trainee-excellence-close" aria-label="إغلاق">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
           </div>
-          <div class="trainee-excellence-score"><b>13</b><span>نقطة</span></div>
-          <div class="trainee-excellence-text">تبقّت لك 57 نقطة للوصول إلى التميّز البرونزي.</div>
-          <div class="trainee-excellence-bar"><span></span></div>
-          <div class="trainee-excellence-mini">
-            <div><b>70</b><small>برونزي</small></div>
-            <div><b>80</b><small>فضي</small></div>
-            <div><b>99</b><small>ذهبي</small></div>
+
+          <div class="tex70-total">
+            <b>20</b>
+            <span>نقطة</span>
+          </div>
+
+          <div class="tex70-progress"><span></span></div>
+
+          <div class="tex70-section-title">مستويات التميز</div>
+          <div class="tex70-levels">
+            <div class="tex70-level gold">
+              <i class="fa-solid fa-medal"></i>
+              <b>تميز ذهبي</b>
+              <small>99 نقطة</small>
+            </div>
+            <div class="tex70-level silver">
+              <i class="fa-solid fa-medal"></i>
+              <b>تميز فضي</b>
+              <small>80 نقطة</small>
+            </div>
+            <div class="tex70-level bronze active">
+              <span class="tex70-step">1</span>
+              <i class="fa-solid fa-medal"></i>
+              <b>تميز برونزي</b>
+              <small>70 نقطة</small>
+            </div>
+          </div>
+
+          <div class="tex70-streak">
+            <span class="tex70-fire"><i class="fa-solid fa-fire"></i></span>
+            <div>
+              <small>سلسلة الالتزام بالأنشطة</small>
+              <b>ابدأ سلسلتك مع النشاط القادم!</b>
+              <p>لا يوجد نشاط مطلوب حاليًا، وسلسلتك محفوظة.</p>
+            </div>
+            <strong>0 <small>أفضل سلسلة</small></strong>
+          </div>
+
+          <div class="tex70-divider"><span>تفاصيل نقاطك</span></div>
+
+          <div class="tex70-detail">
+            <span class="tex70-detail-icon blue"><i class="fa-solid fa-graduation-cap"></i></span>
+            <div>
+              <b>التحصيل الأكاديمي</b>
+              <small>12.5%</small>
+            </div>
+            <strong><span>10</span> / 80</strong>
+          </div>
+
+          <div class="tex70-detail">
+            <span class="tex70-detail-icon green"><i class="fa-regular fa-calendar-check"></i></span>
+            <div>
+              <b>الحضور</b>
+              <small>50%</small>
+            </div>
+            <strong><span>10</span> / 20</strong>
           </div>
         </div>
       </div>
@@ -4372,8 +5034,8 @@ function trainerMain(r){
           <h3>أهلًا بك، رنيه</h3>
           <p>واصل التقدّم نحو أهدافك الأكاديمية!</p>
           <div class="trainer-hero-actions">
-            <button class="trainer-btn ghost">التقويم الأكاديمي</button>
-            <button class="trainer-btn primary">عرض الجدول</button>
+            <button class="trainer-btn ghost dashboard-preview-trigger" data-preview="trainer-calendar" data-preview-title="التقويم الأكاديمي" data-preview-icon="fa-calendar-days">التقويم الأكاديمي</button>
+            <button class="trainer-btn primary dashboard-preview-trigger" data-preview="trainer-schedule" data-preview-title="جدول المدرب" data-preview-icon="fa-calendar-days">عرض الجدول</button>
           </div>
         </div>
       </div>
@@ -4515,134 +5177,100 @@ function trainerMain(r){
 }
 
 
-
 function managerMain(r){
+  const mgrKpis = [
+    {icon:'fa-laptop', num:'0', label:'مقررات التعليم الإلكتروني', sub:'مقررات الفرع التي تُدرّس حاليًا عبر التعليم الإلكتروني', key:'mgr-elearning'},
+    {icon:'fa-user-check', num:'100%', label:'اكتمال الإسناد', sub:'المقررات المسندة لمدربين', key:'manager-trainers'},
+    {icon:'fa-calendar-check', num:'67%', label:'جاهزية الربع القادم', sub:'اكتمال سلسلة التهيئة الأكاديمية', key:'manager-prep'},
+    {icon:'fa-star', num:'4.0/5', label:'تقييم خدمة العملاء', sub:'متوسط 4 تقييمات', key:'mgr-csat'},
+    {icon:'fa-clock', num:'3', label:'حالات متأخرة', sub:'تذاكر تجاوزت المدة المستهدفة', key:'manager-followup'},
+    {icon:'fa-file-circle-check', num:'8', label:'اختبارات تحتاج متابعة', sub:'بانتظار المراجعة أو إعادة المراجعة', key:'mgr-exams'},
+  ];
   return `
-    <div class="manager-actual-app scroll-target" id="top-${r.id}">
+    <div class="manager-dashboard-app scroll-target" id="top-${r.id}">
       <button type="button" class="manager-excellence-fab" aria-label="أفضل 3 متفوقين في الفرع">
         <i class="fa-regular fa-star"></i>
         <span class="manager-fab-tip">أفضل 3 متفوقين</span>
       </button>
-
       <div class="manager-excellence-drawer">
         <div class="manager-excellence-panel">
           <div class="manager-excellence-panel-head">
             <div class="manager-excellence-panel-title">
               <span><i class="fa-regular fa-star"></i></span>
-              <div>
-                <h4>أفضل 3 متفوقين في الفرع</h4>
-                <small>حسب نقاط التميّز</small>
-              </div>
+              <div><h4>متفوقو الفرع — أفضل 3 متدربين</h4><small>حسب نقاط التميّز</small></div>
             </div>
-            <button type="button" class="manager-excellence-close" aria-label="إغلاق">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+            <button type="button" class="manager-excellence-close" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button>
           </div>
-
-          <div class="manager-excellence-list">
-            <div class="manager-excellence-row first">
-              <span class="mex-rank">1</span>
-              <span class="mex-avatar">س</span>
-              <div class="mex-copy">
-                <b>سارة أحمد</b>
-                <small>المركز الأول</small>
-              </div>
-              <strong>99</strong>
-            </div>
-
-            <div class="manager-excellence-row second">
-              <span class="mex-rank">2</span>
-              <span class="mex-avatar">م</span>
-              <div class="mex-copy">
-                <b>متدرب متميز</b>
-                <small>المركز الثاني</small>
-              </div>
-              <strong>82</strong>
-            </div>
-
-            <div class="manager-excellence-row third">
-              <span class="mex-rank">3</span>
-              <span class="mex-avatar">ع</span>
-              <div class="mex-copy">
-                <b>متدرب متميز</b>
-                <small>المركز الثالث</small>
-              </div>
-              <strong>74</strong>
-            </div>
+          <div class="manager-excellence-empty">لا توجد نقاط تميّز مسجلة لمتدربي هذا الفرع حتى الآن.</div>
+        </div>
+      </div>
+      <div class="support-hero">
+        <div class="support-hero-copy">
+          <span class="mini"><i class="fa-solid fa-circle" style="font-size:6px"></i> منصة أكاديمية التعلّم</span>
+          <h3>أهلاً بك، ${firstNameOf(r.sampleName)}</h3>
+          <p>واصل التقدم نحو أهدافك الأكاديمية!</p>
+          <div class="support-hero-actions">
+            <button class="support-btn primary dashboard-preview-trigger" data-preview="manager-schedule" data-preview-title="الجدول" data-preview-icon="fa-table-list">عرض الجدول</button>
+            <button class="support-btn ghost dashboard-preview-trigger" data-preview="manager-calendar" data-preview-title="التقويم الأكاديمي" data-preview-icon="fa-calendar-days">التقويم الأكاديمي</button>
           </div>
         </div>
-      </div>
-      <div class="manager-actual-head">
-        <div>
-          <h3>أكاديمية القطيف</h3>
-          <p>نظرة تنفيذية مختصرة عن حالة الفرع</p>
-        </div>
-        <span class="branch-stable">الفرع مستقر</span>
+        <div class="manager-hero-logo"><img src="${AK_LOGO_ICON}" alt="شعار أكاديميتي"></div>
       </div>
 
-      <div class="manager-actual-grid">
-        <article class="manager-actual-card neutral">
-          <span class="mac-icon"><i class="fa-solid fa-calendar-check"></i></span>
-          <div class="mac-copy"><small>جاهزية الربع القادم</small><strong>—</strong></div>
-        </article>
+      <div class="mgr-panel">
+        <div class="mgr-panel-head">
+          <div class="mgr-panel-head-copy">
+            <h4>أكاديمية القطيف</h4>
+            <p>ملخص تنفيذي سريع لحالة الفرع</p>
+          </div>
+          <span class="mgr-status-pill demo-followup"><i></i> يحتاج متابعة</span>
+        </div>
 
-        <article class="manager-actual-card neutral">
-          <span class="mac-icon"><i class="fa-solid fa-user-check"></i></span>
-          <div class="mac-copy"><small>اكتمال الإسناد</small><strong>—</strong></div>
-        </article>
+        <div class="mgr-kpi-grid">
+          ${mgrKpis.map(k=>`<div class="mgr-kpi-card dashboard-preview-trigger" data-preview="${k.key}" data-preview-title="${k.label}" data-preview-icon="${k.icon}">
+            <span class="kpi-ic"><i class="fa-solid ${k.icon}"></i></span>
+            <div class="kpi-lbl">${k.label}</div>
+            <div class="kpi-num">${k.num}</div>
+            <div class="kpi-sub">${k.sub}</div>
+          </div>`).join('')}
+        </div>
 
-        <article class="manager-actual-card success dashboard-preview-trigger"
-          data-preview="manager-online-courses"
-          data-preview-title="مقررات التعليم الإلكتروني"
-          data-preview-icon="fa-laptop">
-          <span class="mac-icon"><i class="fa-solid fa-laptop"></i></span>
-          <div class="mac-copy"><small>مقررات التعليم الإلكتروني</small><strong>0</strong></div>
-        </article>
-
-        <article class="manager-actual-card success dashboard-preview-trigger"
-          data-preview="manager-quizzes-followup"
-          data-preview-title="اختبارات تحتاج متابعة"
-          data-preview-icon="fa-file-circle-check">
-          <span class="mac-icon"><i class="fa-solid fa-file-circle-check"></i></span>
-          <div class="mac-copy"><small>اختبارات تحتاج متابعة</small><strong>0</strong></div>
-        </article>
-
-        <article class="manager-actual-card success dashboard-preview-trigger"
-          data-preview="manager-overdue"
-          data-preview-title="الحالات المتأخرة"
-          data-preview-icon="fa-clock">
-          <span class="mac-icon"><i class="fa-solid fa-clock"></i></span>
-          <div class="mac-copy"><small>الحالات المتأخرة</small><strong>0</strong></div>
-        </article>
-
-        <article class="manager-actual-card neutral dashboard-preview-trigger"
-          data-preview="manager-service-rating"
-          data-preview-title="تقييم خدمة العملاء"
-          data-preview-icon="fa-star">
-          <span class="mac-icon"><i class="fa-solid fa-star"></i></span>
-          <div class="mac-copy"><small>تقييم خدمة العملاء</small><strong>—</strong></div>
-        </article>
+        <div class="mgr-empty-row mgr-attention-filled">
+          <span class="mgr-empty-title">تحتاج انتباهك <em>2</em></span>
+          <div class="mgr-empty-body">
+            <b class="mgr-alert-item"><i class="fa-solid fa-file-circle-check"></i> 8 اختبارات بانتظار المتابعة</b>
+            <b class="mgr-alert-item"><i class="fa-solid fa-clock"></i> 3 تذاكر متأخرة</b>
+          </div>
+        </div>
+        <div class="mgr-empty-row mgr-top3-filled">
+          <span class="mgr-empty-title">أفضل 3 مدربين</span>
+          <small class="mgr-top3-caption">حسب نقاط التميز المسجلة</small>
+          <div class="mgr-top3-list">
+            <div class="mgr-top3-person first">
+              <span class="mgr-rank">1</span>
+              <div><b>ربه محمد سعد القحطاني</b><small>100.0 نقطة تميز</small></div>
+            </div>
+            <div class="mgr-top3-person second">
+              <span class="mgr-rank">2</span>
+              <div><b>أماني ناصر عبد الله النجراني</b><small>0.0 نقطة تميز</small></div>
+            </div>
+            <div class="mgr-top3-person third">
+              <span class="mgr-rank">3</span>
+              <div><b>اريج عبدالله هلال السواط</b><small>0.0 نقطة تميز</small></div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <section class="manager-attention-card">
-        <div>
-          <h4>تحتاج انتباهك</h4>
-          <p>لا توجد عناصر حرجة في الوقت الحالي.</p>
-        </div>
-      </section>
-
-      <section class="manager-toptrainers-card dashboard-preview-trigger"
-        data-preview="manager-toptrainers"
-        data-preview-title="أفضل 3 مدربين"
-        data-preview-icon="fa-ranking-star">
-        <div>
-          <h4>أفضل 3 مدربين</h4>
-          <small>بناءً على نقاط التميّز المسجلة</small>
-          <p>لا توجد نقاط تميّز مسجلة للمدربين في هذا الفرع حتى الآن.</p>
-        </div>
-      </section>
     </div>
   `;
+}
+
+// Strips an honorific prefix (أ./م./د.) from a full sample name and
+// returns just the given name — used by the welcome-hero headers that
+// mirror the live product's "أهلاً بك، <first name>" greeting.
+function firstNameOf(full){
+  const cleaned = (full || '').replace(/^(أ\.|م\.|د\.)\s*/, '').trim();
+  return cleaned.split(/\s+/)[0] || full;
 }
 
 function supportMain(r){
@@ -4693,30 +5321,7 @@ function supportMain(r){
         <button class="support-today-btn dashboard-preview-trigger" data-preview="support-tickets" data-preview-title="نظام التذاكر الأكاديمية" data-preview-icon="fa-ticket">فتح مركز التذاكر <i class="fa-solid fa-arrow-left"></i></button>
       </div>
 
-      <div class="support-kpi-head"><span>الوصول السريع</span><h4>المهام والخدمات</h4></div>
-      <div class="support-quick-grid">
-        <article class="support-card dashboard-preview-trigger" data-preview="support-trainees" data-preview-title="إدارة المتدربين" data-preview-icon="fa-users">
-          <span class="support-icon blue"><i class="fa-solid fa-users"></i></span>
-          <div><h4>إدارة المتدربين</h4><p>الوصول إلى بيانات المتدربين وحالاتهم الأكاديمية ضمن الفرع.</p></div>
-          <i class="fa-solid fa-chevron-left tail"></i>
-        </article>
-        <article class="support-card dashboard-preview-trigger" data-preview="support-attendance" data-preview-title="متابعة الحضور" data-preview-icon="fa-calendar-check">
-          <span class="support-icon green"><i class="fa-solid fa-calendar-check"></i></span>
-          <div><h4>متابعة الحضور</h4><p>مراجعة سجلات الحضور والغياب والحالات المرتبطة بها.</p></div>
-          <i class="fa-solid fa-chevron-left tail"></i>
-        </article>
-        <article class="support-card dashboard-preview-trigger" data-preview="support-tickets" data-preview-title="نظام التذاكر الأكاديمية" data-preview-icon="fa-ticket">
-          <span class="support-icon purple"><i class="fa-solid fa-ticket"></i></span>
-          <div><h4>نظام التذاكر الأكاديمية</h4><p>متابعة استفسارات وطلبات المتدربين حتى إغلاق التذكرة.</p></div>
-          <i class="fa-solid fa-chevron-left tail"></i>
-        </article>
-        <article class="support-card dashboard-preview-trigger" data-preview="support-card" data-preview-title="إدارة البطاقة الرقمية" data-preview-icon="fa-id-card">
-          <span class="support-icon amber"><i class="fa-solid fa-id-card"></i></span>
-          <div><h4>إدارة البطاقة الرقمية</h4><p>التحقق من بيانات البطاقة الرقمية وحالة المستفيد.</p></div>
-          <i class="fa-solid fa-chevron-left tail"></i>
-        </article>
-      </div>
-    </div>
+          </div>
   `;
 }
 
@@ -4856,12 +5461,13 @@ function resolveTargetId(r, raw){
 
 
 const ROLE_HELP_DESCRIPTIONS = {
+  'إدارة الطاقم':'إضافة موظفين في النظام وإسناد دور لهم داخل نفس الفرع، مع بقاء الإدارة والصلاحيات ضمن نطاق فرع مدير الفرع.',
+  'الإعلانات':'إنشاء ومتابعة إعلانات الفرع الموجهة للمستفيدين داخل نطاق الفرع.',
+  'تهيئة الربع القادم':'متابعة جاهزية الربع الأكاديمي القادم ومتطلبات التهيئة الخاصة بالفرع.',
   'لوحة التحكم':'تعرض أهم المؤشرات والمهام اليومية الخاصة بالدور في شاشة واحدة.',
   'لوحة المدير':'متابعة أداء الفرع ومؤشراته والعمليات الأكاديمية ضمن نطاق الفرع.',
   'إدارة المتدربين':'متابعة المتدربين وبياناتهم الأكاديمية وحالتهم ضمن نطاق الصلاحية.',
   'إدارة المدربين':'متابعة المدربين وإسنادهم إلى الشعب والمقررات المرتبطة بهم.',
-  'إدارة الطاقم':'إدارة طاقم الفرع ومتابعة الموظفين والأدوار المرتبطة بالفرع ضمن نطاق الصلاحية.',
-  'الإعلانات':'إنشاء ومتابعة إعلانات الفرع الموجهة للمستفيدين ضمن نطاق الفرع.',
   'متابعة الحضور':'متابعة الحضور والغياب ومراجعة السجلات المرتبطة بالمتدربين.',
   'نظام التذاكر الأكاديمية':'استقبال الطلبات والاستفسارات ومتابعة الردود والحالات حتى الإغلاق.',
   'إدارة البطاقة الرقمية':'إدارة البطاقة الرقمية والتحقق من بيانات المستفيد وحالة البطاقة.',
@@ -4948,7 +5554,27 @@ const DETAIL_PREVIEWS = {
     <tbody><tr><td colspan="3" class="preview-muted" style="text-align:center">لا توجد محاضرات مجدولة اليوم</td></tr></tbody></table>`,
   'trainer-course':()=>`
     <table class="preview-table"><thead><tr><th>المقرر</th><th>البداية</th><th>النهاية</th><th>الحالة</th></tr></thead><tbody>
-    <tr><td>أساسيات الأمن السيبراني</td><td>1/08/26</td><td>9/12/26</td><td><span class="preview-status">فعال</span></td></tr></tbody></table>`
+    <tr><td>أساسيات الأمن السيبراني</td><td>1/08/26</td><td>9/12/26</td><td><span class="preview-status">فعال</span></td></tr></tbody></table>`,
+  'trainer-schedule':()=>`
+    <div class="trainer-schedule-preview">
+      <div class="trainer-schedule-head">
+        <div><b>جدول المدرب</b><small>المحاضرات المرتبطة بالمقررات المسندة</small></div>
+        <span>هذا الأسبوع</span>
+      </div>
+      <div class="trainer-schedule-grid">
+        <div class="trainer-day"><b>الأحد</b><small>لا توجد محاضرات</small></div>
+        <div class="trainer-day active"><b>الاثنين</b><small>أساسيات الأمن السيبراني</small><em>10:00 ص</em></div>
+        <div class="trainer-day"><b>الثلاثاء</b><small>لا توجد محاضرات</small></div>
+        <div class="trainer-day active"><b>الأربعاء</b><small>أساسيات الأمن السيبراني</small><em>12:00 م</em></div>
+        <div class="trainer-day"><b>الخميس</b><small>لا توجد محاضرات</small></div>
+      </div>
+    </div>`,
+  'trainer-calendar':()=>`
+    <div class="mini-calendar">
+      ${['أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة','سبت'].map(d=>`<b>${d}</b>`).join('')}
+      ${Array.from({length:28},(_,i)=>`<span${[3,10,17,24].includes(i)?' class="has-event"':''}>${i+1}</span>`).join('')}
+    </div>`
+
 };
 function openDetailWindow(trigger,r){
   const win=document.getElementById('detailWindow');
@@ -5452,21 +6078,18 @@ if (typeof showRoleHelp === 'function') {
 }
 
 
-/* v61 — branch manager excellence side control */
+/* v64 — manager excellence star */
 panelsEl.addEventListener('click',function(e){
   const fab=e.target.closest('.manager-excellence-fab');
   if(fab){
-    e.preventDefault();
-    e.stopPropagation();
-    const app=fab.closest('.manager-actual-app');
+    e.preventDefault();e.stopPropagation();
+    const app=fab.closest('.manager-dashboard-app');
     app?.querySelector('.manager-excellence-drawer')?.classList.toggle('open');
     return;
   }
-
   const close=e.target.closest('.manager-excellence-close');
   if(close){
-    e.preventDefault();
-    e.stopPropagation();
+    e.preventDefault();e.stopPropagation();
     close.closest('.manager-excellence-drawer')?.classList.remove('open');
   }
 },true);
@@ -5497,7 +6120,6 @@ panelsEl.addEventListener('click',function(e){
       document.querySelectorAll('.role-context-rail.open').forEach(x=>x.classList.remove('open'));
       document.querySelectorAll('.role-detail-sheet.open').forEach(x=>x.classList.remove('open'));
       document.querySelectorAll('.role-local-dim.active').forEach(x=>x.classList.remove('active'));
-      document.querySelectorAll('.manager-excellence-drawer.open').forEach(x=>x.classList.remove('open'));
 
       oldSelectRole(id, opts);
 
